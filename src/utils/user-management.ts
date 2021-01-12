@@ -1,13 +1,13 @@
 import { auth } from "../connection";
 
 // signup
-const signup = (email: string, password: string) => {
+const signUp = (email: string, password: string) => {
   return auth().createUserWithEmailAndPassword(email, password);
 };
 
 //  login
 
-const login = (email: string, password: string) => {
+const logIn = (email: string, password: string) => {
   return auth().signInWithEmailAndPassword(email, password);
 };
 //  signinwithgoogle
@@ -23,8 +23,8 @@ const rememberMe = () => {
 // firebase.auth().setPersistence(this.remember.checked ? fireauth.Auth.Persistence.LOCAL : fireauth.Auth.Persistence.SESSION);
 
 //  sign out
-const signout = () => {
+const signOut = () => {
   auth().signOut();
 };
 
-export { signup, login, signInWithGoogle, rememberMe, signout };
+export { signUp, logIn, signInWithGoogle, rememberMe, signOut };
