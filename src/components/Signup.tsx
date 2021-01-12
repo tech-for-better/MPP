@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-// import {signup} from '../utils/user-management'
+// import {signup, rememberMe} from '../utils/user-management'
 
 type Profile = {
   username: string;
@@ -8,9 +8,16 @@ type Profile = {
   password: string;
 };
 
+// {errors.name && errors.name.type === "required" && (
+//     <div className="error">You must enter your name</div>
+//   )}
+//   {errors.name && errors.name.type === "minLength" && (
+//     <div className="error">Your name must be at least 2 characters</div>
+//   )}
+
 export const Signup = () => {
   const { register, handleSubmit, errors } = useForm<Profile>();
-  const onSubmit = handleSubmit(data => {
+  const onSubmit = handleSubmit((data: Profile) => {
     alert(JSON.stringify(data));
   });
   return (
@@ -27,9 +34,14 @@ export const Signup = () => {
       </div>
       <div>
         <label htmlFor='password'>Password</label>
-        <input ref={register({ required: true })} id='password' name='password' type='text' />
+        <input ref={register({ required: true, min: 6 })} id='password' name='password' type='text' />
         {errors.password && "Enter your password"}
       </div>
+      <div>
+        <input type='checkbox' id='rememberMe' name='rememberMe' checked />
+        <label htmlFor='rememberMe'>Remember me</label>
+      </div>
+
       <button type='submit'>Signup</button>
     </form>
   );
