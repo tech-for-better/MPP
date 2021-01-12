@@ -15,7 +15,7 @@ type Profile = {
 //     <div className="error">Your name must be at least 2 characters</div>
 //   )}
 
-export const Signup = () => {
+const Signup = () => {
   const { register, handleSubmit, errors } = useForm<Profile>();
   const onSubmit = handleSubmit((data: Profile) => {
     alert(JSON.stringify(data));
@@ -46,3 +46,5 @@ export const Signup = () => {
     </form>
   );
 };
+
+export default Signup;

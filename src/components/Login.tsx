@@ -7,7 +7,7 @@ type Profile = {
   password: string;
 };
 
-export const Login = () => {
+const Login = () => {
   const { handleSubmit, register, errors } = useForm<Profile>();
   const onSubmit = (data: Profile) => {
     console.log("data", data);
