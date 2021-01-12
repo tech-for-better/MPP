@@ -12,9 +12,31 @@ function App() {
   // auth().onAuthStateChanged(user => {
   //   user ? setAuthStatus(true) : setAuthStatus(false);
   // });
+  // if (authStatus) {
+  //   return (
+  //   <Router>
+  //     <Onboarding />
+  //   </Router>
+  // );
+  //   } else {
+  //     return (
+
+  //     )
+  //   }
+
   return (
     <Router>
-      <Onboarding />
+      <Switch>
+        <Route path='/' exact>
+          <Onboarding />
+        </Route>
+        <Route path='/login' exact>
+          <Login />
+        </Route>
+        <Route path='/signup' exact>
+          <Signup />
+        </Route>
+      </Switch>
     </Router>
   );
 }
