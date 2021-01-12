@@ -1,16 +1,24 @@
-import { db } from "../connection.js";
+// import { db, auth } from "../connection.js";
+import "firebase/firestore";
+import { signUp } from "./user-management";
 
-function getData(): any {
-  return db
-    .collection("users")
-    .get()
-    .then((querySnapshot: any) => {
-      querySnapshot.forEach((doc: any) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-      });
-    });
-}
+// function signupDb() {
+//   signUp().then(() => {
+//     db.collection("users").doc(username).set({ username: username, email: email});
+//   });
 
-getData();
+//  email:
+// db.collection("users").doc("username").set({
+//   name: "Los Angeles",
+//   state: "CA",
+//   country: "USA"
+// })
+// .then(function() {
+//   console.log("Document successfully written!");
+// })
+// .catch(function(error) {
+//   console.error("Error writing document: ", error);
+// });
+// }
 
-// export {};
+// export {signupDb};

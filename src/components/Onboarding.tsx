@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import RightArrow from "../assets/RightArrow.svg";
-import { PageWrapper, Slogan, Button, Text, Arrow, Image } from "./Onboarding.styles";
+import Meditation from "../assets/onboarding.svg";
+import logo from "../assets/mindful-peak.png";
+import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg } from "./Onboarding.styles";
 
 export const Onboarding = () => {
   return (
     <PageWrapper>
-      <Slogan>Throw a jab. Meditate. Live a balanced life.</Slogan>
-      <Image></Image>
+      <LogoImg alt='Mindful Peak Performance Logo' src={logo}></LogoImg>
+      <Slogan>
+        Throw a jab. Meditate.
+        <Span> Live a balanced life. </Span>
+      </Slogan>
+      <Image alt='Meditating Illustration' src={Meditation}></Image>
       <Link to='/login'>
         <Button>
           <Text>

@@ -1,11 +1,13 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+:root {
+  --main-font: "Open Sans", sans-serif;
+  --main-beige: hsl(38, 66%, 85%);
+  --boxing-orange: hsl(11, 71%, 62%);
+  --beige-bg-colour: hsl(35, 85%, 95%);
+  --mild-red: hsl(355, 68%, 57%);
+  --deep-red: hsl(355, 68%, 52%);
+  --bg-blue: hsl(202, 90%, 92%);
+  --main-blue: hsl(194, 96%, 29%);
+  --off-white: #fff7f7;
 }

@@ -1,47 +1,64 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-// import {signup, rememberMe} from '../utils/user-management'
-
-type Profile = {
-  username: string;
-  email: string;
-  password: string;
-};
-
-// {errors.name && errors.name.type === "required" && (
-//     <div className="error">You must enter your name</div>
-//   )}
-//   {errors.name && errors.name.type === "minLength" && (
-//     <div className="error">Your name must be at least 2 characters</div>
-//   )}
+import React, { useState } from "react";
+import { signUp } from "../utils/user-management";
 
 const Signup = () => {
-  const { register, handleSubmit, errors } = useForm<Profile>();
-  const onSubmit = handleSubmit((data: Profile) => {
-    alert(JSON.stringify(data));
-  });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await signUp(email, password);
+      // await signUpDB(auth().currentUser.email);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={event => handleSubmit(event)}>
       <div>
         <label htmlFor='username'>Username</label>
-        <input ref={register({ required: true })} id='username' name='username' type='text' />
-        {errors.username && "Username is required"}
+        <input
+          required
+          id='username'
+          name='username'
+          type='text'
+          onChange={e => {
+            setUsername(e.target.value);
+          }}
+        />
       </div>
       <div>
         <label htmlFor='email'>Email</label>
-        <input ref={register({ required: true })} id='email' name='email' type='text' />
-        {errors.email && "Enter your email"}
+        <input
+          required
+          id='email'
+          name='email'
+          type='text'
+          onChange={event => {
+            setEmail(event.target.value);
+          }}
+        />
       </div>
       <div>
         <label htmlFor='password'>Password</label>
-        <input ref={register({ required: true, min: 6 })} id='password' name='password' type='text' />
-        {errors.password && "Enter your password"}
+        <input
+          required
+          id='password'
+          name='password'
+          type='text'
+          onChange={e => {
+            setPassword(e.target.value);
+          }}
+        />
       </div>
       <div>
         <input type='checkbox' id='rememberMe' name='rememberMe' checked />
         <label htmlFor='rememberMe'>Remember me</label>
       </div>
-
       <button type='submit'>Signup</button>
     </form>
   );
