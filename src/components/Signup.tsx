@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { signUp } from "../utils/user-management";
+import { auth } from "../connection";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -7,14 +8,13 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await signUp(email, password);
-      // await signUpDB(auth().currentUser.email);
-    } catch (error) {
-      setError(error.message);
-    }
+    console.log("submit");
+    auth().createUserWithEmailAndPassword(email, password);
+
+    // signUp(email, password);
+    // await signUpDB(auth().currentUser.email);
   };
 
   return (

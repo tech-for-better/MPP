@@ -2,6 +2,7 @@ import { auth } from "../connection";
 
 // signup
 const signUp = (email: string, password: string) => {
+  console.log("signed up");
   return auth().createUserWithEmailAndPassword(email, password);
 };
 
