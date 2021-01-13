@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { signUp } from "../utils/user-management";
 import { auth } from "../connection";
+import {SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink } from "./Registration.styles"
+import styled from "styled-components"
+
+interface Props {
+  currentPage: any;
+}
 
 const Signup = () => {
+  const currentPage = window.location.pathname;
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,51 +25,66 @@ const Signup = () => {
     // await signUpDB(auth().currentUser.email);
   };
 
+
+
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <div>
-        <label htmlFor='username'>Username</label>
-        <input
+    <FormWrapper>
+      <RegistrationNav>
+        <RegistrationNavLink to="/login">
+          Login
+        </RegistrationNavLink>
+        <RegistrationNavLink to="/signup">
+          Signup
+        </RegistrationNavLink>
+
+      </RegistrationNav>
+    <Form onSubmit={event => handleSubmit(event)}>
+        <label htmlFor='username'></label>
+        <Input
           required
           id='username'
           name='username'
           type='text'
+          placeholder='Username'
           onChange={e => {
             setUsername(e.target.value);
           }}
         />
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
+        <label htmlFor='email'></label>
+        <Input
           required
           id='email'
           name='email'
           type='text'
+          placeholder='Email address'
           onChange={event => {
             setEmail(event.target.value);
           }}
         />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
+        <label htmlFor='password'></label>
+        <Input
           required
           id='password'
           name='password'
           type='text'
+          placeholder='Password'
           onChange={e => {
             setPassword(e.target.value);
           }}
         />
-      </div>
-      <div>
-        <input type='checkbox' id='rememberMe' name='rememberMe' checked />
-        <label htmlFor='rememberMe'>Remember me</label>
-      </div>
-      <button type='submit'>Signup</button>
-    </form>
+      
+      <SignUpSubmitBtn type='submit'>SIGN UP</SignUpSubmitBtn>
+    </Form>
+    </FormWrapper>
   );
 };
 
+const SignUpSubmitBtn = styled(SubmitButton)`
+  background-color:  var(--boxing-orange);
+`
+
+
 export default Signup;
+
+
+
