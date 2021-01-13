@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const PageWrapper = styled.section`
   display: flex;
@@ -57,13 +57,18 @@ export const Text = styled.p`
 
 export const Arrow = styled.img`
   float: right;
+  margin-right: 10px;
 `;
 
 export const StyledLink = styled(Link)`
-    text-decoration: none;
-    margin-top: 10vh;
+  text-decoration: none;
+  margin-top: 10vh;
 
-    &:focus, &:hover, &:visited, &:link, &:active {
-        text-decoration: none;
-    }
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 `;

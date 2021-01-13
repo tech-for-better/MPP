@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RightArrow from "../assets/RightArrow.svg";
 import Meditation from "../assets/onboarding.svg";
-import logo from "../assets/mindful-peak.png";
+import logo from "../assets/mindful-peak-mobile.png";
 import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
 
 export const Onboarding = () => {
@@ -14,13 +14,13 @@ export const Onboarding = () => {
         <Span> Live a balanced life. </Span>
       </Slogan>
       <Image alt='Meditating Illustration' src={Meditation}></Image>
-        <StyledLink to='/login'>
-        <Button>
+      <StyledLink to='/login'>
+        <Button style={{ height: "58.7px" }}>
           <Text>
             GET STARTED <Arrow alt='arrow' src={RightArrow}></Arrow>
           </Text>
         </Button>
-        </StyledLink>
+      </StyledLink>
     </PageWrapper>
   );
 };
