@@ -72,7 +72,15 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const LinkWrapper = styled.div`
-  color: #3F4553;
   font-size: 12px;
   margin-top: 20px;
+`;
+
+export const Label = styled.label`
+  color: rgb(117, 111, 134);
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 130px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 `;

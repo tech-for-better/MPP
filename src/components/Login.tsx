@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logIn } from "../utils/user-management";
-import { Input, SubmitButton, FormWrapper,  Form, LinkWrapper} from "./Registration.styles";
+import { Input, SubmitButton, FormWrapper,  Form, LinkWrapper, Label} from "./Registration.styles";
 import styled from "styled-components"
 
 const Login = () => {
@@ -43,14 +43,14 @@ const Login = () => {
             setPassword(event.target.value);
           }}
         />
-        <label htmlFor='rememberMe'>
+        <Label htmlFor='rememberMe'>
         <Checkbox 
           type='checkbox' 
           id='rememberMe' 
           name='rememberMe' 
         />
         Remember me
-        </label>
+        </Label>
         {error ? <p>{error}</p> : null}
         <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
         <LinkWrapper>
