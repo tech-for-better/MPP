@@ -34,9 +34,9 @@ const Login = () => {
     <FormWrapper>
       <RegistrationNav>
         <CurrentPageTitle>Login</CurrentPageTitle>
-        <RegistrationNavLink to='/'>
+        <Link to='/'>
           <img alt='Clickable Peak icon' src={peak} />
-        </RegistrationNavLink>
+        </Link>
         <RegistrationNavLink to='/signup'>Signup</RegistrationNavLink>
       </RegistrationNav>
 

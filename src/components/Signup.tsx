@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { signUp } from "../utils/user-management";
+import { Link } from "react-router-dom";
+
 import { auth } from "../connection";
 import { SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink, CurrentPageTitle } from "./Registration.styles";
 import styled from "styled-components";
@@ -26,9 +28,9 @@ const Signup = () => {
     <FormWrapper>
       <RegistrationNav>
         <RegistrationNavLink to='/login'>Login</RegistrationNavLink>
-        <RegistrationNavLink to='/'>
+        <Link to='/'>
           <img alt='Clickable Peak icon' src={peak} />
-        </RegistrationNavLink>
+        </Link>
 
         <CurrentPageTitle>Signup</CurrentPageTitle>
       </RegistrationNav>

@@ -15,6 +15,7 @@ export const RegistrationNav = styled.nav`
   display: flex;
   justify-content: space-evenly;
 `;
+export const OtherPageTitle = styled(RegistrationNav)``;
 
 export const RegistrationNavLink = styled(Link)`
   font-weight: bold;
@@ -22,26 +23,38 @@ export const RegistrationNavLink = styled(Link)`
   color: #131212;
   text-decoration: none;
   margin-bottom: 20px;
+  position: relative;
+  :after {
+    background: none repeat scroll 0 0 transparent;
+    position: absolute;
+    left: -15px;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    border-radius: 4px;
+    background-color: black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 70px;
+  }
 `;
 
 export const CurrentPageTitle = styled.h2`
   font-weight: bold;
   font-size: 14px;
-  &:before {
+  position: relative;
+  :after {
     background: none repeat scroll 0 0 transparent;
     position: absolute;
-    bottom: 0;
+    left: -15px;
     content: "";
     display: block;
-    height: 4px;
+    height: 2px;
     width: 0;
     border-radius: 4px;
-    background-color: blue;
+    background-color: black;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  }
-  :hover:before {
-    width: 70%;
-    left: 0;
+    width: 70px;
   }
 `;
 
