@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { signUp } from "../utils/user-management";
 import { auth } from "../connection";
-import {SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink } from "./Registration.styles"
-import styled from "styled-components"
-
-interface Props {
-  currentPage: any;
-}
+import { SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink, CurrentPageTitle } from "./Registration.styles";
+import styled from "styled-components";
+import peak from "../assets/peak-icon.svg";
 
 const Signup = () => {
   const currentPage = window.location.pathname;
@@ -25,20 +22,17 @@ const Signup = () => {
     // await signUpDB(auth().currentUser.email);
   };
 
-
-
   return (
     <FormWrapper>
       <RegistrationNav>
-        <RegistrationNavLink to="/login">
-          Login
-        </RegistrationNavLink>
-        <RegistrationNavLink to="/signup">
-          Signup
+        <RegistrationNavLink to='/login'>Login</RegistrationNavLink>
+        <RegistrationNavLink to='/'>
+          <img alt='Clickable Peak icon' src={peak} />
         </RegistrationNavLink>
 
+        <CurrentPageTitle>Signup</CurrentPageTitle>
       </RegistrationNav>
-    <Form onSubmit={event => handleSubmit(event)}>
+      <Form onSubmit={event => handleSubmit(event)}>
         <label htmlFor='username'></label>
         <Input
           required
@@ -72,19 +66,15 @@ const Signup = () => {
             setPassword(e.target.value);
           }}
         />
-      
-      <SignUpSubmitBtn type='submit'>SIGN UP</SignUpSubmitBtn>
-    </Form>
+
+        <SignUpSubmitBtn type='submit'>SIGN UP</SignUpSubmitBtn>
+      </Form>
     </FormWrapper>
   );
 };
 
 const SignUpSubmitBtn = styled(SubmitButton)`
-  background-color:  var(--boxing-orange);
-`
-
+  background-color: var(--boxing-orange);
+`;
 
 export default Signup;
-
-
-
