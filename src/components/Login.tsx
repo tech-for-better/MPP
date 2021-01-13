@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logIn } from "../utils/user-management";
+import { Input, SubmitButton, FormWrapper,  Form, LinkWrapper} from "./Registration.styles";
+import styled from "styled-components"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,38 +19,57 @@ const Login = () => {
   };
 
   return (
-    <>
-      <form onSubmit={event => handleSubmit(event)}>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input
-            id='email'
-            name='email'
-            type='text'
-            required
-            onChange={e => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            id='password'
-            name='password'
-            type='text'
-            required
-            onChange={event => {
-              setPassword(event.target.value);
-            }}
-          />
-        </div>
+    <FormWrapper>
+      <Form onSubmit={event => handleSubmit(event)}>
+        <label htmlFor='email'></label>
+        <Input
+          id='email'
+          name='email'
+          type='text'
+          placeholder='Email address'
+          required
+          onChange={e => {
+            setEmail(e.target.value);
+          }}
+        />
+        <label htmlFor='password'></label>
+        <Input
+          id='password'
+          name='password'
+          type='text'
+          placeholder='Password'
+          required
+          onChange={event => {
+            setPassword(event.target.value);
+          }}
+        />
+        <label htmlFor='rememberMe'>
+        <Checkbox 
+          type='checkbox' 
+          id='rememberMe' 
+          name='rememberMe' 
+        />
+        Remember me
+        </label>
         {error ? <p>{error}</p> : null}
-        <button type='submit'>Login</button>
-      </form>
-      <Link to='/signup'>Don’t have an account? Sign Up</Link>
-    </>
+        <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
+        <LinkWrapper>
+        Don’t have an account? <Link to='/signup' style={{ textDecoration: 'none', fontWeight: "bold", color: "#3F4553" }} >Sign Up</Link>
+      </LinkWrapper>
+      </Form>
+
+    </FormWrapper>
   );
 };
 
+
+const Checkbox = styled.input`
+  margin-right: 0.6rem;
+  color: rgb(117, 111, 134);
+  border: 2px solid red;
+`
+
+const LoginSubmitButton = styled(SubmitButton)`
+  background-color:  #74C7E5;
+`
 export default Login;
