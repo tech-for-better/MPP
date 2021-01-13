@@ -11,3 +11,9 @@
   --main-blue: hsl(194, 96%, 29%);
   --off-white: #fff7f7;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans";
+}
