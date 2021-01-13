@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const PageWrapper = styled.section`
   display: flex;
@@ -41,19 +42,28 @@ export const LogoImg = styled.img`
 
 export const Button = styled.button`
   width: 323px;
-  height: 58.7px;
+  height: auto;
   background-color: var(--main-beige);
   border-radius: 20px;
   border: none;
-  margin-top: 10vh;
+  cursor: pointer;
 `;
 
 export const Text = styled.p`
-  font-family: "Open Sans";
   font-size: 18px;
   font-weight: bolder;
+  color: rgb(0, 0, 0);
 `;
 
 export const Arrow = styled.img`
   float: right;
+`;
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    margin-top: 10vh;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `;

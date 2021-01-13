@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import RightArrow from "../assets/RightArrow.svg";
 import Meditation from "../assets/onboarding.svg";
 import logo from "../assets/mindful-peak.png";
-import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg } from "./Onboarding.styles";
+import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
 
 export const Onboarding = () => {
   return (
@@ -14,13 +14,13 @@ export const Onboarding = () => {
         <Span> Live a balanced life. </Span>
       </Slogan>
       <Image alt='Meditating Illustration' src={Meditation}></Image>
-      <Link to='/login'>
+        <StyledLink to='/login'>
         <Button>
           <Text>
             GET STARTED <Arrow alt='arrow' src={RightArrow}></Arrow>
           </Text>
         </Button>
-      </Link>
+        </StyledLink>
     </PageWrapper>
   );
 };
