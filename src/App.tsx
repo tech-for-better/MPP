@@ -26,7 +26,7 @@ function App() {
           <Route path='/signup' exact>
             <Signup />
           </Route>
-          <Route path='/homepage' exact>
+          <Route path='/home' exact>
             <Homepage />
           </Route>
         </Switch>
@@ -35,9 +35,14 @@ function App() {
   } else {
     return (
       <Router>
-        <Route path='/' exact>
-          <Onboarding />
-        </Route>
+        <Switch>
+          <Route path='/' exact>
+            <Onboarding />
+          </Route>
+          <Route path='/home'>
+            <Redirect to='/login' />
+          </Route>
+        </Switch>
       </Router>
     );
   }

@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    history.push("/homepage");
+    history.push("home");
 
     return auth()
       .signInWithEmailAndPassword(email, password)
