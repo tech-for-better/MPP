@@ -8,41 +8,39 @@ import { Homepage } from "./components/Homepage";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
-  // const [authStatus, setAuthStatus] = React.useState(false);
+  const [authStatus, setAuthStatus] = React.useState(false);
 
-  // auth().onAuthStateChanged(user => {
-  //   user ? setAuthStatus(true) : setAuthStatus(false);
-  // });
-  // if (authStatus) {
-  //   return (
-  //   <Router>
-  //     <Onboarding />
-  //   </Router>
-  // );
-  //   } else {
-  //     return (
-
-  //     )
-  //   }
-
-  return (
-    <Router>
-      <Switch>
+  auth().onAuthStateChanged(user => {
+    user ? setAuthStatus(true) : setAuthStatus(false);
+  });
+  if (authStatus) {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/' exact>
+            <Onboarding />
+          </Route>
+          <Route path='/login' exact>
+            <Login />
+          </Route>
+          <Route path='/signup' exact>
+            <Signup />
+          </Route>
+          <Route path='/homepage' exact>
+            <Homepage />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  } else {
+    return (
+      <Router>
         <Route path='/' exact>
           <Onboarding />
         </Route>
-        <Route path='/login' exact>
-          <Login />
-        </Route>
-        <Route path='/signup' exact>
-          <Signup />
-        </Route>
-        <Route path='/homepage' exact>
-          <Homepage />
-        </Route>
-      </Switch>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
 export default App;
