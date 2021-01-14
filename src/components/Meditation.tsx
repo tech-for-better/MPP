@@ -5,8 +5,7 @@ export const Homepage = () => {
   return (
     <PageWrapper>
       <Slogan>
-        Throw a jab. Meditate.
-        <Span> Live a balanced life. </Span>
+        Meditation page
       </Slogan>
     </PageWrapper>
   );

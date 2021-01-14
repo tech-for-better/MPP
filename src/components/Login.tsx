@@ -42,6 +42,8 @@ const Login = () => {
     auth().setPersistence(e.target.checked ? auth.Auth.Persistence.LOCAL : auth.Auth.Persistence.SESSION);
   };
 
+  console.log("login page")
+
   return (
     <FormWrapper>
       <RegistrationNav>
