@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signUp } from "../utils/user-management";
 import { Link } from "react-router-dom";
 
-import { auth } from "../connection";
+import { auth, db } from "../connection";
 import { SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink, CurrentPageTitle } from "./Registration.styles";
 import styled from "styled-components";
 import peak from "../assets/peak-icon.svg";
@@ -18,10 +18,25 @@ const Signup = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("submit");
-    auth().createUserWithEmailAndPassword(email, password);
 
-    // signUp(email, password);
-    // await signUpDB(auth().currentUser.email);
+    return auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        db.collection("users")
+          .doc(auth().currentUser?.uid)
+          .set({
+            Username: username,
+            Email: email,
+          })
+          .catch(error => {
+            console.log("Something went wrong with added user to firestore: ", error);
+          });
+        console.log(user);
+      })
+      .catch(error => {
+        console.log(error);
+        setError(error.message);
+      });
   };
 
   return (
@@ -67,7 +82,10 @@ const Signup = () => {
           onChange={e => {
             setPassword(e.target.value);
           }}
+          pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+          title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
         />
+        {error ? <p>{error}</p> : null}
 
         <SignUpSubmitBtn type='submit'>SIGN UP</SignUpSubmitBtn>
       </Form>
