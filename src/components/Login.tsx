@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logIn } from "../utils/user-management";
+import { auth } from "../connection";
+
 import {
   Input,
   SubmitButton,
@@ -23,11 +25,20 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await logIn(email, password);
-    } catch (error) {
-      setError(error.message);
-    }
+    return auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(user => {
+        console.log(user);
+      })
+      .catch(error => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+
+  // persistence - remember me
+  const rememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
+    auth().setPersistence(e.target.checked ? auth.Auth.Persistence.LOCAL : auth.Auth.Persistence.SESSION);
   };
 
   return (
@@ -64,7 +75,14 @@ const Login = () => {
           }}
         />
         <Label htmlFor='rememberMe'>
-          <Checkbox type='checkbox' id='rememberMe' name='rememberMe' />
+          <Checkbox
+            type='checkbox'
+            id='rememberMe'
+            name='rememberMe'
+            onChange={e => {
+              rememberMe(e);
+            }}
+          />
           Remember me
         </Label>
         {error ? <p>{error}</p> : null}
