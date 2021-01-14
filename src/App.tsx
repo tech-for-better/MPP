@@ -3,6 +3,7 @@ import { auth } from "./connection";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Onboarding } from "./components/Onboarding";
+import { Homepage } from "./components/Homepage";
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/signup' exact>
           <Signup />
+        </Route>
+        <Route path='/homepage' exact>
+          <Homepage />
         </Route>
       </Switch>
     </Router>

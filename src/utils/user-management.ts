@@ -11,6 +11,7 @@ const signUp = (email: string, password: string) => {
 const logIn = (email: string, password: string) => {
   return auth().signInWithEmailAndPassword(email, password);
 };
+
 //  signinwithgoogle
 const signInWithGoogle = () => {
   var provider = new auth.GoogleAuthProvider();

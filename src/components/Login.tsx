@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { logIn } from "../utils/user-management";
 import { auth } from "../connection";
-
+import peak from "../assets/peak-icon.svg";
+import styled from "styled-components";
 import {
   Input,
   SubmitButton,
@@ -14,17 +15,17 @@ import {
   RegistrationNavLink,
   CurrentPageTitle,
 } from "./Registration.styles";
-import peak from "../assets/peak-icon.svg";
-
-import styled from "styled-components";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    history.push("/homepage");
+
     return auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
