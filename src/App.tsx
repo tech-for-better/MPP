@@ -4,7 +4,6 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Onboarding } from "./components/Onboarding";
 import { Homepage } from "./components/Homepage";
-import { NavBar } from "./components/NavBar";
 
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
@@ -29,9 +28,6 @@ function App() {
           </Route>
           <Route path='/home' exact>
             <Homepage />
-          </Route>
-          <Route path='/navbar' exact>
-            <NavBar />
           </Route>
         </Switch>
       </Router>

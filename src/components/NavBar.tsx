@@ -1,15 +1,22 @@
 import React from "react";
-import { PageWrapper, Slogan, Span} from "./Onboarding.styles";
+import { PageWrapper, Slogan } from "./Onboarding.styles";
+import styled from "styled-components";
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
       <>
     <PageWrapper>
       <Slogan>
-        Throw a jab. Meditate.
-        <Span> Live a balanced life. </Span>
+        The Navigation Bar 🧭 ✨
       </Slogan>
+      <Navigation>
+
+      </Navigation>
     </PageWrapper>
     </>
   );
 };
+
+const Navigation = styled.footer``;
+
+export default NavBar;
