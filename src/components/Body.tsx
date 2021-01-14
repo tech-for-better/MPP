@@ -2,7 +2,7 @@ import React from "react";
 import { PageWrapper, Slogan } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 
-export const Body = () => {
+const Body = () => {
   return (
     <PageWrapper>
       <Slogan>Boxing Page</Slogan>
@@ -11,3 +11,5 @@ export const Body = () => {
     </PageWrapper>
   );
 };
+
+export default Body;
