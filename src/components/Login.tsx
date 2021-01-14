@@ -99,7 +99,7 @@ const Login = () => {
   );
 };
 
-const Checkbox = styled.input`
+export const Checkbox = styled.input`
   margin-right: 0.6rem;
   color: rgb(117, 111, 134);
   border: 2px solid red;

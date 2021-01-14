@@ -3,7 +3,17 @@ import { signUp } from "../utils/user-management";
 import { Link } from "react-router-dom";
 
 import { auth, db } from "../connection";
-import { SubmitButton, Form, Input, FormWrapper, RegistrationNav, RegistrationNavLink, CurrentPageTitle } from "./Registration.styles";
+import {
+  SubmitButton,
+  Form,
+  Input,
+  FormWrapper,
+  RegistrationNav,
+  RegistrationNavLink,
+  CurrentPageTitle,
+  Label,
+} from "./Registration.styles";
+import { Checkbox } from "./Login";
 import styled from "styled-components";
 import peak from "../assets/peak-icon.svg";
 
@@ -85,8 +95,11 @@ const Signup = () => {
           pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
           title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
         />
+        <Label htmlFor='termsAndConditions'>
+          <Checkbox type='checkbox' id='termsAndConditions' name='termsAndConditions' />
+          By signing up, I agree to the terms.
+        </Label>
         {error ? <p>{error}</p> : null}
-
         <SignUpSubmitBtn type='submit'>SIGN UP</SignUpSubmitBtn>
       </Form>
     </FormWrapper>
