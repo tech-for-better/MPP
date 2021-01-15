@@ -1,5 +1,4 @@
 import React from "react";
-import { PageWrapper, Slogan } from "./Onboarding.styles";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import progressIcon from "../assets/progress-icon.svg";
