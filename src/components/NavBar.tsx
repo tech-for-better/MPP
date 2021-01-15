@@ -8,7 +8,7 @@ import mindIcon from "../assets/mind-icon.svg";
 import bodyIcon from "../assets/body-icon.svg";
 
 const NavBar = () => {
-  const pathname: string = window.location.pathname;
+  // const pathname: string = window.location.pathname;
 
   return (
     <>
