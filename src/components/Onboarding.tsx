@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import RightArrow from "../assets/RightArrow.svg";
 import Meditation from "../assets/onboarding.svg";
 import logo from "../assets/mindful-peak-mobile.png";

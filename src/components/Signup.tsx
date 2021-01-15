@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signUp } from "../utils/user-management";
+
 import { Link } from "react-router-dom";
 
 import { auth, db } from "../connection";
@@ -18,7 +18,7 @@ import styled from "styled-components";
 import peak from "../assets/peak-icon.svg";
 
 const Signup = () => {
-  const currentPage = window.location.pathname;
+  // const currentPage = window.location.pathname;
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

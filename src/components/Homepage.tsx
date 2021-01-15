@@ -1,9 +1,11 @@
 import React from "react";
-import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
+import { PageWrapper, Slogan, Span } from "./Onboarding.styles";
+import { MobileLogo } from "./MobileLogo";
 
-export const Homepage = () => {
+const Homepage = () => {
   return (
     <PageWrapper>
+      <MobileLogo />
       <Slogan>
         Throw a jab. Meditate.
         <Span> Live a balanced life. </Span>
@@ -11,3 +13,5 @@ export const Homepage = () => {
     </PageWrapper>
   );
 };
+
+export default Homepage;

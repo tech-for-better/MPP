@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { logIn } from "../utils/user-management";
 import { auth } from "../connection";
 import peak from "../assets/peak-icon.svg";
 import styled from "styled-components";
@@ -41,6 +40,8 @@ const Login = () => {
   const rememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
     auth().setPersistence(e.target.checked ? auth.Auth.Persistence.LOCAL : auth.Auth.Persistence.SESSION);
   };
+
+  console.log("login page");
 
   return (
     <FormWrapper>
