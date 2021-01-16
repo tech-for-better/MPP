@@ -32,7 +32,6 @@ const NavBar = () => {
           <span>Progress</span>
         </NavLink>
       </Navigation>
-      {/* </PageWrapper> */}
     </>
   );
 };

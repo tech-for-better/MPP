@@ -1,11 +1,11 @@
 import React from "react";
 import { PageWrapper, Slogan, Span } from "./Onboarding.styles";
-import { MobileLogo } from "./MobileLogo";
+import { MultipleLogos } from "./MultipleLogos";
 
 const Homepage = () => {
   return (
     <PageWrapper>
-      <MobileLogo />
+      <MultipleLogos />
       <Slogan>
         Throw a jab. Meditate.
         <Span> Live a balanced life. </Span>
