@@ -11,13 +11,22 @@ import Progress from "./components/Progress";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
-  const [authStatus, setAuthStatus] = React.useState(false);
+  const [authStatus, setAuthStatus] = React.useState("loading");
 
-  auth().onAuthStateChanged(user => {
-    user ? setAuthStatus(true) : setAuthStatus(false);
-  });
+  React.useEffect(() => {
+
+    return auth().onAuthStateChanged(user => {
+      user ? setAuthStatus("loggedIn") : setAuthStatus("loggedOut");
+    });
+
+  }, []);
+
+
+  if (authStatus === "loading") return <div>Loading...</div>;
+
+
   console.log(authStatus);
-  if (authStatus) {
+  if (authStatus === "loggedIn") {
     return (
       <Router>
         <Switch>
