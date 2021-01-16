@@ -18,7 +18,6 @@ import styled from "styled-components";
 import peak from "../assets/peak-icon.svg";
 
 const Signup = () => {
-  // const currentPage = window.location.pathname;
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
