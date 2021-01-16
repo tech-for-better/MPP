@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import { auth, db } from "../connection";
+import { auth } from "../connection";
 import {
   SubmitButton,
   Form,
