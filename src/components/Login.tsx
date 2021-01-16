@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../connection";
+import { auth, db } from "../connection";
 import peak from "../assets/peak-icon.svg";
 import styled from "styled-components";
 import {
@@ -24,24 +24,27 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     history.push("home");
-
+    // var documentReference = db.collection('users').doc('Username');
+    
     return auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => {
-        console.log(user);
+      .then((user) => {
+        console.log("user", user)
       })
-      .catch(error => {
-        console.log(error);
-        setError(error.message);
-      });
-  };
+
+    }
+
+
+
+
+
 
   // persistence - remember me
   const rememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
     auth().setPersistence(e.target.checked ? auth.Auth.Persistence.LOCAL : auth.Auth.Persistence.SESSION);
   };
 
-  console.log("login page");
+
 
   return (
     <FormWrapper>

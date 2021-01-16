@@ -11,7 +11,6 @@ export const PageWrapper = styled.section`
 export const Slogan = styled.h1`
   margin-top: 4em;
   text-align: center;
-  font-family: "Open Sans";
   font-size: 20px;
   font-weight: bolder;
 `;

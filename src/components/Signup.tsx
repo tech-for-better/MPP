@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import { auth, db } from "../connection";
+import { auth } from "../connection";
 import {
   SubmitButton,
   Form,
@@ -31,17 +31,11 @@ const Signup = () => {
 
     return auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        db.collection("users")
-          .doc(auth().currentUser?.uid)
-          .set({
-            Username: username,
-            Email: email,
-          })
-          .catch(error => {
-            console.log("Something went wrong with added user to firestore: ", error);
-          });
-        console.log(user);
+      .then(res => {
+        const user : any = auth().currentUser;
+        return user.updateProfile({
+          displayName: username
+        })
       })
       .catch(error => {
         console.log(error);
@@ -63,8 +57,8 @@ const Signup = () => {
         <label htmlFor='username'></label>
         <Input
           required
-          id='username'
-          name='username'
+          id='displayName'
+          name='displayName'
           type='text'
           placeholder='Username'
           onChange={e => {
