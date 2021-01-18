@@ -26,7 +26,6 @@ function App() {
 
 
   console.log(authStatus);
-  if (authStatus === "loggedIn") {
     return (
       <Router>
         <Switch>
@@ -39,6 +38,9 @@ function App() {
           <Route path='/signup' exact>
             <Signup />
           </Route>
+          
+          {authStatus === "loggedIn" && (
+            <>
           <Route path='/home' exact>
             <Homepage />
           </Route>
@@ -51,23 +53,11 @@ function App() {
           <Route path='/progress' exact>
             <Progress />
           </Route>
+          </>  ) }
         </Switch>
       </Router>
     );
-  } else {
-    return (
-      <Router>
-        <Switch>
-          <Route path='/' exact>
-            <Onboarding />
-          </Route>
-          <Route path='/home'>
-            <Redirect to='/login' />
-          </Route>
-        </Switch>
-      </Router>
-    );
-  }
+  
 }
 
 export default App;
