@@ -29,6 +29,7 @@ export const RegistrationNavLink = styled(Link)`
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 70px;
   }
+  overflow-y: hidden;
 `;
 
 export const CurrentPageTitle = styled.h2`

@@ -20,8 +20,8 @@
   overflow-x: hidden;
 }
 
-/* filter button styles */
-.btn {
+/* button styles - homepage & filter */
+.btn, .icon {
   width: 65.34px;
   height: 65px;
   border-radius: 20px;
@@ -44,7 +44,10 @@
 .btn:focus {
   opacity: 0.8;
 }
-.btn:active {
+.icon:hover, .icon:focus {
+  transform: translateY(-0.25em);
+}
+.btn:active, .icon:active {
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
   -ms-transform: scale(0.8);
