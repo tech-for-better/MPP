@@ -11,12 +11,21 @@ import Progress from "./components/Progress";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
-  const [authStatus, setAuthStatus] = React.useState(false);
+  const [authStatus, setAuthStatus] = React.useState("loading");
 
-  auth().onAuthStateChanged(user => {
-    user ? setAuthStatus(true) : setAuthStatus(false);
-  });
-  if (authStatus) {
+  React.useEffect(() => {
+
+    return auth().onAuthStateChanged(user => {
+      user ? setAuthStatus("loggedIn") : setAuthStatus("loggedOut");
+    });
+
+  }, []);
+
+
+  if (authStatus === "loading") return <div>Loading...</div>;
+
+
+  console.log(authStatus);
     return (
       <Router>
         <Switch>
@@ -29,6 +38,9 @@ function App() {
           <Route path='/signup' exact>
             <Signup />
           </Route>
+          
+          {authStatus === "loggedIn" && (
+            <>
           <Route path='/home' exact>
             <Homepage />
           </Route>
@@ -41,23 +53,11 @@ function App() {
           <Route path='/progress' exact>
             <Progress />
           </Route>
+          </>  ) }
         </Switch>
       </Router>
     );
-  } else {
-    return (
-      <Router>
-        <Switch>
-          <Route path='/' exact>
-            <Onboarding />
-          </Route>
-          <Route path='/home'>
-            <Redirect to='/login' />
-          </Route>
-        </Switch>
-      </Router>
-    );
-  }
+  
 }
 
 export default App;

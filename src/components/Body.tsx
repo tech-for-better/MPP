@@ -1,14 +1,17 @@
 import React from "react";
 import { PageWrapper, Slogan } from "./Onboarding.styles";
 import NavBar from "./NavBar";
+import { MultipleLogos } from "./MultipleLogos";
 
 const Body = () => {
   return (
-    <PageWrapper>
-      <Slogan>Boxing Page</Slogan>
-
-      <NavBar />
-    </PageWrapper>
+    <>
+      <PageWrapper>
+        <MultipleLogos />
+        <Slogan>Boxing Page</Slogan>
+        <NavBar />
+      </PageWrapper>
+    </>
   );
 };
 
