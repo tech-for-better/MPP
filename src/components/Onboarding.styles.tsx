@@ -27,7 +27,6 @@ export const Image = styled.img`
 `;
 
 export const LogoImg = styled.img`
-  padding-top: 1rem;
   width: 300px;
   height: auto;
   position: absolute;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../connection";
-import peak from "../assets/peak-icon.svg";
 import styled from "styled-components";
 import {
   RegistrationWrapper,
@@ -17,7 +16,9 @@ import {
   RegistrationNavLink,
   CurrentPageTitle,
 } from "./Registration.styles";
-import login from "../assets/login.svg";
+
+import peak from "../assets/Registration/peak-icon.svg";
+import login from "../assets/Registration/login.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 import React from "react";
-import RightArrow from "../assets/RightArrow.svg";
-import Meditation from "../assets/onboarding.svg";
+import RightArrow from "../assets/Registration/RightArrow.svg";
+import Meditation from "../assets/Registration/onboarding.svg";
 import logo from "../assets/mindful-peak-mobile.png";
 import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
 
