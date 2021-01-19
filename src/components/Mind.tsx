@@ -10,9 +10,10 @@ const Mind = () => {
         <MultipleLogos />
         <Slogan>Meditation page</Slogan>
       </PageWrapper>
-      <Navbar />
-    </>
-  );
-};
+    <PageWrapper>
+      <MultipleLogos />
+      <FilterButtons images={[calm, focus, connect, switchOff]} />
+      {/* <VideoPlayer url={video}/> */}
+      <NavBar />
+    </PageWrapper>
 
-export default Mind;
