@@ -4,9 +4,9 @@ import { PageWrapper } from "./Onboarding.styles";
 import { MultipleLogos } from "./MultipleLogos";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import meditationIcon from "../assets/meditation.svg";
-import boxingIcon from "../assets/boxing.svg";
-import progressIcon from "../assets/progress.svg";
+import meditationIcon from "../assets/HomePage/meditation.svg";
+import boxingIcon from "../assets/HomePage/boxing.svg";
+import progressIcon from "../assets/HomePage/progress.svg";
 
 const Homepage = () => {
   const username: any = auth().currentUser?.displayName;
