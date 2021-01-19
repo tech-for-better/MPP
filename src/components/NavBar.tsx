@@ -7,19 +7,25 @@ import homeIcon from "../assets/home-icon.svg";
 import mindIcon from "../assets/mind-icon.svg";
 import bodyIcon from "../assets/body-icon.svg";
 
+interface Props {
+  currentPage: string;
+}
+
 const NavBar = () => {
   const pathname: string = window.location.pathname;
+  console.log(pathname);
+
 
   return (
     <>
-      <Navigation>
+      <Navigation currentPage={pathname}>
         <NavLink to='/home'>
           <Icon src={homeIcon} alt='Clickable Home Page Navigation Icon' />
           <span>Home</span>
         </NavLink>
 
         <NavLink to='/mind'>
-          <Icon src={mindIcon} alt='Clickable Mind Page Navigation Icon' />
+          mindIcon
           <span>Mind</span>
         </NavLink>
 
@@ -38,10 +44,10 @@ const NavBar = () => {
   );
 };
 
-const Navigation = styled.nav`
+const Navigation = styled.nav<Props>`
   position: absolute;
   display: flex;
-  background-color: #d9f0fd;
+  background-color: ${p => (p.currentPage === "/body" ? "var(--boxing-orange)" : "var(--bg-blue)")};
   width: 100%;
   height: auto;
   justify-content: space-evenly;
