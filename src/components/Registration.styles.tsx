@@ -2,19 +2,11 @@ import styled from "styled-components";
 import { Button } from "./Onboarding.styles";
 import { Link } from "react-router-dom";
 
-//  label
-//  form
-//  input
-//  button
-
-// RegistrationNav
-//  RegistrationNavLink
-//  Registration
-
 export const RegistrationNav = styled.nav`
   display: flex;
   justify-content: space-evenly;
 `;
+
 export const OtherPageTitle = styled(RegistrationNav)``;
 
 export const RegistrationNavLink = styled(Link)`
@@ -58,20 +50,67 @@ export const CurrentPageTitle = styled.h2`
   }
 `;
 
+export const RegistrationWrapper = styled.section`
+  @media (min-width: 634px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+`;
+
+export const RegistrationImg = styled.img`
+  width: 65%;
+  height: auto;
+
+  @media (max-width: 411px) {
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    width: 50%;
+  }
+  @media (min-width: 634px) {
+    width: 90%;
+    height: auto;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  text-align: center;
+
+  @media (min-width: 634px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+  }
+`;
+
 export const FormWrapper = styled.section`
   box-shadow: 1px -4px 17px 0px #afb3b8;
   border-radius: 50px 50px 0px 0px;
-  position: absolute;
   padding: 2rem 0 1rem 0;
-  bottom: 0;
   width: 100%;
   height: auto;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+
+  @media (min-width: 634px) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 92%;
+    border-radius: 0;
+  }
 `;
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 634px) {
+    margin-top: 50px;
+  }
 `;
 
 export const Input = styled.input`
@@ -95,6 +134,9 @@ export const Input = styled.input`
   :-ms-input-placeholder {
     padding: 20px;
   }
+  @media (min-width: 634px) {
+    margin-top: 5px;
+  }
 `;
 
 export const SubmitButton = styled(Button)`
@@ -110,6 +152,10 @@ export const SubmitButton = styled(Button)`
 export const LinkWrapper = styled.div`
   font-size: 12px;
   margin-top: 20px;
+  @media (min-width: 634px) {
+    position: absolute;
+    bottom: 40px;
+  }
 `;
 
 export const Label = styled.label`
@@ -119,4 +165,7 @@ export const Label = styled.label`
   margin-right: 130px;
   margin-top: 10px;
   margin-bottom: 20px;
+  @media (min-width: 634px) {
+    margin-bottom: 0;
+  }
 `;
