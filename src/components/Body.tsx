@@ -8,7 +8,7 @@ import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
 
-import { VideoPlayer } from "./VideoPlayer";
+// import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
 const Body = () => {
   return (

@@ -1,7 +1,10 @@
 import React from "react";
 import { PageWrapper, Slogan } from "./Onboarding.styles";
-import Navbar from "./NavBar";
+import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
+import { storage, db } from "../connection";
+// import ReactAudioPlayer from 'react-audio-player';
+// import AudioPlayer from "./AudioPlayer";
 
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
@@ -10,16 +13,38 @@ import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
 
 const Mind = () => {
+  const [content, setContent] = React.useState({});
+
+  React.useEffect(() => {
+    const mediaArray: any[] = [];
+
+    db.collection("body")
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          mediaArray.push(doc.data());
+          const result = doc.data();
+          return result[0];
+        });
+        // const videonames = Object.entries(videos);
+        setContent(mediaArray);
+      });
+  }, []);
+
+  console.log("videos", content);
+
+  var storageRef = storage.ref("calm/anger-01.wav");
+
+  console.log(storageRef.storage);
+  // console.log(imagesRef);
+
   return (
-    <>
-      <PageWrapper>
-        <MultipleLogos />
-        <Slogan>Meditation page</Slogan>
-      </PageWrapper>
     <PageWrapper>
       <MultipleLogos />
       <FilterButtons images={[calm, focus, connect, switchOff]} />
       {/* <VideoPlayer url={video}/> */}
       <NavBar />
     </PageWrapper>
-
+  );
+};
+export default Mind;
