@@ -6,6 +6,7 @@ import progressIcon from "../assets/progress-icon.svg";
 import homeIcon from "../assets/home-icon.svg";
 import mindIcon from "../assets/mind-icon.svg";
 import bodyIcon from "../assets/body-icon.svg";
+import NavbarIcons from "./NavbarIcons";
 
 interface Props {
   currentPage: string;
@@ -15,9 +16,27 @@ const NavBar = () => {
   const pathname: string = window.location.pathname;
   console.log(pathname);
 
+  /* 
+  function correctIcon => (pathname) => {
+    if( pathname === /mind ){
+     icons : {
+       homeicon : svvSakwCNsewjDACIoVvAndmLs
+       sijas: shujsa 
+       haks : sahjsaha
+     }
+    }
+     if (pathname == /body){
+      
+     }
+    }
+  }
+
+
+  */
 
   return (
     <>
+      <NavbarIcons iconName='home' currentPage={pathname} />
       <Navigation currentPage={pathname}>
         <NavLink to='/home'>
           <Icon src={homeIcon} alt='Clickable Home Page Navigation Icon' />
@@ -25,7 +44,7 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink to='/mind'>
-          mindIcon
+          <Icon src={mindIcon} alt='Clickable Mind Page Navigation Icon' />
           <span>Mind</span>
         </NavLink>
 
