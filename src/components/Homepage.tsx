@@ -4,34 +4,35 @@ import { PageWrapper } from "./Onboarding.styles";
 import { MultipleLogos } from "./MultipleLogos";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import meditationIcon from "../assets/HomePage/meditation.svg";
+import boxingIcon from "../assets/HomePage/boxing.svg";
+import progressIcon from "../assets/HomePage/progress.svg";
 
 const Homepage = () => {
-
-  const username : any = auth().currentUser?.displayName;
+  const username: any = auth().currentUser?.displayName;
   return (
     <PageWrapper>
       <MultipleLogos />
       <WelcomeText>
-        Welcome {username},
-        <Span> What do you want to work on? </Span>
+        Welcome {username},<Span> What do you want to work on? </Span>
       </WelcomeText>
       <IconsContainer>
-        <Mind>         
+        <Mind>
           <Link to='/mind'>
-          <Icon src="https://markheath.net/posts/files/font-awesome-circle-background-1.png"></Icon> 
+            <Icon src={meditationIcon} alt=''></Icon>
           </Link>
         </Mind>
-        <Body> 
-        <Link to='/body'>
-          <Icon src="https://markheath.net/posts/files/font-awesome-circle-background-1.png"></Icon>
+        <Body>
+          <Link to='/body'>
+            <Icon src={boxingIcon} alt=''></Icon>
           </Link>
-          </Body>
-        <Progress>          
+        </Body>
+        <Progress>
           <Link to='/progress'>
-          <Icon src="https://markheath.net/posts/files/font-awesome-circle-background-1.png"></Icon> 
+            <Icon src={progressIcon} alt=''></Icon>
           </Link>
         </Progress>
-       </IconsContainer>
+      </IconsContainer>
     </PageWrapper>
   );
 };
@@ -51,28 +52,46 @@ const Span = styled.span`
 `;
 
 const IconsContainer = styled.section`
+  padding: 10px 20px 20px 20px;
   margin-top: 104px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-`
+`;
 
-const Icon = styled.img``;
+const Icon = styled.img`
+  height: 160px;
+  width: 160px;
+  margin: 0 auto;
+  display: flex;
+  transition: 0.2s all;
+  text-align: center;
+  justify-content: center;
+  background-color: #fcfeff;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+`;
 
 const Mind = styled.div`
-  border:  1px solid red;
   grid-area: 1 / 1 / 2 / 2;
-`
+  border-radius: 50%;
+  -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 6px 20px 0 rgba(0, 0, 0, 0.3);
+`;
 const Body = styled.div`
-  border:  1px solid blue;
   grid-area: 1 / 3 / 2 / 4;
-
-`
+  border-radius: 50%;
+  -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 6px 20px 0 rgba(0, 0, 0, 0.3);
+`;
 const Progress = styled.div`
-  border:  1px solid black;
   grid-area: 2 / 2 / 3 / 3;
-`
+  border-radius: 50%;
+  -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 6px 20px 0 rgba(0, 0, 0, 0.3);
+`;
 
 export default Homepage;
