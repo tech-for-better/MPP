@@ -12,7 +12,7 @@ const FilterButtons = ({ images }: ImageProp) => {
     <FilterGroup>
       {images.map(image => (
         <button className='btn'>
-          <img src={image} alt='' width={pathname === "/mind" ? "40px" : "auto"}></img>
+          <img draggable='false' src={image} alt='' width={pathname === "/mind" ? "40px" : "auto"}></img>
         </button>
       ))}
     </FilterGroup>
