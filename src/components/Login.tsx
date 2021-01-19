@@ -4,9 +4,12 @@ import { auth } from "../connection";
 import peak from "../assets/peak-icon.svg";
 import styled from "styled-components";
 import {
+  RegistrationWrapper,
   Input,
   SubmitButton,
   FormWrapper,
+  RegistrationImg,
+  ImageWrapper,
   Form,
   LinkWrapper,
   Label,
@@ -14,6 +17,7 @@ import {
   RegistrationNavLink,
   CurrentPageTitle,
 } from "./Registration.styles";
+import login from "../assets/login.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,16 +28,16 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     history.push("home");
-    
+
     return auth()
       .signInWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then(user => {
         console.log("user", user);
       })
-      .catch((error) => {
+      .catch(error => {
         setError(error.message);
-      })
-    }
+      });
+  };
 
   // persistence - remember me
   const rememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,59 +45,64 @@ const Login = () => {
   };
 
   return (
-    <FormWrapper>
-      <RegistrationNav>
-        <CurrentPageTitle>Login</CurrentPageTitle>
-        <Link to='/'>
-          <img alt='Clickable Peak icon' src={peak} />
-        </Link>
-        <RegistrationNavLink to='/signup'>Signup</RegistrationNavLink>
-      </RegistrationNav>
+    <RegistrationWrapper>
+      <ImageWrapper>
+        <RegistrationImg src={login} alt=''></RegistrationImg>
+      </ImageWrapper>
+      <FormWrapper>
+        <RegistrationNav>
+          <CurrentPageTitle>Login</CurrentPageTitle>
+          <Link to='/'>
+            <img alt='Clickable Peak icon' src={peak} />
+          </Link>
+          <RegistrationNavLink to='/signup'>Signup</RegistrationNavLink>
+        </RegistrationNav>
 
-      <Form onSubmit={event => handleSubmit(event)}>
-        <label htmlFor='email'></label>
-        <Input
-          id='email'
-          name='email'
-          type='text'
-          placeholder='Email address'
-          required
-          onChange={e => {
-            setEmail(e.target.value);
-          }}
-        />
-        <label htmlFor='password'></label>
-        <Input
-          id='password'
-          name='password'
-          type='text'
-          placeholder='Password'
-          required
-          onChange={event => {
-            setPassword(event.target.value);
-          }}
-        />
-        <Label htmlFor='rememberMe'>
-          <Checkbox
-            type='checkbox'
-            id='rememberMe'
-            name='rememberMe'
+        <Form onSubmit={event => handleSubmit(event)}>
+          <label htmlFor='email'></label>
+          <Input
+            id='email'
+            name='email'
+            type='text'
+            placeholder='Email address'
+            required
             onChange={e => {
-              rememberMe(e);
+              setEmail(e.target.value);
             }}
           />
-          Remember me
-        </Label>
-        {error ? <p>{error}</p> : null}
-        <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
-        <LinkWrapper>
-          Don’t have an account?{" "}
-          <Link to='/signup' style={{ textDecoration: "none", fontWeight: "bold", color: "#3F4553" }}>
-            Sign Up
-          </Link>
-        </LinkWrapper>
-      </Form>
-    </FormWrapper>
+          <label htmlFor='password'></label>
+          <Input
+            id='password'
+            name='password'
+            type='text'
+            placeholder='Password'
+            required
+            onChange={event => {
+              setPassword(event.target.value);
+            }}
+          />
+          <Label htmlFor='rememberMe'>
+            <Checkbox
+              type='checkbox'
+              id='rememberMe'
+              name='rememberMe'
+              onChange={e => {
+                rememberMe(e);
+              }}
+            />
+            Remember me
+          </Label>
+          {error ? <p>{error}</p> : null}
+          <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
+          <LinkWrapper>
+            Don’t have an account?{" "}
+            <Link to='/signup' style={{ textDecoration: "none", fontWeight: "bold", color: "#3F4553" }}>
+              Sign Up
+            </Link>
+          </LinkWrapper>
+        </Form>
+      </FormWrapper>
+    </RegistrationWrapper>
   );
 };
 
@@ -105,5 +114,9 @@ export const Checkbox = styled.input`
 
 const LoginSubmitButton = styled(SubmitButton)`
   background-color: #74c7e5;
+  @media (min-width: 634px) {
+    margin-top: 200px;
+  }
 `;
+
 export default Login;
