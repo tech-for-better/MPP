@@ -1,8 +1,8 @@
 import React from "react";
 import RightArrow from "../assets/Registration/RightArrow.svg";
 import Meditation from "../assets/Registration/onboarding.svg";
-import logo from "../assets/mindful-peak-mobile.png";
-import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
+import logo from "../assets/desktop-logo.png";
+import { ButtonDiv, PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
 
 export const Onboarding = () => {
   return (
@@ -13,6 +13,7 @@ export const Onboarding = () => {
         <Span> Live a balanced life. </Span>
       </Slogan>
       <Image alt='Meditating Illustration' src={Meditation}></Image>
+      <ButtonDiv>
       <StyledLink to='/login'>
         <Button style={{ height: "58.7px" }}>
           <Text>
@@ -20,6 +21,7 @@ export const Onboarding = () => {
           </Text>
         </Button>
       </StyledLink>
+      </ButtonDiv>
     </PageWrapper>
   );
 };

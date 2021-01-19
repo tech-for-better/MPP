@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import peakIcon from "../assets/Registration/peak-icon.svg";
-import mindfulPeak from "../assets/mindful-peak-mobile.png";
+import mobileLogo from "../assets/peak-icon.svg";
+import desktopLogo from "../assets/desktop-logo.png";
 
 export const MultipleLogos = () => {
   return (
     <>
       <Link to='/'>
-        <MobileLogo src={peakIcon} />
+        <MobileLogo src={mobileLogo} />
       </Link>
       <Link to='/'>
-      <DesktopLogo src={mindfulPeak} />
+      <DesktopLogo src={desktopLogo} />
       </Link>
     </>
   );

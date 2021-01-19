@@ -16,7 +16,7 @@ import {
 } from "./Registration.styles";
 import { Checkbox } from "./Login";
 import styled from "styled-components";
-import peak from "../assets/Registration/peak-icon.svg";
+import peak from "../assets/peak-icon.svg";
 import SignUpImg from "../assets/Registration/signup.svg";
 
 const Signup = () => {

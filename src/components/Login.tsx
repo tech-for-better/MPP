@@ -17,7 +17,7 @@ import {
   CurrentPageTitle,
 } from "./Registration.styles";
 
-import peak from "../assets/Registration/peak-icon.svg";
+import peak from "../assets/peak-icon.svg";
 import login from "../assets/Registration/login.svg";
 
 const Login = () => {
