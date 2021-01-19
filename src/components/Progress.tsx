@@ -1,5 +1,5 @@
 import React from "react";
-import { PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
+import { PageWrapper, Slogan, Span } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 

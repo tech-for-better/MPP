@@ -32,21 +32,6 @@ const NavbarIcons = ({ iconName, currentPage }: NavbarIconsProps) => {
   );
 };
 
-// const Svg = styled.svg.attrs((props: SvgProps) => ({
-//   width: "30",
-//   height: "31",
-//   viewBox: "0 0 30 31",
-//   fill: "none",
-//   xmlns: "http://www.w3.org/2000/Svg",
-// }))<SvgProps>`
-//   & path {
-//     stroke: ${p => (p.currentPage === "/home" ? "#5652BF" : "#000")};
-//     fill: ${p => (p.currentPage === "/home" ? "#f790c4" : "#bf9052")};
-//     stroke-linecap: round;
-//     animation: dash 1.5s ease-in-out infinite;
-//   }
-// `;
-
 const ReusableHomeIcon = styled(HomeIcon)<SvgIconProps>`
   fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;

@@ -1,37 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import progressIcon from "../assets/progress-icon.svg";
-import homeIcon from "../assets/home-icon.svg";
-import mindIcon from "../assets/mind-icon.svg";
-import bodyIcon from "../assets/body-icon.svg";
+// import progressIcon from "../assets/progress-icon.svg";
+// import homeIcon from "../assets/home-icon.svg";
+// import mindIcon from "../assets/mind-icon.svg";
+// import bodyIcon from "../assets/body-icon.svg";
 import NavbarIcons from "./NavbarIcons";
 
-interface Props {
+type Props = {
   currentPage: string;
-}
+};
 
 const NavBar = () => {
   const pathname: string = window.location.pathname;
   console.log(pathname);
-
-  /* 
-  function correctIcon => (pathname) => {
-    if( pathname === /mind ){
-     icons : {
-       homeicon : svvSakwCNsewjDACIoVvAndmLs
-       sijas: shujsa 
-       haks : sahjsaha
-     }
-    }
-     if (pathname == /body){
-      
-     }
-    }
-  }
-
-
-  */
 
   return (
     <>
