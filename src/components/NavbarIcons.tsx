@@ -33,18 +33,30 @@ const NavbarIcons = ({ iconName, currentPage }: NavbarIconsProps) => {
 };
 
 const ReusableHomeIcon = styled(HomeIcon)<SvgIconProps>`
+  margin-top: 15px;
+  margin-left: 2px;
+  margin-bottom: 10px;
   fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;
 
 const ReusableMindIcon = styled(MindIcon)<SvgIconProps>`
+  margin-top: 15px;
+  margin-left: 2px;
+  margin-bottom: 10px;
   fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;
 
 const ReusableBodyIcon = styled(BodyIcon)<SvgIconProps>`
+  margin-top: 15px;
+  margin-left: 2px;
+  margin-bottom: 10px;
   fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;
 
 const ReusableProgressIcon = styled(ProgressIcon)<SvgIconProps>`
+  margin-top: 15px;
+  margin-left: 2px;
+  margin-bottom: 10px;
   fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;
 
