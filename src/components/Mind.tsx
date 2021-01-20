@@ -1,5 +1,5 @@
 import React from "react";
-import { PageWrapper, Slogan } from "./Onboarding.styles";
+import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 import { storage, db } from "../connection";

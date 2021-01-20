@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactComponent as HomeIcon } from "../assets/home-icon.svg";
-import { ReactComponent as ProgressIcon } from "../assets/progress-icon.svg";
-import { ReactComponent as MindIcon } from "../assets/mind-icon.svg";
-import { ReactComponent as BodyIcon } from "../assets/body-icon.svg";
+import { ReactComponent as HomeIcon } from "../assets/NavBar/home-icon.svg";
+import { ReactComponent as ProgressIcon } from "../assets/NavBar/progress-icon.svg";
+import { ReactComponent as MindIcon } from "../assets/NavBar/mind-icon.svg";
+import { ReactComponent as BodyIcon } from "../assets/NavBar/body-icon.svg";
 
 type SvgIconProps = {
   currentPage: string;

@@ -17,7 +17,8 @@ import {
 import { Checkbox } from "./Login";
 import styled from "styled-components";
 import peak from "../assets/peak-icon.svg";
-import SignUpImg from "../assets/signup.svg";
+import SignUpImg from "../assets/Registration/signup.svg";
+
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
