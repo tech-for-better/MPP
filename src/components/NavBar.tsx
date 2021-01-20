@@ -23,34 +23,22 @@ const NavBar = () => {
           <span>Home</span>
         </NavLink>
 
-<<<<<<< HEAD
         <NavLink currentPage={pathname} to='/mind'>
           {/* <Icon src={mindIcon} alt='Clickable Mind Page Navigation Icon' /> */}
-=======
-        <NavLink to='/mind'>
->>>>>>> main
           <NavbarIcons iconName='mind' currentPage={pathname} />
 
           <span>Mind</span>
         </NavLink>
 
-<<<<<<< HEAD
         <NavLink currentPage={pathname} to='/body'>
           {/* <Icon src={bodyIcon} alt='Clickable Body Page Navigation Icon' /> */}
-=======
-        <NavLink to='/body'>
->>>>>>> main
           <NavbarIcons iconName='body' currentPage={pathname} />
 
           <span>Body</span>
         </NavLink>
 
-<<<<<<< HEAD
         <NavLink currentPage={pathname} to='/progress'>
           {/* <Icon src={progressIcon} alt='Clickable Progress Page Navigation Icon' /> */}
-=======
-        <NavLink to='/progress'>
->>>>>>> main
           <NavbarIcons iconName='progress' currentPage={pathname} />
 
           <span>Progress</span>
