@@ -59,11 +59,7 @@ const Navigation = styled.nav<Props>`
   bottom: 0;
 `;
 
-<<<<<<< HEAD
 const NavLink = styled(Link)<Props>`
-=======
-const NavLink = styled(Link)`
->>>>>>> main
   display: flex;
   flex-direction: column;
   text-decoration: none;
