@@ -16,28 +16,44 @@ const Mind = () => {
   const [audios, setAudios] = React.useState({});
   const [captions, setCaptions] = React.useState({});
 
-  React.useEffect(() => {
-    const mediaArray: any[] = [];
+  var storageRef = storage.ref();
 
-    db.collection("body")
-      .get()
-      .then(docs => {
-        docs.forEach(doc => {
-          mediaArray.push(doc.data());
-          const result = doc.data();
-          return result[0];
+  React.useEffect(() => {
+    const audiosArray: string[] = [];
+    const captionsArray: string[] = [];
+    storageRef
+      .listAll()
+      .then(function (res) {
+        res.prefixes.forEach(function (folderRef) {
+          console.log(folderRef.fullPath);
+          folderRef.listAll().then(function (audiofiles) {
+            audiofiles.items.forEach(function (itemRef) {
+              itemRef.getDownloadURL().then(url => {
+                audiosArray.push(url);
+              });
+              setAudios(audiosArray);
+              itemRef
+                .getMetadata()
+                .then(function (metadata) {
+                  captionsArray.push(metadata.customMetadata);
+                  // Metadata now contains the metadata for 'images/forest.jpg'
+                })
+                .catch(function (error) {
+                  // Uh-oh, an error occurred!
+                });
+              setCaptions(captionsArray);
+            });
+          });
         });
-        // const videonames = Object.entries(videos);
-        setContent(mediaArray);
+      })
+      .catch(function (error) {
+        // Uh-oh, an error occurred!
       });
   }, []);
 
-  console.log("videos", content);
+  console.log("captions", captions);
+  console.log("audios", audios);
 
-  var storageRef = storage.ref("calm/anger-01.wav");
-
-  console.log(storageRef.storage);
-  // console.log(imagesRef);
 
   return (
     <PageWrapper>
