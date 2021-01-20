@@ -18,26 +18,26 @@ const NavBar = () => {
   return (
     <>
       <Navigation currentPage={pathname}>
-        <NavLink to='/home'>
+        <NavLink currentPage={pathname} to='/home'>
           <NavbarIcons iconName='home' currentPage={pathname} />
           <span>Home</span>
         </NavLink>
 
-        <NavLink to='/mind'>
+        <NavLink currentPage={pathname} to='/mind'>
           {/* <Icon src={mindIcon} alt='Clickable Mind Page Navigation Icon' /> */}
           <NavbarIcons iconName='mind' currentPage={pathname} />
 
           <span>Mind</span>
         </NavLink>
 
-        <NavLink to='/body'>
+        <NavLink currentPage={pathname} to='/body'>
           {/* <Icon src={bodyIcon} alt='Clickable Body Page Navigation Icon' /> */}
           <NavbarIcons iconName='body' currentPage={pathname} />
 
           <span>Body</span>
         </NavLink>
 
-        <NavLink to='/progress'>
+        <NavLink currentPage={pathname} to='/progress'>
           {/* <Icon src={progressIcon} alt='Clickable Progress Page Navigation Icon' /> */}
           <NavbarIcons iconName='progress' currentPage={pathname} />
 
@@ -59,16 +59,13 @@ const Navigation = styled.nav<Props>`
   bottom: 0;
 `;
 
-const Icon = styled.img`
-  margin-top: 15px;
-  margin-bottom: 10px;
-`;
-
-const NavLink = styled(Link)`
+const NavLink = styled(Link)<Props>`
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: #3f4553;
+  /* color: #3f4553; */
+  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
+
   font-weight: bold;
   margin-bottom: 15px;
 `;
