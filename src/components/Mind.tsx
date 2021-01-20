@@ -13,7 +13,8 @@ import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
 
 const Mind = () => {
-  const [content, setContent] = React.useState({});
+  const [audios, setAudios] = React.useState({});
+  const [captions, setCaptions] = React.useState({});
 
   React.useEffect(() => {
     const mediaArray: any[] = [];
