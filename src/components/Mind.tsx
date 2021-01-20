@@ -25,28 +25,28 @@ const Mind = () => {
 
   var storageRef = storage.ref();
 
-  const result: Array<any> = [];
-  const audiosArray: Array<any> = [];
+  // const result: Array<any> = [];
+  // const audiosArray: Array<any> = [];
 
   React.useEffect(() => {
     storageRef
       .listAll()
-      .then(function (res) {
-        res.prefixes.forEach(function (folderRef) {
-          folderRef.listAll().then(function (audiofiles) {
-            audiofiles.items.forEach(function (itemRef) {
-              itemRef.getDownloadURL().then(url => {
-                return audiosArray.push(url);
-              });
-              itemRef
-                .getMetadata()
-                .then(function (metadata) {
-                  result.push(metadata.customMetadata);
-                })
-                .catch(function (error) {
-                  console.error(error);
+      .then((res: any) => {
+        let resultPromises: any = [];
+        res.prefixes.forEach((folderRef: any) => {
+          folderRef.listAll().then((audiofiles: any) => {
+            audiofiles.items.forEach((itemRef: any) => {
+              resultPromises.push(itemRef);
+            });
+            Promise.all(resultPromises).then((results: any) => {
+              const audiosArray: Array<any> = [];
+
+              results.map((result: any) => {
+                return result.getDownloadURL().then((url: any) => {
+                  audiosArray.push(url);
+                  setAudios(audiosArray);
                 });
-              // setCaptions(captionsArray);
+              });
             });
           });
         });
@@ -54,30 +54,32 @@ const Mind = () => {
       .catch(function (error) {
         console.error(error);
       });
-    setCaptions(result);
-    setAudios(audiosArray);
+
+    // setCaptions(result);
     // console.log("captions", captionsArray);
-    console.log("audios", audios);
-    console.log("captions", captions);
+    console.log("audios", audios[0]);
+    // console.log("captions", captions);
   }, []);
+
+  // console.log("audios", audios[0]);
   // console.log("1", audios.length);
   // const totalCount = audios.length;
   // if (totalCount === undefined) return <div>Loading...</div>;
   if (!captions) return <div>Loading...</div>;
-  console.log("capions length", captions.length);
+  // console.log("capions length", captions.length);
 
   return (
     <PageWrapper>
       <MultipleLogos />
       <FilterButtons images={[calm, focus, connect, switchOff]} />
-      {audios.map((audio: string) => {
+      {/* {audios.map((audio: string) => {
         return (
           <audio controls src={audio}>
             Your browser does not support the
             <code>audio</code> element.
           </audio>
         );
-      })}
+      })} */}
       {captions.length > 0 &&
         captions.map((caption: any) => {
           return <p>caption[caption]</p>;
