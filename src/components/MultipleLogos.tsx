@@ -1,13 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import peakIcon from "../assets/peak-icon.svg";
-import mindfulPeak from "../assets/mindful-peak-mobile.png";
+import mobileLogo from "../assets/peak-icon.svg";
+import desktopLogo from "../assets/desktop-logo.png";
 
 export const MultipleLogos = () => {
   return (
     <>
-      <MobileLogo src={peakIcon} />
-      <DesktopLogo src={mindfulPeak} />
+      <Link to='/'>
+        <MobileLogo src={mobileLogo} />
+      </Link>
+      <Link to='/'>
+      <DesktopLogo src={desktopLogo} />
+      </Link>
     </>
   );
 };
@@ -18,7 +23,7 @@ const DesktopLogo = styled.img`
     display: block;
     position: absolute;
     left: 0;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
     width: 20%;
   }
