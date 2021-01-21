@@ -22,7 +22,7 @@ const Mind = () => {
 
   React.useEffect(() => {
     getAudioFiles().then(result => {
-      console.log(result);
+      console.log("one", result);
       setFolders(result);
     });
   }, []);
@@ -48,15 +48,15 @@ const Mind = () => {
         const [url, metadata, path] = await Promise.all([file.getDownloadURL(), file.getMetadata(), file.parent]);
         files.push({ url, metadata, path });
       });
+      console.log("three", files);
       return files;
     });
     // return a single promise that will eventually resolve to our array of folders
     return Promise.all(files);
   }
+  console.log("two", folders);
 
-  if (!folders) return <h1>Loading...</h1>;
-  // return <pre>{JSON.stringify(folders, null, 2)}</pre>;
-
+  if (folders.length === 0 || !folders) return <h1>Loading mind page...</h1>;
   return (
     <PageWrapper>
       <MultipleLogos />
