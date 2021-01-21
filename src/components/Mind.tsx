@@ -45,8 +45,8 @@ const Mind = () => {
       // create a new array containing an object for each file
       audioFiles.items.forEach(async (file: any) => {
         // wait for both url and metadata promises to resolve
-        const [url, metadata] = await Promise.all([file.getDownloadURL(), file.getMetadata()]);
-        files.push({ url, metadata });
+        const [url, metadata, path] = await Promise.all([file.getDownloadURL(), file.getMetadata(), file.parent]);
+        files.push({ url, metadata, path });
       });
       return files;
     });
@@ -54,7 +54,6 @@ const Mind = () => {
     return Promise.all(files);
   }
 
-  console.log(folders[0]);
   if (!folders) return <h1>Loading...</h1>;
   // return <pre>{JSON.stringify(folders, null, 2)}</pre>;
 
