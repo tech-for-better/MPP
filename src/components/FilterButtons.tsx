@@ -9,6 +9,8 @@ const FilterButtons = ({ images }: ImageProp) => {
   const pathname = window.location.pathname;
 
   console.log("image", images[0].url);
+
+  // let { slug } = useParams();
   /* 
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,7 +24,12 @@ const FilterButtons = ({ images }: ImageProp) => {
     <FilterGroup>
       {images.map(image => (
         <button className='btn'>
-          <img draggable='false' src={image.url} alt='' width={pathname === "/mind" ? "40px" : "auto"}></img>
+          <img
+            draggable='false'
+            src={image.url}
+            alt={"filter button for" + image.name + "audios category"}
+            width={pathname === "/mind" ? "40px" : "auto"}
+          ></img>
         </button>
       ))}
     </FilterGroup>
