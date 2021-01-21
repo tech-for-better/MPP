@@ -3,6 +3,7 @@ import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 import { storage, db } from "../connection";
+import styled from "styled-components";
 // import ReactAudioPlayer from 'react-audio-player';
 import AudioPlayer from "./AudioPlayer";
 
@@ -12,10 +13,9 @@ import focus from "../assets/Filters/focus.png";
 import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
 
-// interface Provider {
-//   connected: boolean;
-//   type: string;
-// }
+interface CategoryProp {
+  category: string;
+}
 
 const Mind = () => {
   const [folders, setFolders] = React.useState<any[]>([]);
@@ -64,13 +64,13 @@ const Mind = () => {
       {folders.map((file: any) => {
         return file.map((audio: any) => {
           return (
-            <figure>
+            <Figure category={audio.category}>
               <figcaption>{audio?.metadata?.customMetadata?.caption}</figcaption>
               <audio controls src={audio.url}>
                 Your browser does not support the
                 <code>audio</code> element.
               </audio>
-            </figure>
+            </Figure>
           );
         });
       })}
@@ -83,5 +83,7 @@ const Mind = () => {
   );
   // }
 };
+
+const Figure = styled.figure<CategoryProp>``;
 
 export default Mind;
