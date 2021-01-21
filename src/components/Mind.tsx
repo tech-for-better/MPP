@@ -18,55 +18,45 @@ import switchOff from "../assets/Filters/switch-off.png";
 // }
 
 const Mind = () => {
-  // const [content, setContent] = React.useState({});
-  // const [audios, setAudios] = React.useState<Provider>([]);
-  const [audios, setAudios] = React.useState<Array<any>>([]);
-  const [captions, setCaptions] = React.useState<Array<any>>([]);
-
-  var storageRef = storage.ref();
-
-  // const result: Array<any> = [];
-  // const audiosArray: Array<any> = [];
+  const [folders, setFolders] = React.useState<any[]>([]);
 
   React.useEffect(() => {
-    storageRef
-      .listAll()
-      .then((res: any) => {
-        let resultPromises: any = [];
-        res.prefixes.forEach((folderRef: any) => {
-          folderRef.listAll().then((audiofiles: any) => {
-            audiofiles.items.forEach((itemRef: any) => {
-              resultPromises.push(itemRef);
-            });
-            Promise.all(resultPromises).then((results: any) => {
-              const audiosArray: Array<any> = [];
-
-              results.map((result: any) => {
-                return result.getDownloadURL().then((url: any) => {
-                  audiosArray.push(url);
-                  setAudios(audiosArray);
-                });
-              });
-            });
-          });
-        });
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-
-    // setCaptions(result);
-    // console.log("captions", captionsArray);
-    console.log("audios", audios[0]);
-    // console.log("captions", captions);
+    getAudioFiles().then(result => {
+      console.log(result);
+      setFolders(result);
+    });
   }, []);
 
-  // console.log("audios", audios[0]);
-  // console.log("1", audios.length);
-  // const totalCount = audios.length;
-  // if (totalCount === undefined) return <div>Loading...</div>;
-  if (!captions) return <div>Loading...</div>;
-  // console.log("capions length", captions.length);
+  async function getAudioFiles() {
+    var storageRef = storage.ref();
+
+    const response = await storageRef.listAll();
+    const folders: any[] = [];
+    response.prefixes.forEach(folder => folders.push(folder.listAll()));
+    // folders now contains a promise for the contents of each folder
+
+    // use map to create a new array of promises
+    // each promise will eventually resolve to the final data we want
+    // an object with the URL and metadata for each file { url: "/first", metadata: "blah" }
+    const files = folders.map(async folderPromise => {
+      // we need to wait for the promise to resolve before we can access the files
+      const audioFiles = await folderPromise;
+      const files: any[] = [];
+      // create a new array containing an object for each file
+      audioFiles.items.forEach(async (file: any) => {
+        // wait for both url and metadata promises to resolve
+        const [url, metadata] = await Promise.all([file.getDownloadURL(), file.getMetadata()]);
+        files.push({ url, metadata });
+      });
+      return files;
+    });
+    // return a single promise that will eventually resolve to our array of folders
+    return Promise.all(files);
+  }
+
+  console.log(folders[0]);
+  if (!folders) return <h1>Loading...</h1>;
+  // return <pre>{JSON.stringify(folders, null, 2)}</pre>;
 
   return (
     <PageWrapper>
