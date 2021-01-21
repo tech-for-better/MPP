@@ -2,17 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 type ImageProp = {
-  images: string[];
+  images: { name: string; url: string }[];
 };
 
 const FilterButtons = ({ images }: ImageProp) => {
   const pathname = window.location.pathname;
 
+  console.log("image", images[0].url);
+  /* 
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('The button was clicked.');
+    history.push("/mind/{name}")
+    
+  }
+
+*/
   return (
     <FilterGroup>
       {images.map(image => (
         <button className='btn'>
-          <img draggable='false' src={image} alt='' width={pathname === "/mind" ? "40px" : "auto"}></img>
+          <img draggable='false' src={image.url} alt='' width={pathname === "/mind" ? "40px" : "auto"}></img>
         </button>
       ))}
     </FilterGroup>

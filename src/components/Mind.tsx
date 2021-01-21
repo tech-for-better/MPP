@@ -25,6 +25,13 @@ const Mind = () => {
 
   var storageRef = storage.ref();
 
+  const imagesArray = [
+    { url: calm, name: "calm" },
+    { url: focus, name: "focus" },
+    { url: connect, name: "connect" },
+    { url: switchOff, name: "switchOff" },
+  ];
+
   const result: Array<any> = [];
   const audiosArray: Array<any> = [];
 
@@ -69,7 +76,7 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
-      <FilterButtons images={[calm, focus, connect, switchOff]} />
+      <FilterButtons images={imagesArray} />
       {audios.map((audio: string) => {
         return (
           <audio controls src={audio}>
