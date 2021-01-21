@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import Body from "./components/Body";
 import Mind from "./components/Mind";
 import Progress from "./components/Progress";
+import { MindTest } from "./components/MindTest";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path='/progress' exact>
             <Progress />
+          </Route>
+          <Route path='/mind2' exact>
+            <MindTest />
           </Route>
           </>  ) }
         </Switch>
