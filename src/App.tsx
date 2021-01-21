@@ -8,23 +8,25 @@ import Body from "./components/Body";
 import Mind from "./components/Mind";
 import Progress from "./components/Progress";
 import { MindTest } from "./components/MindTest";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { LoadingSpinner } from "./components/Loader";
 
 function App() {
   const [authStatus, setAuthStatus] = React.useState("loading");
-
   React.useEffect(() => {
-
     return auth().onAuthStateChanged(user => {
       user ? setAuthStatus("loggedIn") : setAuthStatus("loggedOut");
     });
-
   }, []);
 
 
-  if (authStatus === "loading") return <div>Loading...</div>;
-
+  if (authStatus === "loading") {
+  return (
+    <>
+    <LoadingSpinner/>
+    </>
+  )
+}
 
   console.log(authStatus);
     return (

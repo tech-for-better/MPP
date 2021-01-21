@@ -1,16 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import SkewLoader from "react-spinners/SkewLoader";
 
-export const LoaderAnimation = () => {
+
+
+export const LoadingSpinner = () => {
     return (
-        <>
-            <SpinnerWrapper className="spinner-loader">
-
-            </SpinnerWrapper>
-        </>
+        <div className="loader-wrapper">
+            <div className="loader-animation">
+                <SkewLoader color="#74C7E5"/>
+            </div>
+            <span className="loading-text">
+                L O A D I N G
+            </span>
+        </div>
     )
-} 
-
-const SpinnerWrapper = styled.div`
- 
-`;
+}

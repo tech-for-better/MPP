@@ -3,8 +3,10 @@ import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 import { storage, db } from "../connection";
+import { LoadingSpinner } from "./Loader";
+
 // import ReactAudioPlayer from 'react-audio-player';
-import AudioPlayer from "./AudioPlayer";
+// import AudioPlayer from "./AudioPlayer";
 
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
@@ -65,7 +67,7 @@ const Mind = () => {
   // console.log("1", audios.length);
   // const totalCount = audios.length;
   // if (totalCount === undefined) return <div>Loading...</div>;
-  if (!captions) return <div>Loading...</div>;
+  if (!captions) return <LoadingSpinner/>;
   // console.log("capions length", captions.length);
 
   return (
