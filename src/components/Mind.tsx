@@ -62,20 +62,27 @@ const Mind = () => {
     <PageWrapper>
       <MultipleLogos />
       <FilterButtons images={[calm, focus, connect, switchOff]} />
-      {/* {audios.map((audio: string) => {
-        return (
-          <audio controls src={audio}>
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
-        );
-      })} */}
-      {captions.length > 0 &&
+      {folders.map((file: any) => {
+        return file.map((audio: any) => {
+          return (
+            <figure>
+              <figcaption>{audio?.metadata?.customMetadata?.caption}</figcaption>
+              <audio controls src={audio.url}>
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+            </figure>
+          );
+        });
+      })}
+      {/* {captions.length > 0 &&
         captions.map((caption: any) => {
           return <p>caption[caption]</p>;
-        })}
+        })} */}
       <NavBar />
     </PageWrapper>
   );
+  // }
 };
+
 export default Mind;
