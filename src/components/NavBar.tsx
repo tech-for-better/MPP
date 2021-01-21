@@ -49,7 +49,7 @@ const NavBar = () => {
 };
 
 const Navigation = styled.nav<Props>`
-  position: fixed;
+  position: absolute;
   display: flex;
   background-color: ${p =>
     p.currentPage === "/body" ? "var(--boxing-orange)" : p.currentPage === "/mind" ? "var(--bg-blue)" : "var( --main-beige)"};
@@ -64,7 +64,7 @@ const NavLink = styled(Link)<Props>`
   flex-direction: column;
   text-decoration: none;
   /* color: #3f4553; */
-  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
+  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black)")};
 
   font-weight: bold;
   margin-bottom: 15px;
