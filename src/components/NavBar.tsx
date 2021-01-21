@@ -49,7 +49,7 @@ const NavBar = () => {
 };
 
 const Navigation = styled.nav<Props>`
-  position: absolute;
+  position: fixed;
   display: flex;
   background-color: ${p =>
     p.currentPage === "/body" ? "var(--boxing-orange)" : p.currentPage === "/mind" ? "var(--bg-blue)" : "var( --main-beige)"};
