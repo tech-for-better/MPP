@@ -58,7 +58,7 @@ const Mind = () => {
       {bucket.map((file: any) => {
         return file.map((audio: any) => {
           return (
-            <Figure category={audio.category}>
+            <Figure>
               <figcaption>{audio?.metadata?.customMetadata?.caption}</figcaption>
               <audio controls src={audio.url}>
                 Your browser does not support the
