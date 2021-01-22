@@ -15,8 +15,6 @@ type NavbarIconsProps = {
 };
 
 const NavbarIcons = ({ iconName, currentPage }: NavbarIconsProps) => {
-  console.log(iconName, currentPage);
-
   return (
     <>
       {iconName === "home" ? (

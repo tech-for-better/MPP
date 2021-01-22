@@ -12,14 +12,21 @@ import styled from "styled-components";
 // import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
 const Body = () => {
+  const [filterBy, setFilterBy] = React.useState<string>("");
+
+  const imagesArray = [
+    { url: beginner, name: "beginner" },
+    { url: intermediate, name: "intermediate" },
+    { url: advanced, name: "advanced" },
+    { url: tips, name: "tips" },
+  ];
+
   return (
     <>
       <PageWrapper>
         <MultipleLogos />
-        <Banner>
-
-        </Banner>
-        <FilterButtons images={[beginner, intermediate, advanced, tips]} />
+        <Banner></Banner>
+        <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {/* <VideoPlayer url={video}/> */}
         <NavBar />
       </PageWrapper>

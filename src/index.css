@@ -21,7 +21,8 @@
 }
 
 /* button styles - homepage & filter */
-.btn, .icon {
+.btn,
+.icon {
   width: 65.34px;
   height: 65px;
   border-radius: 20px;
@@ -44,10 +45,12 @@
 .btn:focus {
   opacity: 0.9;
 }
-.icon:hover, .icon:focus {
+.icon:hover,
+.icon:focus {
   transform: translateY(-0.25em);
 }
-.btn:active, .icon:active {
+.btn:active,
+.icon:active {
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
   -ms-transform: scale(0.8);
@@ -93,6 +96,23 @@
   background-color: hsl(150, 100%, 50%);
   color: hsl(0, 0%, 100%);
 }
+
+/* Loading Animation */
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader-animation {
+  margin-top: 15em;
+}
+.loading-text {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 18px;
+}
 .background-beige {
   background:rgba(253, 244, 231, 1);
+
 }
