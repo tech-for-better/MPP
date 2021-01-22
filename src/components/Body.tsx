@@ -9,12 +9,26 @@ import beginner from "../assets/Filters/beginner.svg";
 import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
+import { useHistory } from "react-router-dom";
 
 import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
-const Body = () => {
+type selectedVideoProps = {
+  selectedVideo: [{ topic: string; url: string }];
+  setSelectedVideo: React.Dispatch<React.SetStateAction<[]>;
+};
+
+type videoType = {
+  topic: string;
+  url: string;
+};
+
+const Body = ({ selectedVideo, setSelectedVideo }: selectedVideoProps) => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [content, setContent] = React.useState<any[]>([]);
+  const videoDataArray : any[]= []
+  const history = useHistory();
+
   const imagesArray = [
     { url: beginner, name: "beginner" },
     { url: intermediate, name: "intermediate" },
@@ -22,6 +36,12 @@ const Body = () => {
     { url: tips, name: "tips" },
   ];
 
+  const handleClick = (e: React.MouseEvent, video: videoType) => {
+    e.preventDefault();
+    videoDataArray.push(video)
+    setSelectedVideo(videoDataArray)
+    history.push(video.topic);
+  };
   React.useEffect(() => {
     const mediaArray: any = [];
     db.collection("body")
@@ -37,7 +57,6 @@ const Body = () => {
         setContent(mediaArray);
       });
   }, []);
-  console.log(content);
   if (content.length === 0) return <LoadingSpinner />;
 
   return (
@@ -45,8 +64,13 @@ const Body = () => {
       <PageWrapper>
         <MultipleLogos />
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
-        {content.map((video: { topic: string; url: string }) => {
-          return <ResponsiveVideoPlayer videoData={video} />;
+        {content.map((video: videoType) => {
+          return (
+            <>
+              <button onClick={e => handleClick(e, video)}></button>
+              <h1>video will playe here</h1>
+            </>
+          );
         })}
 
         <NavBar />
