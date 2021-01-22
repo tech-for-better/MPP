@@ -56,9 +56,6 @@ function App() {
           <Route path='/progress' exact>
             <Progress />
           </Route>
-          <Route path='/mind2' exact>
-            <MindTest />
-          </Route>
           </>  ) }
         </Switch>
       </Router>
