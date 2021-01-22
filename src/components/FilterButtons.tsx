@@ -19,6 +19,7 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
     }
   };
   return (
+    <>
     <FilterGroup>
       {images.map(image => (
         <button className='btn' onClick={e => handleClick(e, image)}>
@@ -31,11 +32,12 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
         </button>
       ))}
     </FilterGroup>
+    </>
   );
 };
 
 const FilterGroup = styled.section`
-  margin-top: 100px;
+  margin-top: -40px;
 `;
 
 export default FilterButtons;

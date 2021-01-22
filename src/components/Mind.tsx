@@ -147,7 +147,7 @@ const Mind = () => {
 const Banner = styled.div`
   background-color: var(--bg-blue);
   width: 100%;
-  height: 20vh;
+  height: 25vh;
 `;
 
 const Figure = styled.figure<CategoryProp>``;
