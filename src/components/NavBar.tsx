@@ -20,25 +20,25 @@ const NavBar = () => {
       <Navigation currentPage={pathname}>
         <NavLink to='/home'>
           <NavbarIcons iconName='home' currentPage={pathname} />
-          <span>Home</span>
+          <NavText>Home</NavText>
         </NavLink>
 
         <NavLink to='/mind'>
           <NavbarIcons iconName='mind' currentPage={pathname} />
 
-          <span>Mind</span>
+          <NavText>Mind</NavText>
         </NavLink>
 
         <NavLink to='/body'>
           <NavbarIcons iconName='body' currentPage={pathname} />
 
-          <span>Body</span>
+          <NavText>Body</NavText>
         </NavLink>
 
         <NavLink to='/progress'>
           <NavbarIcons iconName='progress' currentPage={pathname} />
 
-          <span>Progress</span>
+          <NavText>Progress</NavText>
         </NavLink>
       </Navigation>
     </>
@@ -63,6 +63,10 @@ const NavLink = styled(Link)`
   color: #3f4553;
   font-weight: bold;
   margin-bottom: 15px;
+`;
+
+const NavText = styled.span`
+
 `;
 
 export default NavBar;
