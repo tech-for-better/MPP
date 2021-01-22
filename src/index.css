@@ -100,6 +100,23 @@
   background-color: hsl(150, 100%, 50%);
   color: hsl(0, 0%, 100%);
 }
+
+/* Loading Animation */
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader-animation {
+  margin-top: 15em;
+}
+.loading-text {
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 18px;
+
 .background-beige {
   background:rgba(253, 244, 231, 1);
+
 }

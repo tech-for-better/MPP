@@ -2,6 +2,8 @@ import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
+import { storage, db } from "../connection";
+import { LoadingSpinner } from "./Loader";
 import { storage } from "../connection";
 import styled from "styled-components";
 
@@ -14,7 +16,7 @@ import switchOff from "../assets/Filters/switch-off.png";
 interface CategoryProp {
   category: string;
 }
-
+  
 const data = [
   {
     url:
@@ -95,6 +97,7 @@ const data = [
     category: "switch-off",
   },
 ];
+
 
 const Mind = () => {
   return (
