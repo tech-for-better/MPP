@@ -64,7 +64,7 @@ const NavLink = styled(Link)<Props>`
   flex-direction: column;
   text-decoration: none;
   /* color: #3f4553; */
-  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
+  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black)")};
 
   font-weight: bold;
   margin-bottom: 15px;
