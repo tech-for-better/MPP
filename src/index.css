@@ -21,7 +21,6 @@
 }
 
 /* button styles - homepage & filter */
-.btn,
 .icon {
   width: 65.34px;
   height: 65px;
@@ -41,15 +40,9 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-.btn:hover,
-.btn:focus {
-  opacity: 0.8;
-}
-.icon:hover,
 .icon:focus {
   transform: translateY(-0.25em);
 }
-.btn:active,
 .icon:active {
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
@@ -117,6 +110,5 @@
   font-size: 18px;
 }
 .background-beige {
-  background:rgba(253, 244, 231, 1);
-
+  background: rgba(253, 244, 231, 1);
 }
