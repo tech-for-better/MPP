@@ -5,6 +5,7 @@ import { MultipleLogos } from "./MultipleLogos";
 import { storage, db } from "../connection";
 // import ReactAudioPlayer from 'react-audio-player';
 // import AudioPlayer from "./AudioPlayer";
+import styled from "styled-components";
 
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
@@ -41,10 +42,20 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
+      <Banner>
+
+      </Banner>
       <FilterButtons images={[calm, focus, connect, switchOff]} />
       {/* <VideoPlayer url={video}/> */}
       <NavBar />
     </PageWrapper>
   );
 };
+
+const Banner = styled.div`
+  background-color: var(--bg-blue);
+  width: 100%;
+  height: 20vh;
+`;
+
 export default Mind;
