@@ -92,7 +92,7 @@ const data = [
     url:
       "https://firebasestorage.googleapis.com/v0/b/mindful-peak-performance-7c8d4.appspot.com/o/switch-off%2FSLEEP.wav?alt=media&token=7be5e327-c226-489e-beb6-5233261ff612",
     caption: "Sleep",
-    category: "switch-off",
+    category: "switchOff",
   },
 ];
 
@@ -105,27 +105,40 @@ const Mind = () => {
     { url: connect, name: "connect" },
     { url: switchOff, name: "switchOff" },
   ];
-
+  console.log(filterBy);
   return (
     <PageWrapper>
       <MultipleLogos />
       <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
 
-      {data.map((audio: any) => {
-        return (
-          <Figure category={audio.category}>
-            <figcaption>{audio.caption}</figcaption>
-            <audio controls src={audio.url}>
-              Your browser does not support the
-              <code>audio</code> element.
-            </audio>
-          </Figure>
-        );
-      })}
-      {/* {captions.length > 0 &&
-        captions.map((caption: any) => {
-          return <p>caption[caption]</p>;
-        })} */}
+      {filterBy !== ""
+        ? data
+            .filter((audio: { category: string; url: string; caption: string }) => {
+              return audio.category === filterBy;
+            })
+            .map(audio => {
+              return (
+                <Figure category={audio.category}>
+                  <figcaption>{audio.caption}</figcaption>
+                  <audio controls src={audio.url}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </Figure>
+              );
+            })
+        : data.map(audio => {
+            return (
+              <Figure category={audio.category}>
+                <figcaption>{audio.caption}</figcaption>
+                <audio controls src={audio.url}>
+                  Your browser does not support the
+                  <code>audio</code> element.
+                </audio>
+              </Figure>
+            );
+          })}
+
       <NavBar />
     </PageWrapper>
   );
