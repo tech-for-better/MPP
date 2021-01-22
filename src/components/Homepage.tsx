@@ -10,13 +10,14 @@ import progressIcon from "../assets/HomePage/progress.svg";
 import Emoji from "../components/Emoji";
 
 const Homepage = () => {
+  const isBackgroundBeige = true;
   // Display username of user via Firebase Auth -->
   // const username: any = auth().currentUser?.displayName;
   return (
-    <PageWrapper style={{backgroundColor:"rgba(253, 244, 231, 1)"}}>
+    <PageWrapper className={isBackgroundBeige ? 'background-beige' : ''}>
       <MultipleLogos />
       <WelcomeText>
-        Welcome Khadija <Emoji symbol="👋" label="wave"/>
+        Welcome Luke <Emoji symbol="👋" label="wave"/>
         <Span> What do you want to work on? </Span>
       </WelcomeText>
       <IconsContainer>

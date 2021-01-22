@@ -1,10 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import progressIcon from "../assets/progress-icon.svg";
-// import homeIcon from "../assets/home-icon.svg";
-// import mindIcon from "../assets/mind-icon.svg";
-// import bodyIcon from "../assets/body-icon.svg";
 import NavbarIcons from "./NavbarIcons";
 
 type Props = {

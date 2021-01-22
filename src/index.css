@@ -97,3 +97,6 @@
   background-color: hsl(150, 100%, 50%);
   color: hsl(0, 0%, 100%);
 }
+.background-beige {
+  background:rgba(253, 244, 231, 1);
+}
