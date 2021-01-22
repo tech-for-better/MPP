@@ -54,7 +54,6 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
-      <FilterButtons images={[calm, focus, connect, switchOff]} />
       {bucket.map((file: any) => {
         return file.map((audio: any) => {
           return (

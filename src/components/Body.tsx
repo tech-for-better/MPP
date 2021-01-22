@@ -11,11 +11,20 @@ import tips from "../assets/Filters/tips.svg";
 // import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
 const Body = () => {
+  const [filterBy, setFilterBy] = React.useState<string>("");
+
+  const imagesArray = [
+    { url: beginner, name: "beginner" },
+    { url: intermediate, name: "intermediate" },
+    { url: advanced, name: "advanced" },
+    { url: tips, name: "tips" },
+  ];
+
   return (
     <>
       <PageWrapper>
         <MultipleLogos />
-        <FilterButtons images={[beginner, intermediate, advanced, tips]} />
+        <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {/* <VideoPlayer url={video}/> */}
         <NavBar />
       </PageWrapper>
