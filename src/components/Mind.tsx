@@ -2,9 +2,7 @@ import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
-import { storage, db } from "../connection";
-import { LoadingSpinner } from "./Loader";
-import { storage } from "../connection";
+// import { storage, db } from "../connection";
 import styled from "styled-components";
 
 import FilterButtons from "./FilterButtons";
