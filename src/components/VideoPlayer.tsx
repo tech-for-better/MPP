@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
-import thumbnail from "../assets/MPP-thumbnail.jpg";
+import thumbnail from "../assets/peak-icon.svg";
 
-export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
+export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
 
   const handleWatchComplete = ({ played }: any) => {
-    console.log(played);
     if (played >= 0.7 && !watchComplete) {
       setWatchComplete(true);
     }
@@ -15,13 +14,14 @@ export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
 
   return (
     <div>
+      {videoData.topic}
       <VideoContainer>
         <ReactPlayer
-          url={url}
+          url={videoData.url}
           className='react-player'
           controls
           playsinline
-          width='30%'
+          width='15vw'
           height='auto'
           onProgress={handleWatchComplete}
           poster={thumbnail}
