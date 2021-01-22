@@ -2,9 +2,8 @@ import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
-// import { storage, db } from "../connection";
+import { storage, db } from "../connection";
 import styled from "styled-components";
-
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
 import focus from "../assets/Filters/focus.png";
@@ -109,6 +108,7 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
+      <Banner></Banner>
       <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
 
       {filterBy !== ""
@@ -138,12 +138,17 @@ const Mind = () => {
               </Figure>
             );
           })}
-
       <NavBar />
     </PageWrapper>
   );
   // }
 };
+
+const Banner = styled.div`
+  background-color: var(--bg-blue);
+  width: 100%;
+  height: 20vh;
+`;
 
 const Figure = styled.figure<CategoryProp>``;
 

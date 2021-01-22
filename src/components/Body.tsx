@@ -7,6 +7,7 @@ import beginner from "../assets/Filters/beginner.svg";
 import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
+import styled from "styled-components";
 
 // import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
@@ -24,6 +25,7 @@ const Body = () => {
     <>
       <PageWrapper>
         <MultipleLogos />
+        <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {/* <VideoPlayer url={video}/> */}
         <NavBar />
@@ -31,5 +33,11 @@ const Body = () => {
     </>
   );
 };
+
+const Banner = styled.div`
+  background-color: var(--boxing-orange);
+  width: 100%;
+  height: 20vh;
+`;
 
 export default Body;
