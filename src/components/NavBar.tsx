@@ -9,7 +9,6 @@ type Props = {
 
 const NavBar = () => {
   const pathname: string = window.location.pathname;
-  console.log(pathname);
 
   return (
     <>
@@ -66,8 +65,6 @@ const NavLink = styled(Link)<Props>`
   margin-bottom: 15px;
 `;
 
-const NavText = styled.span`
-
-`;
+const NavText = styled.span``;
 
 export default NavBar;
