@@ -20,6 +20,22 @@ const Body = () => {
     { url: tips, name: "tips" },
   ];
 
+  React.useEffect(() => {
+    const mediaArray: any = [];
+    db.collection("body")
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          mediaArray.push(doc.data());
+          return doc.data();
+        });
+        return mediaArray;
+      })
+      .then(mediaArray => {
+        setContent(mediaArray);
+      });
+  }, []);
+  if (content.length === 0) return <LoadingSpinner />;
   return (
     <>
       <PageWrapper>
