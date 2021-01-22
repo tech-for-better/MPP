@@ -1,5 +1,7 @@
 import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
+import { db } from "../connection";
+import { LoadingSpinner } from "./Loader";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 import FilterButtons from "./FilterButtons";
@@ -8,11 +10,11 @@ import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
 
-// import { ResponsiveVideoPlayer } from "./VideoPlayer";
+import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
 const Body = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
-
+  const [content, setContent] = React.useState<any[]>([]);
   const imagesArray = [
     { url: beginner, name: "beginner" },
     { url: intermediate, name: "intermediate" },
@@ -35,13 +37,18 @@ const Body = () => {
         setContent(mediaArray);
       });
   }, []);
+  console.log(content);
   if (content.length === 0) return <LoadingSpinner />;
+
   return (
     <>
       <PageWrapper>
         <MultipleLogos />
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
-        {/* <VideoPlayer url={video}/> */}
+        {content.map((video: { topic: string; url: string }) => {
+          return <ResponsiveVideoPlayer videoData={video} />;
+        })}
+
         <NavBar />
       </PageWrapper>
     </>
