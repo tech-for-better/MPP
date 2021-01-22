@@ -11,6 +11,7 @@ import Progress from "./components/Progress";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
+
   const [authStatus, setAuthStatus] = React.useState("loading");
 
   React.useEffect(() => {
