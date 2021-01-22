@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
-import thumbnail from "../assets/peak-icon.svg";
+import thumbnail from "../assets/thumbnail.png";
 
 export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
@@ -14,15 +14,13 @@ export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
 
   return (
     <div>
-      {videoData.topic}
       <VideoContainer>
-        <ReactPlayer
+        {videoData.topic}
+        <SCReactPlayer
           url={videoData.url}
           className='react-player'
           controls
           playsinline
-          width='15vw'
-          height='auto'
           onProgress={handleWatchComplete}
           poster={thumbnail}
           light={thumbnail}
@@ -34,12 +32,25 @@ export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
 };
 
 const VideoContainer = styled.div`
+  /* position: relative;
+  padding-top: 56.25%;
   margin-top: 10%;
-  margin-bottom: 20%;
+  margin-bottom: 20%; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   // add media queries for mobile
+`;
+
+const SCReactPlayer = styled(ReactPlayer)`
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
 `;
 
 const Marker = styled.div`

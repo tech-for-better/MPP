@@ -3,17 +3,15 @@ import { auth } from "./connection";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Onboarding } from "./components/Onboarding";
-import { VideoPlaying } from "./components/VideoPlaying";
 import Homepage from "./components/Homepage";
 import Body from "./components/Body";
 import Mind from "./components/Mind";
 import Progress from "./components/Progress";
-import { BrowserRouter as Router, Route, Route, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSpinner } from "./components/Loader";
 
 function App() {
   const [authStatus, setAuthStatus] = React.useState("loading");
-  const [selectedVideo, setSelectedVideo] = React.useState<[]>([]);
   React.useEffect(() => {
     return auth().onAuthStateChanged(user => {
       user ? setAuthStatus("loggedIn") : setAuthStatus("loggedOut");
@@ -48,11 +46,11 @@ function App() {
               <Homepage />
             </Route>
             <Route path='/body' exact>
-              <Body selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
+              <Body />
             </Route>
-            <Route path='/body:/video' exact>
+            {/* <Route path='/body:/video' exact>
               <VideoPlaying selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
-            </Route>
+            </Route> */}
             <Route path='/mind' exact>
               <Mind />
             </Route>

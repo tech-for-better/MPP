@@ -13,21 +13,15 @@ import { useHistory } from "react-router-dom";
 
 import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
-type selectedVideoProps = {
-  selectedVideo: [{ topic: string; url: string }];
-  setSelectedVideo: React.Dispatch<React.SetStateAction<[]>;
-};
-
 type videoType = {
   topic: string;
   url: string;
 };
 
-const Body = ({ selectedVideo, setSelectedVideo }: selectedVideoProps) => {
+const Body = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [content, setContent] = React.useState<any[]>([]);
-  const videoDataArray : any[]= []
-  const history = useHistory();
+  // const [videoPlaying, setVideoPlaying] = React.useState(false);
 
   const imagesArray = [
     { url: beginner, name: "beginner" },
@@ -36,12 +30,10 @@ const Body = ({ selectedVideo, setSelectedVideo }: selectedVideoProps) => {
     { url: tips, name: "tips" },
   ];
 
-  const handleClick = (e: React.MouseEvent, video: videoType) => {
-    e.preventDefault();
-    videoDataArray.push(video)
-    setSelectedVideo(videoDataArray)
-    history.push(video.topic);
-  };
+  // const handleClick = (e: React.MouseEvent, video: videoType) => {
+  //   setVideoPlaying(!videoPlaying);
+  //   e.preventDefault();
+  // };
   React.useEffect(() => {
     const mediaArray: any = [];
     db.collection("body")
@@ -65,12 +57,8 @@ const Body = ({ selectedVideo, setSelectedVideo }: selectedVideoProps) => {
         <MultipleLogos />
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {content.map((video: videoType) => {
-          return (
-            <>
-              <button onClick={e => handleClick(e, video)}></button>
-              <h1>video will playe here</h1>
-            </>
-          );
+          console.log(video.url);
+          return <ResponsiveVideoPlayer videoData={video} />;
         })}
 
         <NavBar />
