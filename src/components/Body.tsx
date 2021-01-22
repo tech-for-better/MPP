@@ -30,7 +30,7 @@ const Body = () => {
 const Banner = styled.div`
   background-color: var(--boxing-orange);
   width: 100%;
-  height: 20vh;
+  height: 25vh;
 `;
 
 export default Body;

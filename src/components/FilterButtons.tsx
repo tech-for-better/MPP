@@ -9,6 +9,7 @@ const FilterButtons = ({ images }: ImageProp) => {
   const pathname = window.location.pathname;
 
   return (
+    <>
     <FilterGroup>
       {images.map(image => (
         <button className='btn'>
@@ -16,11 +17,12 @@ const FilterButtons = ({ images }: ImageProp) => {
         </button>
       ))}
     </FilterGroup>
+    </>
   );
 };
 
 const FilterGroup = styled.section`
-  margin-top: 100px;
+  margin-top: -40px;
 `;
 
 export default FilterButtons;
