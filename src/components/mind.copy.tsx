@@ -13,24 +13,15 @@ import focus from "../assets/Filters/focus.png";
 import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
 
-interface CategoryProp {
-  category: string;
-}
-
-const data = [];
-
 const Mind = () => {
   const [bucket, setBucket] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     getAudioFiles().then(result => {
-      console.log("one", result[0][0]);
       setBucket(result);
     });
   }, []);
-  React.useEffect(() => {
-    console.log("bucket hello", bucket);
-  }, [bucket]);
+  React.useEffect(() => {}, [bucket]);
 
   async function getAudioFiles() {
     var storageRef = storage.ref();
@@ -56,11 +47,8 @@ const Mind = () => {
       return files;
     });
     // return a single promise that will eventually resolve to our array of folders
-    console.log("files", files);
-
     return await Promise.all(files);
   }
-  console.log("two", bucket);
 
   if (bucket.length === 0 || !bucket) return <h1>Loading mind page...</h1>;
   return (
@@ -70,7 +58,7 @@ const Mind = () => {
       {bucket.map((file: any) => {
         return file.map((audio: any) => {
           return (
-            <Figure category={audio.category}>
+            <Figure>
               <figcaption>{audio?.metadata?.customMetadata?.caption}</figcaption>
               <audio controls src={audio.url}>
                 Your browser does not support the
@@ -90,6 +78,6 @@ const Mind = () => {
   // }
 };
 
-const Figure = styled.figure<CategoryProp>``;
+const Figure = styled.figure``;
 
 export default Mind;
