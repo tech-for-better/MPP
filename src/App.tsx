@@ -7,7 +7,6 @@ import Homepage from "./components/Homepage";
 import Body from "./components/Body";
 import Mind from "./components/Mind";
 import Progress from "./components/Progress";
-import { MindTest } from "./components/MindTest";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSpinner } from "./components/Loader";
 
