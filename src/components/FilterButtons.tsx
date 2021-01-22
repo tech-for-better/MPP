@@ -10,12 +10,13 @@ type filterButtonsProp = {
 const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => {
   const pathname = window.location.pathname;
 
-  console.log("image", images[0].url);
-
-  // let { slug } = useParams();
   const handleClick = (e: React.MouseEvent, image: { name: string; url: string }) => {
     e.preventDefault();
-    setFilterBy(image.name);
+    if (filterBy !== "" || filterBy === image.name) {
+      return setFilterBy("");
+    } else {
+      return setFilterBy(image.name);
+    }
   };
   return (
     <FilterGroup>
