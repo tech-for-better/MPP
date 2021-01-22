@@ -2,18 +2,13 @@ import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
-// import { storage, db } from "../connection";
-import styled from "styled-components";
+import { Figure, AudioTitle } from "./PlayerStyles";
 
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
 import focus from "../assets/Filters/focus.png";
 import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
-
-interface CategoryProp {
-  category: string;
-}
 
 const data = [
   {
@@ -119,32 +114,39 @@ const Mind = () => {
             .map(audio => {
               return (
                 <Figure category={audio.category}>
-                  <figcaption>{audio.caption}</figcaption>
+                <div className="flex-child">                  
+                  <AudioTitle>{audio.caption}</AudioTitle>
+                </div>
+                <div className="flex-child">
                   <audio controls src={audio.url}>
-                    Your browser does not support the
-                    <code>audio</code> element.
-                  </audio>
-                </Figure>
+                  Your browser does not support the
+                  <code>audio</code> element.
+                </audio></div>
+              </Figure>
+
               );
             })
         : data.map(audio => {
             return (
-              <Figure category={audio.category}>
-                <figcaption>{audio.caption}</figcaption>
-                <audio controls src={audio.url}>
-                  Your browser does not support the
-                  <code>audio</code> element.
-                </audio>
-              </Figure>
+              <>
+                <Figure category={audio.category}>
+                  <div className="flex-child">                  
+                    <AudioTitle>{audio.caption}</AudioTitle>
+                  </div>
+                  <div className="flex-child">
+                    <audio controls src={audio.url}>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio></div>
+                </Figure>
+              </>
             );
           })}
 
       <NavBar />
     </PageWrapper>
   );
-  // }
 };
 
-const Figure = styled.figure<CategoryProp>``;
 
 export default Mind;
