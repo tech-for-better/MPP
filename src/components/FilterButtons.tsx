@@ -9,19 +9,27 @@ type filterButtonsProp = {
 
 const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => {
   const pathname = window.location.pathname;
+  // const [filterClicked, setFilterClicked] = React.useState(false);
+
+  // const colorCondition = filterClicked ? 'green' : 'red';
+  // const classes = `btn ${colorCondition}`
 
   const handleClick = (e: React.MouseEvent, image: { name: string; url: string }) => {
     e.preventDefault();
     if (filterBy !== "" || filterBy === image.name) {
+      // setFilterClicked(false);
       return setFilterBy("");
     } else {
+      // setFilterClicked(true);
       return setFilterBy(image.name);
     }
   };
+
+ 
   return (
     <FilterGroup>
       {images.map(image => (
-        <button className='btn' onClick={e => handleClick(e, image)}>
+        <button className="btn" onClick={e => handleClick(e, image)}>
           <img
             draggable='false'
             src={image.url}

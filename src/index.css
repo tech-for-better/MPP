@@ -41,15 +41,15 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-.btn:hover,
-.btn:focus {
+.btn,:hover,
+.btn,:focus {
   opacity: 0.8;
 }
 .icon:hover,
 .icon:focus {
   transform: translateY(-0.25em);
 }
-.btn:active,
+.btn,:active,
 .icon:active {
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
@@ -57,10 +57,14 @@
   -o-transform: scale(0.8);
   transform: scale(0.8);
 }
-/* 
- .clicked {
+
+ /* .green {
+  background-color: green;
+}  
+
+.red {
   background-color: red;
-}  */
+} */
 
 /* custom scrollbar styles */
 ::-webkit-scrollbar {
