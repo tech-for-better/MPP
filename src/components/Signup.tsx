@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../connection";
 import {
   RegistrationWrapper,
@@ -24,25 +24,29 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit");
 
     return auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(res => {
+      .then(() => {
         const user: any = auth().currentUser;
+        console.log(user);
+        console.log(username);
         return user.updateProfile({
           displayName: username,
         });
       })
+      .then(() => history.push("home"))
       .catch(error => {
         console.log(error);
         setError(error.message);
       });
   };
 
+  console.log(username);
   return (
     <RegistrationWrapper>
       <ImageWrapper>
