@@ -23,6 +23,7 @@ const Mind = () => {
   const [audios, setAudios] = React.useState<Array<any>>([]);
   const [captions, setCaptions] = React.useState<Array<any>>([]);
 
+  const [filterBy, setFilterBy] = React.useState<string>("");
   var storageRef = storage.ref();
 
   const imagesArray = [
@@ -76,14 +77,9 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
-      <FilterButtons images={imagesArray} />
+      <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
       {audios.map((audio: string) => {
-        return (
-          <audio controls src={audio}>
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
-        );
+        return <h1>{filterBy}</h1>;
       })}
       {captions.length > 0 &&
         captions.map((caption: any) => {

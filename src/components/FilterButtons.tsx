@@ -1,29 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-type ImageProp = {
+type filterButtonsProp = {
+  filterBy: string;
   images: { name: string; url: string }[];
+  setFilterBy: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const FilterButtons = ({ images }: ImageProp) => {
+const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => {
   const pathname = window.location.pathname;
 
   console.log("image", images[0].url);
 
   // let { slug } = useParams();
-  /* 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent, image: { name: string; url: string }) => {
     e.preventDefault();
-    console.log('The button was clicked.');
-    history.push("/mind/{name}")
-    
-  }
-
-*/
+    setFilterBy(image.name);
+  };
   return (
     <FilterGroup>
       {images.map(image => (
-        <button className='btn'>
+        <button className='btn' onClick={e => handleClick(e, image)}>
           <img
             draggable='false'
             src={image.url}
