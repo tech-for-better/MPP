@@ -1,19 +1,35 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-
-// perhaps a bar graph showing 2 bars, the number of meditations and workouts completed
-// (even if they did the same video multiple times)
-// of any category
-
-const data = [
-  {
-    name: "Mind",
-    Mind: 4000,
-  },
-  { name: "Body", Body: 1000 },
-];
+import { auth, db } from "../connection";
 
 const Chart = () => {
+  const [mindProgressData, setMindProgressData] = React.useState();
+  const [bodyProgressData, setBodyProgressData] = React.useState();
+
+  const data = [
+    {
+      name: "Mind",
+      Mind: mindProgressData,
+    },
+    { name: "Body", Body: bodyProgressData },
+  ];
+
+  React.useEffect(() => {
+    const username: any = auth().currentUser?.displayName;
+
+    let userInfo = db.collection("users").doc(username);
+    userInfo.get().then(function (doc: any) {
+      if (doc.exists) {
+        console.log("Document data:", doc.data().mindprogress);
+        setMindProgressData(doc.data().mindprogress);
+        setBodyProgressData(doc.data().bodyprogress);
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    });
+  }, []);
+
   return (
     <BarChart
       width={500}

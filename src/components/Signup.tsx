@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../connection";
+import { auth, db } from "../connection";
 import {
   RegistrationWrapper,
   SubmitButton,
@@ -26,6 +26,11 @@ const Signup = () => {
   const [error, setError] = useState("");
   const history = useHistory();
 
+  // - create a firestore document with id - user display name - in collection"users"
+  //  - document should have email= email..usernmae = username, mindprogress = 0, boxingprogress = 0
+  //
+
+  //
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -36,6 +41,20 @@ const Signup = () => {
         return user.updateProfile({
           displayName: username,
         });
+      })
+      .then(() => {
+        db.collection("users").doc(username).set({
+          email: email,
+          username: username,
+          mindprogress: 0,
+          bodyprogress: 0,
+        });
+      })
+      .then(function () {
+        console.log("Document successfully written!");
+      })
+      .catch(function (error) {
+        console.error("Error writing document: ", error);
       })
       .then(() => history.push("home"))
       .catch(error => {

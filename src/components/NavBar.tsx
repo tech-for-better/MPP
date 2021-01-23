@@ -19,21 +19,18 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink currentPage={pathname} to='/mind'>
-          {/* <Icon src={mindIcon} alt='Clickable Mind Page Navigation Icon' /> */}
           <NavbarIcons iconName='mind' currentPage={pathname} />
 
           <NavText>Mind</NavText>
         </NavLink>
 
         <NavLink currentPage={pathname} to='/body'>
-          {/* <Icon src={bodyIcon} alt='Clickable Body Page Navigation Icon' /> */}
           <NavbarIcons iconName='body' currentPage={pathname} />
 
           <NavText>Body</NavText>
         </NavLink>
 
         <NavLink currentPage={pathname} to='/progress'>
-          {/* <Icon src={progressIcon} alt='Clickable Progress Page Navigation Icon' /> */}
           <NavbarIcons iconName='progress' currentPage={pathname} />
 
           <NavText>Progress</NavText>
@@ -52,15 +49,14 @@ const Navigation = styled.nav<Props>`
   height: auto;
   justify-content: space-evenly;
   bottom: 0;
+  margin-top: 800px;
 `;
 
 const NavLink = styled(Link)<Props>`
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  /* color: #3f4553; */
   color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black)")};
-
   font-weight: bold;
   margin-bottom: 15px;
 `;

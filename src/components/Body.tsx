@@ -30,10 +30,6 @@ const Body = () => {
     { url: tips, name: "tips" },
   ];
 
-  // const handleClick = (e: React.MouseEvent, video: videoType) => {
-  //   setVideoPlaying(!videoPlaying);
-  //   e.preventDefault();
-  // };
   React.useEffect(() => {
     const mediaArray: any = [];
     db.collection("body")

@@ -83,6 +83,7 @@ audio::-webkit-media-controls-panel {
 audio {
   max-height: 100%;
   max-width: 100%;
+  width: 600px;
 }
 .flex-child {
   flex: 1;
