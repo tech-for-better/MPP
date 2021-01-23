@@ -7,7 +7,6 @@ export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
 
   const handleWatchComplete = ({ played }: any) => {
-    console.log(played);
     if (played >= 0.7 && !watchComplete) {
       setWatchComplete(true);
     }

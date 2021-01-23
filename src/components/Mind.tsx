@@ -105,7 +105,6 @@ const Mind = () => {
     { url: connect, name: "connect" },
     { url: switchOff, name: "switchOff" },
   ];
-  console.log(filterBy);
   return (
     <PageWrapper>
       <MultipleLogos />

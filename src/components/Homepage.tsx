@@ -13,7 +13,6 @@ const Homepage = () => {
   const isBackgroundBeige = true;
   // Display username of user via Firebase Auth -->
   const username: any = auth().currentUser?.displayName;
-  console.log(auth().currentUser);
 
   return (
     <PageWrapper className={isBackgroundBeige ? "background-beige" : ""}>

@@ -33,20 +33,16 @@ const Signup = () => {
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         const user: any = auth().currentUser;
-        console.log(user);
-        console.log(username);
         return user.updateProfile({
           displayName: username,
         });
       })
       .then(() => history.push("home"))
       .catch(error => {
-        console.log(error);
         setError(error.message);
       });
   };
 
-  console.log(username);
   return (
     <RegistrationWrapper>
       <ImageWrapper>
