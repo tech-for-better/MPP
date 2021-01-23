@@ -154,6 +154,4 @@ const Banner = styled.div`
   height: 25vh;
 `;
 
-const Figure = styled.figure<CategoryProp>``;
-
 export default Mind;
