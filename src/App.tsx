@@ -47,6 +47,9 @@ function App() {
             <Route path='/body' exact>
               <Body />
             </Route>
+            {/* <Route path='/body:/video' exact>
+              <VideoPlaying selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
+            </Route> */}
             <Route path='/mind' exact>
               <Mind />
             </Route>
