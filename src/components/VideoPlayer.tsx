@@ -2,14 +2,26 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
 import thumbnail from "../assets/thumbnail.png";
-
+import { auth, db, firebaseFirestore } from "../connection";
 export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
 
-  const handleWatchComplete = ({ played }: any) => {
-    if (played >= 0.7 && !watchComplete) {
-      setWatchComplete(true);
-    }
+  //  go to firestore and select the correct document and collection
+  //  add a field called progress - thats a number - and set it to 1 or add 1 to it
+  //
+
+  const username: any = auth().currentUser?.displayName;
+
+  const watchedVideo = () => {
+    var boxing101 = db.collection("users").doc(username);
+    boxing101.update({
+      bodyprogress: firebaseFirestore.FieldValue.increment(1),
+    });
+  };
+
+  const handleWatchComplete = () => {
+    setWatchComplete(true);
+    watchedVideo();
   };
 
   return (
@@ -21,7 +33,7 @@ export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
           className='react-player'
           controls
           playsinline
-          onProgress={handleWatchComplete}
+          onEnded={handleWatchComplete}
           poster={thumbnail}
           light={thumbnail}
         />
