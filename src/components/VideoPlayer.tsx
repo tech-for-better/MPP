@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
-import thumbnail from "../assets/MPP-thumbnail.jpg";
+import thumbnail from "../assets/thumbnail.png";
 
-export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
+export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
 
   const handleWatchComplete = ({ played }: any) => {
-    console.log(played);
     if (played >= 0.7 && !watchComplete) {
       setWatchComplete(true);
     }
@@ -16,13 +15,12 @@ export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
   return (
     <div>
       <VideoContainer>
-        <ReactPlayer
-          url={url}
+        {videoData.topic}
+        <SCReactPlayer
+          url={videoData.url}
           className='react-player'
           controls
           playsinline
-          width='30%'
-          height='auto'
           onProgress={handleWatchComplete}
           poster={thumbnail}
           light={thumbnail}
@@ -34,12 +32,25 @@ export const ResponsiveVideoPlayer = ({ url, onProgress }: any) => {
 };
 
 const VideoContainer = styled.div`
+  /* position: relative;
+  padding-top: 56.25%;
   margin-top: 10%;
-  margin-bottom: 20%;
+  margin-bottom: 20%; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   // add media queries for mobile
+`;
+
+const SCReactPlayer = styled(ReactPlayer)`
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
 `;
 
 const Marker = styled.div`

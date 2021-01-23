@@ -1,5 +1,5 @@
 import React from "react";
-// import { auth } from "../connection";
+import { auth } from "../connection";
 import { PageWrapper } from "./Onboarding.styles";
 import { MultipleLogos } from "./MultipleLogos";
 import styled from "styled-components";
@@ -12,28 +12,29 @@ import Emoji from "../components/Emoji";
 const Homepage = () => {
   const isBackgroundBeige = true;
   // Display username of user via Firebase Auth -->
-  // const username: any = auth().currentUser?.displayName;
+  const username: any = auth().currentUser?.displayName;
+
   return (
-    <PageWrapper className={isBackgroundBeige ? 'background-beige' : ''}>
+    <PageWrapper className={isBackgroundBeige ? "background-beige" : ""}>
       <MultipleLogos />
       <WelcomeText>
-        Welcome Luke <Emoji symbol="👋" label="wave"/>
+        Welcome {username} <Emoji symbol='👋' label='wave' />
         <Span> What do you want to work on? </Span>
       </WelcomeText>
       <IconsContainer>
         <Mind>
           <Link to='/mind'>
-            <Icon className="icon" draggable="false" src={meditationIcon} alt=''></Icon>
+            <Icon className='icon' draggable='false' src={meditationIcon} alt=''></Icon>
           </Link>
         </Mind>
         <Body>
           <Link to='/body'>
-            <Icon className="icon" draggable="false" src={boxingIcon} alt=''></Icon>
+            <Icon className='icon' draggable='false' src={boxingIcon} alt=''></Icon>
           </Link>
         </Body>
         <Progress>
           <Link to='/progress'>
-            <Icon className="icon" draggable="false" src={progressIcon} alt=''></Icon>
+            <Icon className='icon' draggable='false' src={progressIcon} alt=''></Icon>
           </Link>
         </Progress>
       </IconsContainer>

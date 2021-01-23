@@ -32,9 +32,6 @@ const Login = () => {
 
     return auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => {
-        console.log("user", user);
-      })
       .catch(error => {
         setError(error.message);
       });
