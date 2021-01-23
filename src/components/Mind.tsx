@@ -6,6 +6,7 @@ import { db } from "../connection";
 import styled from "styled-components";
 import { LoadingSpinner } from "./Loader";
 
+import { Figure, AudioTitle } from "./PlayerStyles";
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
 import focus from "../assets/Filters/focus.png";
@@ -46,6 +47,7 @@ const Mind = () => {
   return (
     <PageWrapper>
       <MultipleLogos />
+      <Banner></Banner>
       <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
 
       {filterBy !== ""
@@ -56,32 +58,44 @@ const Mind = () => {
             .map(audio => {
               return (
                 <Figure category={audio.category} key={audio.caption}>
-                  <figcaption>{audio.caption}</figcaption>
-                  <audio controls src={audio.url}>
-                    Your browser does not support the
-                    <code>audio</code> element.
-                  </audio>
+                  <div className='flex-child'>
+                    <AudioTitle>{audio.caption}</AudioTitle>
+                  </div>
+                  <div className='flex-child'>
+                    <audio controls src={audio.url}>
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
                 </Figure>
               );
             })
         : audios.map(audio => {
             return (
-              <Figure category={audio.category} key={audio.caption}>
-                <figcaption>{audio.caption}</figcaption>
-                <audio controls src={audio.url}>
-                  Your browser does not support the
-                  <code>audio</code> element.
-                </audio>
-              </Figure>
+              <>
+                <Figure category={audio.category} key={audio.caption}>
+                  <div className='flex-child'>
+                    <AudioTitle>{audio.caption}</AudioTitle>
+                  </div>
+                  <div className='flex-child'>
+                    <audio controls src={audio.url}>
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </Figure>
+              </>
             );
           })}
-
       <NavBar />
     </PageWrapper>
   );
-  // }
 };
 
-const Figure = styled.figure<CategoryProp>``;
+const Banner = styled.div`
+  background-color: var(--bg-blue);
+  width: 100%;
+  height: 25vh;
+`;
 
 export default Mind;

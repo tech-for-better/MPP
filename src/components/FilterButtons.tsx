@@ -9,7 +9,6 @@ type filterButtonsProp = {
 
 const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => {
   const pathname = window.location.pathname;
-
   const handleClick = (e: React.MouseEvent, image: { name: string; url: string }) => {
     e.preventDefault();
     if (filterBy !== "" || filterBy === image.name) {
@@ -20,28 +19,30 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
   };
 
   return (
-    <FilterGroup>
-      {images.map(image => (
-        <FilterButton
-          key={image.name}
-          className='btn'
-          style={{ backgroundColor: image.name === filterBy ? "#2596be" : "#ffff" }}
-          onClick={(e: React.MouseEvent) => handleClick(e, image)}
-        >
-          <img
-            draggable='false'
-            src={image.url}
-            alt={"filter button for" + image.name + "audios category"}
-            width={pathname === "/mind" ? "40px" : "auto"}
-          ></img>
-        </FilterButton>
-      ))}
-    </FilterGroup>
+    <>
+      <FilterGroup>
+        {images.map(image => (
+          <FilterButton
+            key={image.name}
+            className='btn'
+            style={{ backgroundColor: image.name === filterBy ? "#2596be" : "#ffff" }}
+            onClick={(e: React.MouseEvent) => handleClick(e, image)}
+          >
+            <img
+              draggable='false'
+              src={image.url}
+              alt={"filter button for" + image.name + "audios category"}
+              width={pathname === "/mind" ? "40px" : "auto"}
+            ></img>
+          </FilterButton>
+        ))}
+      </FilterGroup>
+    </>
   );
 };
 
 const FilterGroup = styled.section`
-  margin-top: 100px;
+  margin-top: -40px;
 `;
 
 const FilterButton = styled.button`
