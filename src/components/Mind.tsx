@@ -4,7 +4,6 @@ import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
 import styled from "styled-components";
 import { LoadingSpinner } from "./Loader";
-import { ResponsiveAudioPlayer } from "./AudioPlayer";
 import { auth, db, firebaseFirestore } from "../connection";
 
 import { Figure, AudioTitle } from "./PlayerStyles";
