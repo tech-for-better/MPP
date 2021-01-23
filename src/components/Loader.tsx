@@ -1,8 +1,6 @@
 import React from "react";
 import SkewLoader from "react-spinners/SkewLoader";
 
-
-
 export const LoadingSpinner = () => {
     return (
         <div className="loader-wrapper">

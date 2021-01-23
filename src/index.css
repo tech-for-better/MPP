@@ -26,8 +26,8 @@
   width: 65.34px;
   height: 65px;
   border-radius: 20px;
-  margin: 10px 13px 10px 10px;
-  background: rgba(255, 255, 255, 0.9);
+  margin: 10px 13px 10px 40px;
+  background: rgb(255, 255, 255);
   display: inline-block;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -43,7 +43,7 @@
 }
 .btn:hover,
 .btn:focus {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .icon:hover,
 .icon:focus {
