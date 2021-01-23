@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSpinner } from "./components/Loader";
 
 function App() {
-
   const [authStatus, setAuthStatus] = React.useState("loading");
   React.useEffect(() => {
     return auth().onAuthStateChanged(user => {
@@ -20,14 +19,13 @@ function App() {
   }, []);
 
   if (authStatus === "loading") {
-  return (
-    <>
-    <LoadingSpinner/>
-    </>
-  )
-}
+    return (
+      <>
+        <LoadingSpinner />
+      </>
+    );
+  }
 
-  console.log(authStatus);
   return (
     <Router>
       <Switch>
