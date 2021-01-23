@@ -2,9 +2,10 @@ import React from "react";
 import { PageWrapper } from "./Onboarding.styles";
 import NavBar from "./NavBar";
 import { MultipleLogos } from "./MultipleLogos";
-import { db } from "../connection";
 import styled from "styled-components";
 import { LoadingSpinner } from "./Loader";
+import { ResponsiveAudioPlayer } from "./AudioPlayer";
+import { auth, db, firebaseFirestore } from "../connection";
 
 import { Figure, AudioTitle } from "./PlayerStyles";
 import FilterButtons from "./FilterButtons";
@@ -20,8 +21,18 @@ interface CategoryProp {
 const Mind = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
-  const [audioPlaying, setAudioPlaying] = React.useState(false);
+  const username: any = auth().currentUser?.displayName;
 
+  const watchedVideo = () => {
+    var mindProgress = db.collection("users").doc(username);
+    mindProgress.update({
+      mindprogress: firebaseFirestore.FieldValue.increment(1),
+    });
+  };
+
+  const handleWatchComplete = () => {
+    watchedVideo();
+  };
   const imagesArray = [
     { url: calm, name: "calm" },
     { url: focus, name: "focus" },
@@ -44,10 +55,6 @@ const Mind = () => {
       });
   }, []);
 
-  // const checkAudioPlaying = (e: React.SyntheticEvent<HTMLAudioElement, Event>) => {
-  //   e.preventDefault();
-  //   console.log(e.target);
-  // };
   if (audios.length === 0 || audios === undefined) return <LoadingSpinner />;
   return (
     <PageWrapper>
@@ -66,7 +73,7 @@ const Mind = () => {
                     <AudioTitle>{audio.caption}</AudioTitle>
                   </div>
                   <div className='flex-child'>
-                    <audio controls src={audio.url}>
+                    <audio controls src={audio.url} onEnded={handleWatchComplete}>
                       Your browser does not support the
                       <code>audio</code> element.
                     </audio>
@@ -81,7 +88,7 @@ const Mind = () => {
                   <AudioTitle>{audio.caption}</AudioTitle>
                 </div>
                 <div className='flex-child'>
-                  <audio controls src={audio.url}>
+                  <audio controls src={audio.url} onEnded={handleWatchComplete}>
                     Your browser does not support the
                     <code>audio</code> element.
                   </audio>
@@ -100,11 +107,5 @@ const Banner = styled.div`
   width: 100%;
   height: 25vh;
 `;
-
-// const AudioWrapper = styled.div`
-//   margin-bottom: 200px;
-//   display: lex;
-//   flex-direction: column;
-// `;
 
 export default Mind;
