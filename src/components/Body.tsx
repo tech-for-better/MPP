@@ -7,20 +7,37 @@ import beginner from "../assets/Filters/beginner.svg";
 import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
+import styled from "styled-components";
 
 // import { ResponsiveVideoPlayer } from "./VideoPlayer";
 
 const Body = () => {
+  const [filterBy, setFilterBy] = React.useState<string>("");
+
+  const imagesArray = [
+    { url: beginner, name: "beginner" },
+    { url: intermediate, name: "intermediate" },
+    { url: advanced, name: "advanced" },
+    { url: tips, name: "tips" },
+  ];
+
   return (
     <>
       <PageWrapper>
         <MultipleLogos />
-        <FilterButtons images={[beginner, intermediate, advanced, tips]} />
+        <Banner></Banner>
+        <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {/* <VideoPlayer url={video}/> */}
         <NavBar />
       </PageWrapper>
     </>
   );
 };
+
+const Banner = styled.div`
+  background-color: var(--boxing-orange);
+  width: 100%;
+  height: 25vh;
+`;
 
 export default Body;

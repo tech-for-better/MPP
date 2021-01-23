@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
 // perhaps a bar graph showing 2 bars, the number of meditations and workouts completed
 // (even if they did the same video multiple times)
