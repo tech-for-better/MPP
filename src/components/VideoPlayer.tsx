@@ -3,12 +3,9 @@ import ReactPlayer from "react-player";
 import styled from "styled-components";
 import thumbnail from "../assets/thumbnail.png";
 import { auth, db, firebaseFirestore } from "../connection";
+
 export const ResponsiveVideoPlayer = ({ videoData, onProgress }: any) => {
   const [watchComplete, setWatchComplete] = useState(false);
-
-  //  go to firestore and select the correct document and collection
-  //  add a field called progress - thats a number - and set it to 1 or add 1 to it
-  //
 
   const username: any = auth().currentUser?.displayName;
 
