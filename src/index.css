@@ -75,6 +75,23 @@
   background-color: #e8edee;
 }
 
+/* html5 default audio styles */
+audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-panel {
+  background-color: #FFFFFF;
+  color: #000;
+  width:100%;
+}
+audio {
+  max-height: 100%;
+  max-width: 100%;
+}
+.flex-child {
+  flex: 1;
+  align-self: center;
+  text-align: center;
+}
+
+
 /* video player custom styles */
 .react-player {
   border-radius: 20px 20px 20px 20px;
