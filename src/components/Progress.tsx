@@ -10,16 +10,12 @@ const Progress = () => {
   return (
     <>
       <PageWrapper>
-        <MultipleLogos/>
-        <ProgressGift 
-          draggable="false"
-          src={ProgressIcon} 
-          alt="">
-        </ProgressGift>
+        <MultipleLogos />
+        <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
         <Banner></Banner>
-        <Slogan style={{marginTop: 25}}> Your Progress </Slogan>
-        <NavBar/>
-        <Chart/>
+        <Slogan style={{ marginTop: 25 }}> Your Progress </Slogan>
+        <NavBar />
+        <Chart />
       </PageWrapper>
     </>
   );
@@ -32,7 +28,6 @@ const Banner = styled.div`
   border: 2px solid red;
 `;
 
-const ProgressGift = styled.img`
-`;
+const ProgressGift = styled.img``;
 
 export default Progress;
