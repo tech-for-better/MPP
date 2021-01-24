@@ -77,6 +77,10 @@ const Icon = styled.img`
   background-color: #fcfeff;
   border: none;
   border-radius: 50%;
+  @media (max-width: 500px) {
+    height: 30vw;
+    width: 30vw;
+  }
 `;
 
 const Mind = styled.div`
