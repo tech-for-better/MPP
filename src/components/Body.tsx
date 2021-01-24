@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { PageWrapper } from "./Onboarding.styles";
 import { db } from "../connection";
 import { LoadingSpinner } from "./Loader";
@@ -11,8 +12,6 @@ import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
 import styled from "styled-components";
 
-import { ResponsiveVideoPlayer } from "./VideoPlayer";
-
 type videoType = {
   topic: string;
   url: string;
@@ -22,7 +21,7 @@ const Body = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [content, setContent] = React.useState<any[]>([]);
   // const [videoPlaying, setVideoPlaying] = React.useState(false);
-
+  const history = useHistory();
   const imagesArray = [
     { url: beginner, name: "beginner" },
     { url: intermediate, name: "intermediate" },
@@ -49,19 +48,26 @@ const Body = () => {
 
   return (
     <>
-      <PageWrapper className="work">
+      <PageWrapper className='work'>
         <MultipleLogos />
         <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {content.map((video: videoType) => {
           console.log(video.url);
           return (
-            <video controls width='250'>
-              <source src={video.url} type='video/webm' />
-              <source src={video.url} type='video/mp4' />
-              Sorry, your browser doesn't support embedded videos.
-            </video>
+            <div>
+              <h3>{video.topic}</h3>
+              <button
+                onClick={e => {
+                  localStorage.setItem("selectedVideo", JSON.stringify(video));
+                  history.push("body/" + video.topic.replace(/\s/g, ""));
+                }}
+              >
+                {video.topic}
+              </button>
+            </div>
           );
+          // return <ResponsiveVideoPlayer videoData={video} />;
         })}
         <NavBar />
       </PageWrapper>
