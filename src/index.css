@@ -20,6 +20,23 @@
   overflow-x: hidden;
 }
 
+/* On screens that are 280px or less */
+@media screen and (max-width: 705px){
+  .chart-container {
+    width: 300px !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    border: 1px solid red !important;
+  }
+}
+@media screen and (max-width: 900px){
+  .chart-container {
+    width: 200%;
+    border: 1px solid blue;
+  }
+}
+
+
 /* button styles - homepage & filter */
 .icon {
   width: 65.34px;

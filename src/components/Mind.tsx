@@ -13,10 +13,6 @@ import focus from "../assets/Filters/focus.png";
 import connect from "../assets/Filters/connection.png";
 import switchOff from "../assets/Filters/switch-off.png";
 
-interface CategoryProp {
-  category: string;
-}
-
 const Mind = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
