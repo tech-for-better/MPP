@@ -31,7 +31,7 @@ const Chart = () => {
   }, []);
 
   return (
-    <ResponsiveContainer className="chart-container" width="50%" height={400}>
+    <ResponsiveContainer className="chart-container" width="40%" height={400}>
     <BarChart
       width={500}
       height={400}
@@ -51,8 +51,8 @@ const Chart = () => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey='Mind' fill=' pink' />
-      <Bar dataKey='Body' fill=' orange)' />
+      <Bar dataKey='Mind' fill='rgb(87, 173, 199)' />
+      <Bar dataKey='Body' fill='var(--boxing-orange)' />
     </BarChart>
     </ResponsiveContainer>
   );

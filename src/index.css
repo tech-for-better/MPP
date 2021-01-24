@@ -20,24 +20,36 @@
   overflow-x: hidden;
 }
 
-/* On screens that are 280px or less */
+
+/* Progress Page Styles */
+.slogan {
+  margin-top: 25px;
+}
+.chart-container {
+  margin-top: 100px;
+}
+
+
+/* Chart on different screen sizes */
 @media screen and (max-width: 705px){
   .chart-container {
-    width: 300px !important;
+    width: 410px !important;
     height: auto !important;
     margin-left: 0 !important;
-    border: 1px solid red !important;
+  }
+}
+@media screen and (max-width: 412px){
+  .chart-container {
+    width: 320px !important;
   }
 }
 @media screen and (max-width: 900px){
   .chart-container {
     width: 200%;
-    border: 1px solid blue;
   }
 }
 
-
-/* button styles - homepage & filter */
+/* Button - Homepage & Filter */
 .icon {
   width: 65.34px;
   height: 65px;
@@ -73,7 +85,7 @@
   transform: scale(0.8);
 }
 
-/* custom scrollbar styles */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -90,7 +102,7 @@
   background-color: #e8edee;
 }
 
-/* html5 default audio styles */
+/* HTML5 Audio Element */
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: #ffffff;
@@ -108,13 +120,13 @@ audio {
   text-align: center;
 }
 
-/* video player custom styles */
+/* Video Player */
 .react-player {
   border-radius: 20px 20px 20px 20px;
   overflow: hidden;
 }
 
-/* completed video styles */
+/* Completed Video Box */
 .marker {
   display: inline-block;
   width: fit-content;
