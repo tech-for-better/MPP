@@ -20,6 +20,7 @@ interface CategoryProp {
 const Mind = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
+  const [isCurrentAudio, setIsCurrentAudio] = React.useState();
   const username: any = auth().currentUser?.displayName;
 
   const watchedVideo = () => {
@@ -31,6 +32,14 @@ const Mind = () => {
 
   const handleWatchComplete = () => {
     watchedVideo();
+  };
+  const handleOnPlay = (e: any) => {
+    setIsCurrentAudio(e.target);
+  };
+  const handleOnProgress = (e: any) => {
+    if (e.target !== isCurrentAudio) {
+      e.target.pause();
+    }
   };
   const imagesArray = [
     { url: calm, name: "calm" },
@@ -87,7 +96,7 @@ const Mind = () => {
                   <AudioTitle>{audio.caption}</AudioTitle>
                 </div>
                 <div className='flex-child'>
-                  <audio controls src={audio.url} onEnded={handleWatchComplete}>
+                  <audio controls src={audio.url} onPlay={handleOnPlay} onProgress={handleOnProgress} onEnded={handleWatchComplete}>
                     Your browser does not support the
                     <code>audio</code> element.
                   </audio>
