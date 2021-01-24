@@ -130,4 +130,5 @@ audio {
 }
 .background-beige {
   background: rgba(253, 244, 231, 1);
+  height: 100vh;
 }
