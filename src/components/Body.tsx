@@ -49,7 +49,7 @@ const Body = () => {
 
   return (
     <>
-      <PageWrapper>
+      <PageWrapper className="work">
         <MultipleLogos />
         <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
@@ -63,7 +63,6 @@ const Body = () => {
             </video>
           );
         })}
-
         <NavBar />
       </PageWrapper>
     </>

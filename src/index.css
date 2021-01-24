@@ -120,13 +120,9 @@ audio {
   align-self: center;
   text-align: center;
 }
-
-/* Video Player */
-.react-player {
-  border-radius: 20px 20px 20px 20px;
-  overflow: hidden;
-}
-
+.flex-child:first-child {
+  margin-right: 20px;
+} 
 /* Completed Video Box */
 .marker {
   display: inline-block;
