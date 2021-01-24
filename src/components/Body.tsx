@@ -55,7 +55,13 @@ const Body = () => {
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {content.map((video: videoType) => {
           console.log(video.url);
-          return <ResponsiveVideoPlayer videoData={video} />;
+          return (
+            <video controls width='250'>
+              <source src={video.url} type='video/webm' />
+              <source src={video.url} type='video/mp4' />
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+          );
         })}
 
         <NavBar />
