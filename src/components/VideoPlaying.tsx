@@ -29,9 +29,12 @@ const VideoPlaying = () => {
     <PageWrapper className='work'>
       <MultipleLogos />
       <VideoWrapper>
-        <VideoContainer>
+        <TopicWrapper
+          style={{ marginTop: "50px", textTransform: "uppercase", fontWeight: "bold", fontSize: "25px" }}
+          className='flex-child'
+        >
           <VideoPlayer
-            style={{ width: "100%", marginTop: "20vh" }}
+            style={{ width: "100%", marginTop: "20vh", borderRadius: "20px 20px 20px 20px" }}
             controls
             className='player'
             playsInline
@@ -42,8 +45,8 @@ const VideoPlaying = () => {
             <source src={videoData.url} type='video/mp4' />
             Sorry, your browser doesn't support embedded videos.
           </VideoPlayer>
-        </VideoContainer>
-        <TopicWrapper className='flex-child'>{videoData.topic}</TopicWrapper>
+          {videoData.topic}
+        </TopicWrapper>
 
         <Marker className={watchComplete ? "marker marker-complete" : "marker marker-not-complete"}>Completed! 🎊</Marker>
       </VideoWrapper>
@@ -61,21 +64,18 @@ const VideoWrapper = styled.div`
   margin-bottom: 20vh;
 `;
 const TopicWrapper = styled.div`
-  margin-top: 100px;
+  margin-top: 1000px;
   font-weight: bold;
   border: 1px solid red;
   width: fit-content;
 `;
 const VideoContainer = styled.div`
   background-color: #f7f3f0;
-  margin-bottom: 280px;
+  margin-bottom: 200px;
   margin-top: 100px;
 `;
 const VideoPlayer = styled.video`
-  border-radius: 20px 20px 20px 20px;
   margin-top: 50px;
-  width: 20px;
-  border: 1px solid red;
 `;
 
 const Marker = styled.div`
