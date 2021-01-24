@@ -11,10 +11,11 @@ import intermediate from "../assets/Filters/intermediate.svg";
 import advanced from "../assets/Filters/advanced.svg";
 import tips from "../assets/Filters/tips.svg";
 import styled from "styled-components";
-
+import { Figure, AudioTitle, StyledPlayIcon } from "./PlayerStyles";
 type videoType = {
   topic: string;
   url: string;
+  difficulty: string;
 };
 
 const Body = () => {
@@ -50,22 +51,20 @@ const Body = () => {
     <>
       <PageWrapper className='work'>
         <MultipleLogos />
-        <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {content.map((video: videoType) => {
-          console.log(video.url);
           return (
-            <div>
-              <h3>{video.topic}</h3>
-              <button
-                onClick={e => {
-                  localStorage.setItem("selectedVideo", JSON.stringify(video));
-                  history.push("body/" + video.topic.replace(/\s/g, ""));
-                }}
-              >
-                {video.topic}
-              </button>
-            </div>
+            <BodyFigure
+              onClick={e => {
+                localStorage.setItem("selectedVideo", JSON.stringify(video));
+                history.push("body/" + video.topic.replace(/\s/g, ""));
+              }}
+              category={video.difficulty}
+              key={video.topic}
+            >
+              <StyledPlayIcon />
+              <VideoTitle>{video.topic}</VideoTitle>
+            </BodyFigure>
           );
           // return <ResponsiveVideoPlayer videoData={video} />;
         })}
@@ -81,4 +80,17 @@ const Banner = styled.div`
   height: 25vh;
 `;
 
+const VideoTitle = styled(AudioTitle)`
+  padding-right: 20vw;
+`;
+const BodyFigure = styled(Figure)`
+  padding: 3% 2% 3% 3%;
+  margin-bottom: 2vh;
+  @media screen and (max-width: 650px) {
+    padding: 5%;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow-y: hidden;
+  }
+`;
 export default Body;
