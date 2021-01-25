@@ -52,7 +52,7 @@ export const CurrentPageTitle = styled.h2`
   }
 `;
 
-export const RegistrationWrapper = styled.section`  
+export const RegistrationWrapper = styled.section`
   @media (min-width: 634px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -132,9 +132,9 @@ export const Input = styled.input`
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 6px;
   border: none;
-  margin-bottom: 20px;
+  padding: 0 10px;
   ::-webkit-input-placeholder {
-    padding: 20px;
+    /* padding: 20px;
   }
   :-moz-placeholder {
     /* Firefox 18- */
@@ -147,6 +147,8 @@ export const Input = styled.input`
   :-ms-input-placeholder {
     padding: 20px;
   }
+  margin-bottom: 20px;
+
   @media (min-width: 634px) {
     margin-top: 0px;
     margin-bottom: 50px;
@@ -154,7 +156,6 @@ export const Input = styled.input`
   @media (min-width: 1024px) {
     width: 60%;
   }
-  
 `;
 
 export const SubmitButton = styled(Button)`
