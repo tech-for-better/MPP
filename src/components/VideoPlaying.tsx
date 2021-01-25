@@ -28,14 +28,13 @@ const VideoPlaying = () => {
   return (
     <PageWrapper className='work'>
       <MultipleLogos />
-      <Banner></Banner>
       <VideoWrapper>
         <TopicWrapper
           style={{ marginTop: "50px", textTransform: "uppercase", fontWeight: "bold", fontSize: "25px" }}
           className='flex-child'
         >
           <VideoPlayer
-            style={{ width: "100%", marginTop: "20vh", borderRadius: "20px 20px 20px 20px" }}
+            style={{ width: "100%", marginTop: "5vh", borderRadius: "20px 20px 20px 20px" }}
             controls
             className='player'
             playsInline
@@ -60,7 +59,7 @@ export default VideoPlaying;
 const Banner = styled.div`
   background-color: var(--boxing-orange);
   width: 100%;
-  height: 25vh;
+  height: 15vh;
 `;
 
 const VideoWrapper = styled.div`

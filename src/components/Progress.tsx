@@ -14,9 +14,9 @@ const Progress = () => {
     <>
       <PageWrapper>
         <MultipleLogos />
-        <Banner>
-          <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
-        </Banner>
+        <Banner></Banner>
+        <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
+
         <Title className='slogan'> Your Progress </Title>
         <TextWrapper>
           <Text>
