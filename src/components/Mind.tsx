@@ -34,11 +34,16 @@ const Mind = () => {
     watchedVideo();
   };
   const handleOnPlay = (e: any) => {
+    console.log(e.target.duration === 174.521179);
+
     setIsCurrentAudio(e.target);
   };
   const handleOnProgress = (e: any) => {
-    if (e.target !== isCurrentAudio) {
-      e.target.pause();
+    console.log(e.target.duration < 0.1);
+    if (e.target.duration >= 174.521179) {
+      if (e.target !== isCurrentAudio) {
+        e.target.pause();
+      }
     }
   };
   const imagesArray = [
