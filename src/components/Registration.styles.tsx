@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 export const RegistrationNav = styled.nav`
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 `;
 
 export const OtherPageTitle = styled(RegistrationNav)``;
 
 export const RegistrationNavLink = styled(Link)`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   color: #131212;
   text-decoration: none;
   margin-bottom: 20px;
@@ -34,7 +35,7 @@ export const RegistrationNavLink = styled(Link)`
 
 export const CurrentPageTitle = styled.h2`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   :after {
     background: none repeat scroll 0 0 transparent;
@@ -51,7 +52,7 @@ export const CurrentPageTitle = styled.h2`
   }
 `;
 
-export const RegistrationWrapper = styled.section`
+export const RegistrationWrapper = styled.section`  
   @media (min-width: 634px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -59,10 +60,9 @@ export const RegistrationWrapper = styled.section`
   }
 `;
 
-export const RegistrationImg = styled.img`
+export const LoginImg = styled.img`
   width: 65%;
   height: auto;
-
   @media (max-width: 411px) {
     width: 100%;
   }
@@ -74,10 +74,22 @@ export const RegistrationImg = styled.img`
     height: auto;
   }
 `;
+export const SignUpImage = styled.img`
+  width: 65%;
+  height: auto;
+  @media (max-width: 350px) {
+    width: 78px !important;
+  }
+  @media (max-width: 375px) {
+    width: 77px;
+  }
 
+  @media (max-width: 634px) {
+    width: 86px;
+  }
+`;
 export const ImageWrapper = styled.div`
   text-align: center;
-
   @media (min-width: 634px) {
     position: absolute;
     bottom: 0;
@@ -136,8 +148,13 @@ export const Input = styled.input`
     padding: 20px;
   }
   @media (min-width: 634px) {
-    margin-top: 5px;
+    margin-top: 0px;
+    margin-bottom: 50px;
   }
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
+  
 `;
 
 export const SubmitButton = styled(Button)`
@@ -157,16 +174,25 @@ export const LinkWrapper = styled.div`
     position: absolute;
     bottom: 40px;
   }
+  @media (min-width: 1025px) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1300px) {
+    margin-bottom: 70px;
+  }
 `;
 
 export const Label = styled.label`
   color: rgb(117, 111, 134);
   font-weight: bold;
   font-size: 12px;
-  margin-right: 130px;
-  margin-top: 10px;
+  margin-right: 100px;
+  margin-top: 5px;
   margin-bottom: 20px;
   @media (min-width: 634px) {
     margin-bottom: 0;
+  }
+  @media (max-width: 900px) {
+    margin-left: 40px;
   }
 `;

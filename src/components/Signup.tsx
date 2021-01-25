@@ -8,7 +8,7 @@ import {
   Input,
   FormWrapper,
   ImageWrapper,
-  RegistrationImg,
+  SignUpImage,
   RegistrationNav,
   RegistrationNavLink,
   CurrentPageTitle,
@@ -26,11 +26,6 @@ const Signup = () => {
   const [error, setError] = useState("");
   const history = useHistory();
 
-  // - create a firestore document with id - user display name - in collection"users"
-  //  - document should have email= email..usernmae = username, mindprogress = 0, boxingprogress = 0
-  //
-
-  //
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -65,7 +60,7 @@ const Signup = () => {
   return (
     <RegistrationWrapper>
       <ImageWrapper>
-        <RegistrationImg src={SignUpImg} alt=''></RegistrationImg>
+        <SignUpImage src={SignUpImg} alt=''></SignUpImage>
       </ImageWrapper>
       <FormWrapper>
         <RegistrationNav>
@@ -126,6 +121,15 @@ const Signup = () => {
 
 const SignUpSubmitBtn = styled(SubmitButton)`
   background-color: var(--boxing-orange);
+  letter-spacing: .1em;
+  @media (min-width: 634px) {
+    margin-top: 30px;
+    width: 40%;
+    height: 50px;
+  }
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;
 
 export default Signup;
