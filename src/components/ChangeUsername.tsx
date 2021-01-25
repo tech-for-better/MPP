@@ -4,7 +4,12 @@ import { auth , db} from "../connection";
 import { Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
-export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) => {
+type Props = {
+  setIsSettingsOpened : (param: any) => void;
+  setClickedOption: (param: any) => void;
+}
+
+export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: Props) => {
   var user = auth().currentUser;
   const [newUsername, setNewUsername] = React.useState("");
   // const [oldUsername, setOldUsername] = React.useState< string | null | undefined >(user?.displayName);
@@ -23,7 +28,7 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) =
           setClickedOption("");
           setIsSettingsOpened(false);
         })
-        .catch(function (error: any) {
+        .catch(function (error: string) {
           console.error(error);
         });
     }

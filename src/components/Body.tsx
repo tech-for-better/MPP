@@ -20,7 +20,7 @@ type videoType = {
 
 const Body = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
-  const [content, setContent] = React.useState<any[]>([]);
+  const [content, setContent] = React.useState<videoType[]>([]);
   // const [videoPlaying, setVideoPlaying] = React.useState(false);
   const history = useHistory();
   const imagesArray = [
@@ -31,12 +31,12 @@ const Body = () => {
   ];
 
   React.useEffect(() => {
-    const mediaArray: any = [];
+    const mediaArray: any[]  = []
     db.collection("body")
       .get()
       .then(docs => {
         docs.forEach(doc => {
-          mediaArray.push(doc.data());
+          mediaArray.push(doc?.data());
           return doc.data();
         });
         return mediaArray;
@@ -67,7 +67,6 @@ const Body = () => {
               <StyledPlayIcon />
             </BodyFigure>
           );
-          // return <ResponsiveVideoPlayer videoData={video} />;
         })}
         <NavBar />
       </PageWrapper>

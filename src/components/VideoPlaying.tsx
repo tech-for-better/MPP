@@ -9,7 +9,7 @@ import { auth, db, firebaseFirestore } from "../connection";
 const VideoPlaying = () => {
   const [watchComplete, setWatchComplete] = React.useState(false);
 
-  const username: any = auth().currentUser?.displayName;
+  const username: string = auth().currentUser?.displayName!;
 
   const watchedVideo = () => {
     var boxing101 = db.collection("users").doc(username);
@@ -23,7 +23,8 @@ const VideoPlaying = () => {
     watchedVideo();
   };
 
-  const selectedVideo: any = localStorage.getItem("selectedVideo");
+  const selectedVideo: string = localStorage.getItem("selectedVideo")!;
+  console.log(selectedVideo)
   const videoData = JSON.parse(selectedVideo);
   return (
     <PageWrapper className='work'>

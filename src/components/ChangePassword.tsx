@@ -4,7 +4,12 @@ import { auth } from "../connection";
 import { Input, SubmitButton, Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
-export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) => {
+type Props = {
+  setIsSettingsOpened : (param: any) => void;
+  setClickedOption: (param: any) => void;
+}
+
+export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: Props) => {
   const [newPassword, setNewPassword] = React.useState("");
   var user = auth().currentUser;
   const handleOnclickUpdatePassword = () => {
@@ -17,7 +22,7 @@ export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) =
           setClickedOption("");
           setIsSettingsOpened(false);
         })
-        .catch(function (error: any) {
+        .catch(function (error: string) {
           console.error(error);
         });
     }

@@ -10,7 +10,14 @@ type popupProps = {
   isSettingsOpened: boolean;
 };
 
-export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: any) => {
+type Props = {
+  setIsSettingsOpened :  (param: any) => void;
+  isSettingsOpened: boolean;
+
+}
+
+
+export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: Props) => {
   const [clickedOption, setClickedOption] = React.useState("");
 
   const handleClickClose = () => {
@@ -18,11 +25,11 @@ export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: any) => {
     setClickedOption("");
   };
   const handleClickOptions = (e: any) => {
-    console.log(e.target.id);
+    console.log(e.target);
 
     console.log(clickedOption);
 
-    setClickedOption(e.target.id);
+    // setClickedOption(e.target.id);
     console.log(clickedOption);
   };
   console.log(clickedOption);
