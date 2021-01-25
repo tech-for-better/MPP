@@ -14,13 +14,14 @@ const Progress = () => {
     <>
       <PageWrapper>
         <MultipleLogos />
-        <Banner></Banner>
-        <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
-        <Title className="slogan"> Your Progress </Title>
-        <TextWrapper> 
+        <Banner>
+          <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
+        </Banner>
+        <Title className='slogan'> Your Progress </Title>
+        <TextWrapper>
           <Text>
-            Well done, {username}! It looks like 
-            <TextSpan style={{textAlign: 'center'}}> you are on right track.</TextSpan> 
+            Well done, {username}! It looks like
+            <TextSpan style={{ textAlign: "center" }}> you are on right track.</TextSpan>
           </Text>
         </TextWrapper>
         <Chart />
@@ -45,7 +46,6 @@ const Title = styled.h1`
 
 const ProgressGift = styled.img`
   margin-top: -130px;
-
 `;
 const TextWrapper = styled.div`
   margin-top: 10px;
