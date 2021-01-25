@@ -28,10 +28,12 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    history.push("home");
 
     return auth()
       .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        history.push("/home");
+      })
       .catch(error => {
         setError(error.message);
       });

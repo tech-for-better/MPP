@@ -5,7 +5,8 @@ import { useHistory } from "react-router-dom";
 
 export const Logout = ({ setIsSettingsOpened, setClickedOption }: any) => {
   const history = useHistory();
-  const handleOnclickOk = () => {
+  const handleOnclickOk = (e: any) => {
+    e.preventDefault();
     auth()
       .signOut()
       .then(() => {
