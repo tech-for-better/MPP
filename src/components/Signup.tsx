@@ -45,12 +45,6 @@ const Signup = () => {
           bodyprogress: 0,
         });
       })
-      .then(function () {
-        console.log("Document successfully written!");
-      })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
-      })
       .then(() => history.push("home"))
       .catch(error => {
         setError(error.message);

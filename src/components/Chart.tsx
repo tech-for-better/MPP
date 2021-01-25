@@ -16,7 +16,6 @@ const Chart = () => {
 
   React.useEffect(() => {
     const username: any = auth().currentUser?.displayName;
-
     let userInfo = db.collection("users").doc(username);
     userInfo.get().then(function (doc: any) {
       if (doc.exists) {
@@ -31,29 +30,29 @@ const Chart = () => {
   }, []);
 
   return (
-    <ResponsiveContainer className="chart-container" width="40%" height={400}>
-    <BarChart
-      width={500}
-      height={400}
-      data={data}
-      margin={{
-        top: 5,
-        right: 20,
-        left: 20,
-        bottom: 5,
-      }}
-      barGap={-100}
-      barCategoryGap={50}
-      style={{ overflow: "hidden" }}
-    >
-      <CartesianGrid strokeDasharray='1 10' />
-      <XAxis dataKey='name' />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey='Mind' fill='rgb(87, 173, 199)' />
-      <Bar dataKey='Body' fill='var(--boxing-orange)' />
-    </BarChart>
+    <ResponsiveContainer className='chart-container' width='40%' height={400}>
+      <BarChart
+        width={500}
+        height={400}
+        data={data}
+        margin={{
+          top: 5,
+          right: 20,
+          left: 20,
+          bottom: 5,
+        }}
+        barGap={-100}
+        barCategoryGap={50}
+        style={{ overflow: "hidden" }}
+      >
+        <CartesianGrid strokeDasharray='1 10' />
+        <XAxis dataKey='name' />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey='Mind' fill='rgb(87, 173, 199)' />
+        <Bar dataKey='Body' fill='var(--boxing-orange)' />
+      </BarChart>
     </ResponsiveContainer>
   );
 };
