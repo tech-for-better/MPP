@@ -30,11 +30,16 @@ const Mind = () => {
     watchedVideo();
   };
   const handleOnPlay = (e: any) => {
+    console.log(e.target.duration === 174.521179);
+
     setIsCurrentAudio(e.target);
   };
   const handleOnProgress = (e: any) => {
-    if (e.target !== isCurrentAudio) {
-      e.target.pause();
+    console.log(e.target.duration < 0.1);
+    if (e.target.duration >= 174.521179) {
+      if (e.target !== isCurrentAudio) {
+        e.target.pause();
+      }
     }
   };
   const imagesArray = [
@@ -118,6 +123,9 @@ const Banner = styled.div`
   background-color: var(--bg-blue);
   width: 100%;
   height: 25vh;
+  @media (max-width: 600px) {
+    height: 20vh;
+  }
 `;
 
 export default Mind;

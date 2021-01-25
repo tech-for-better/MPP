@@ -1,17 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { auth } from "../connection";
+import { auth , db} from "../connection";
 import { Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
 export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) => {
-  const [newUsername, setNewUsername] = React.useState("");
   var user = auth().currentUser;
+  const [newUsername, setNewUsername] = React.useState("");
+  // const [oldUsername, setOldUsername] = React.useState< string | null | undefined >(user?.displayName);
+  // const oldUsername : string = user?.displayName!;
 
   const handleOnclickUpdateUsername = () => {
     if (!user) {
       return <p>Unable to update user at the moment</p>;
     } else {
+      // setOldUsername(user?.displayName)
       return user
         .updateProfile({
           displayName: newUsername,
