@@ -36,6 +36,7 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) =
             type='text'
             name='newUsername'
             id='newUsername'
+            maxLength={11}
             onChange={e => {
               setNewUsername(e.target.value);
             }}

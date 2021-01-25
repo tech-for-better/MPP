@@ -46,7 +46,6 @@ const Signup = () => {
         });
       })
       .then(function () {
-        console.log("Document successfully written!");
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);
@@ -79,6 +78,7 @@ const Signup = () => {
             name='displayName'
             type='text'
             placeholder='Username'
+            maxLength={11}
             onChange={e => {
               setUsername(e.target.value);
             }}
@@ -99,7 +99,7 @@ const Signup = () => {
             required
             id='password'
             name='password'
-            type='text'
+            type='password'
             placeholder='Password'
             onChange={e => {
               setPassword(e.target.value);

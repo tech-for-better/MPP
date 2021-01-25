@@ -7,7 +7,6 @@ import { PopUpSubmit, PopUpInput } from "./PopUp";
 export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) => {
   const [newPassword, setNewPassword] = React.useState("");
   var user = auth().currentUser;
-  console.log(user);
   const handleOnclickUpdatePassword = () => {
     if (!user) {
       return <p>Unable to update user at the moment</p>;
@@ -31,7 +30,9 @@ export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) =
         <Label htmlFor='newPassword'>
           Enter you new password
           <PopUpInput
-            type='text'
+           required
+           type='password'
+           placeholder='New Password'
             name='newPassword'
             id='newPassword'
             onChange={e => {
