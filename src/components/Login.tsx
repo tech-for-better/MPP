@@ -7,7 +7,7 @@ import {
   Input,
   SubmitButton,
   FormWrapper,
-  RegistrationImg,
+  LoginImg,
   ImageWrapper,
   Form,
   LinkWrapper,
@@ -37,7 +37,6 @@ const Login = () => {
       });
   };
 
-  // persistence - remember me
   const rememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
     auth().setPersistence(e.target.checked ? auth.Auth.Persistence.LOCAL : auth.Auth.Persistence.SESSION);
   };
@@ -45,7 +44,7 @@ const Login = () => {
   return (
     <RegistrationWrapper>
       <ImageWrapper>
-        <RegistrationImg src={login} alt=''></RegistrationImg>
+        <LoginImg src={login} alt=''></LoginImg>
       </ImageWrapper>
       <FormWrapper>
         <RegistrationNav>
@@ -79,6 +78,7 @@ const Login = () => {
               setPassword(event.target.value);
             }}
           />
+          <TickWrapper>
           <Label htmlFor='rememberMe'>
             <Checkbox
               type='checkbox'
@@ -90,6 +90,7 @@ const Login = () => {
             />
             Remember me
           </Label>
+          </TickWrapper>
           {error ? <p>{error}</p> : null}
           <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
           <LinkWrapper>
@@ -104,16 +105,28 @@ const Login = () => {
   );
 };
 
+const TickWrapper = styled.div`
+  padding: 10px;
+`;
+
 export const Checkbox = styled.input`
-  margin-right: 0.6rem;
+  margin-right: 0.4rem;
   color: rgb(117, 111, 134);
-  border: 2px solid red;
 `;
 
 const LoginSubmitButton = styled(SubmitButton)`
   background-color: #74c7e5;
+  letter-spacing: .1em;
   @media (min-width: 634px) {
-    margin-top: 200px;
+    margin-top: 30px;
+    width: 40%;
+    height: 50px;
+  }
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+  @media (min-width: 1300px) {
+    margin-top: 40px;
   }
 `;
 
