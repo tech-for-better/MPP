@@ -51,6 +51,7 @@ const Body = () => {
     <>
       <PageWrapper className='work'>
         <MultipleLogos />
+        <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
         {content.map((video: videoType) => {
           return (
@@ -62,8 +63,8 @@ const Body = () => {
               category={video.difficulty}
               key={video.topic}
             >
-              <StyledPlayIcon />
               <VideoTitle>{video.topic}</VideoTitle>
+              <StyledPlayIcon />
             </BodyFigure>
           );
           // return <ResponsiveVideoPlayer videoData={video} />;
