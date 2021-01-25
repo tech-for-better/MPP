@@ -16,7 +16,7 @@ import {
 } from "./Registration.styles";
 import { Checkbox } from "./Login";
 import styled from "styled-components";
-import peak from "../assets/peak-icon.svg";
+import peak from "../assets/Logos/peak-icon.svg";
 import SignUpImg from "../assets/Registration/signup.svg";
 
 const Signup = () => {
@@ -121,7 +121,7 @@ const Signup = () => {
 
 const SignUpSubmitBtn = styled(SubmitButton)`
   background-color: var(--boxing-orange);
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   @media (min-width: 634px) {
     margin-top: 30px;
     width: 40%;

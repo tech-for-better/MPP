@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import mobileLogo from "../assets/peak-icon.svg";
+import mobileLogo from "../assets/Logos/peak-icon.svg";
 import desktopLogo from "../assets/desktop-logo.png";
 
 export const MultipleLogos = () => {

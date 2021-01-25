@@ -17,7 +17,7 @@ import {
   CurrentPageTitle,
 } from "./Registration.styles";
 
-import peak from "../assets/peak-icon.svg";
+import peak from "../assets/Logos/peak-icon.svg";
 import login from "../assets/Registration/login.svg";
 
 const Login = () => {
@@ -79,18 +79,18 @@ const Login = () => {
             }}
           />
           <TickWrapper>
-          <Label htmlFor='rememberMe'>
-            <Checkbox
-              type='checkbox'
-              id='rememberMe'
-              name='rememberMe'
-              checked
-              onChange={e => {
-                rememberMe(e);
-              }}
-            />
-            Remember me
-          </Label>
+            <Label htmlFor='rememberMe'>
+              <Checkbox
+                type='checkbox'
+                id='rememberMe'
+                name='rememberMe'
+                checked
+                onChange={e => {
+                  rememberMe(e);
+                }}
+              />
+              Remember me
+            </Label>
           </TickWrapper>
           {error ? <p>{error}</p> : null}
           <LoginSubmitButton type='submit'>LOGIN</LoginSubmitButton>
@@ -117,7 +117,7 @@ export const Checkbox = styled.input`
 
 const LoginSubmitButton = styled(SubmitButton)`
   background-color: #74c7e5;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   @media (min-width: 634px) {
     margin-top: 30px;
     width: 40%;
