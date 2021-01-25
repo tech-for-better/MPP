@@ -2,24 +2,23 @@
 
 :root {
   --main-font: "Open Sans", sans-serif;
-  --main-beige: hsl(38, 66%, 85%);
+  --main-beige: hsl(37, 66%, 85%);
   --boxing-orange: hsl(11, 71%, 62%);
   --beige-bg-colour: hsl(35, 85%, 95%);
   --mild-red: hsl(355, 68%, 57%);
   --deep-red: hsl(355, 68%, 52%);
   --bg-blue: hsl(202, 90%, 92%);
   --main-blue: hsl(194, 96%, 29%);
-  --off-white: #fff7f7;
-  --black: #231f20;
+  --off-white: hsl(0, 100%, 98%);
+  --black: hsl(345, 6%, 13%);
+  --bg-boxing-filterbtn: hsl(10, 69%, 90%);
 }
-
 * {
   padding: 0;
   margin: 0;
   font-family: "Open Sans";
   overflow-x: hidden;
 }
-
 
 /* Progress Page Styles */
 .slogan {
@@ -30,21 +29,20 @@
   margin-bottom: 200px;
 }
 
-
 /* Chart on different screen sizes */
-@media screen and (max-width: 705px){
+@media screen and (max-width: 705px) {
   .chart-container {
     width: 410px !important;
     height: auto !important;
     margin-left: 0 !important;
   }
 }
-@media screen and (max-width: 412px){
+@media screen and (max-width: 412px) {
   .chart-container {
     width: 320px !important;
   }
 }
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
   .chart-container {
     width: 200%;
   }
@@ -122,7 +120,7 @@ audio {
 }
 .flex-child:first-child {
   margin-right: 20px;
-} 
+}
 /* Completed Video Box */
 .marker {
   display: inline-block;
