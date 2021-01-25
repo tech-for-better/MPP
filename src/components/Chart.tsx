@@ -16,7 +16,7 @@ const Chart = () => {
 
   React.useEffect(() => {
     const username: any = auth().currentUser?.displayName;
-
+    console.log(username)
     let userInfo = db.collection("users").doc(username);
     userInfo.get().then(function (doc: any) {
       if (doc.exists) {
