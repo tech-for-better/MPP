@@ -28,6 +28,7 @@ const VideoPlaying = () => {
   return (
     <PageWrapper className='work'>
       <MultipleLogos />
+      <Banner></Banner>
       <VideoWrapper>
         <TopicWrapper
           style={{ marginTop: "50px", textTransform: "uppercase", fontWeight: "bold", fontSize: "25px" }}
@@ -56,17 +57,20 @@ const VideoPlaying = () => {
 };
 
 export default VideoPlaying;
+const Banner = styled.div`
+  background-color: var(--boxing-orange);
+  width: 100%;
+  height: 25vh;
+`;
 
 const VideoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   margin-bottom: 20vh;
 `;
 const TopicWrapper = styled.div`
   margin-top: 1000px;
   font-weight: bold;
-  border: 1px solid red;
   width: fit-content;
 `;
 const VideoContainer = styled.div`

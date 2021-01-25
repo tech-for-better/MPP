@@ -44,7 +44,7 @@ const Navigation = styled.nav<Props>`
   position: fixed;
   display: flex;
   background-color: ${p =>
-    p.currentPage === "/body" ? "var(--boxing-orange)" : p.currentPage === "/mind" ? "var(--bg-blue)" : "var( --main-beige)"};
+    p.currentPage.startsWith("/body") ? "var(--boxing-orange)" : p.currentPage === "/mind" ? "var(--bg-blue)" : "var( --main-beige)"};
   width: 100%;
   height: auto;
   justify-content: space-evenly;
@@ -56,7 +56,7 @@ const NavLink = styled(Link)<Props>`
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black)")};
+  color: ${p => (p.currentPage.startsWith("/body") ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black)")};
   font-weight: bold;
   margin-bottom: 15px;
 `;
