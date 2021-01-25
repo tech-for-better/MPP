@@ -79,7 +79,7 @@ const Mind = () => {
                 <AudioFigure
                   category={audio.category}
                   key={audio.caption}
-                  style={{ marginBottom: i === audios.length - 1 && !(i < 2) ? "100px" : "" }}
+                  style={{ marginTop: i === 0 ? "80px" : "", marginBottom: i === audios.length - 1 && !(i < 2) ? "200px" : "" }}
                 >
                   <div className='flex-child'>
                     <AudioTitle>{audio.caption}</AudioTitle>
@@ -98,7 +98,7 @@ const Mind = () => {
               <AudioFigure
                 category={audio.category}
                 key={audio.caption}
-                style={{ marginBottom: i === audios.length - 1 && !(i < 2) ? "200px" : "" }}
+                style={{ marginTop: i === 0 ? "30px" : "", marginBottom: i === audios.length - 1 && !(i < 2) ? "200px" : "" }}
               >
                 <div className='flex-child'>
                   <AudioTitle>{audio.caption}</AudioTitle>

@@ -9,13 +9,14 @@ export const Figure = styled.figure<CategoryProp>`
   border-radius: 12px;
   background: #ffffff;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin-top: 80px;
+
   object-fit: content;
   display: inline-flex;
 `;
 
 export const AudioFigure = styled(Figure)`
   padding-top: 30px;
+  margin-bottom: 60px;
   padding-bottom: 30px;
   padding-right: 100px;
   /* padding: 3%; */
