@@ -55,7 +55,7 @@ const ReusableProgressIcon = styled(ProgressIcon)<SvgIconProps>`
   margin-top: 15px;
   margin-left: 15px;
   margin-bottom: 10px;
-  fill: ${p => (p.currentPage === "/body" ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
+  fill: ${p => (p.currentPage.startsWith("/body") ? "var(--off-white)" : p.currentPage === "/mind" ? "var(--main-blue)" : "var(--black")};
 `;
 
 export default NavbarIcons;

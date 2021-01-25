@@ -28,6 +28,7 @@ const VideoPlaying = () => {
   return (
     <PageWrapper className='work'>
       <MultipleLogos />
+      <Banner></Banner>
       <VideoWrapper>
         <TopicWrapper
           style={{ marginTop: "50px", textTransform: "uppercase", fontWeight: "bold", fontSize: "25px" }}
