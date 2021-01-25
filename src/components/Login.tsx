@@ -84,6 +84,7 @@ const Login = () => {
               type='checkbox'
               id='rememberMe'
               name='rememberMe'
+              checked
               onChange={e => {
                 rememberMe(e);
               }}
