@@ -122,6 +122,9 @@ const Banner = styled.div`
   background-color: var(--bg-blue);
   width: 100%;
   height: 25vh;
+  @media (max-width: 600px) {
+    height: 20vh;
+  }
 `;
 
 export default Mind;

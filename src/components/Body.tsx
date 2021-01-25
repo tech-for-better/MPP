@@ -79,12 +79,16 @@ const Banner = styled.div`
   background-color: var(--boxing-orange);
   width: 100%;
   height: 25vh;
+  @media (max-width: 600px) {
+    height: 20vh;
+  }
 `;
 
 const VideoTitle = styled(AudioTitle)`
   padding-right: 20vw;
 `;
 const BodyFigure = styled(Figure)`
+  margin-top: 60px;
   padding: 3% 2% 3% 3%;
   margin-bottom: 2vh;
   @media screen and (max-width: 650px) {
