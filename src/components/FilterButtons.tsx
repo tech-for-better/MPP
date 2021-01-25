@@ -25,7 +25,9 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
           <FilterButton
             key={image.name}
             className='btn'
-            style={{ backgroundColor: image.name === filterBy ? "#57adc7" : "#ffff" }}
+            style={{
+              backgroundColor: image.name === filterBy ? (pathname === "/mind" ? "#57adc7" : "var(--bg-boxing-filterbtn)") : "#ffff",
+            }}
             onClick={(e: React.MouseEvent) => handleClick(e, image)}
           >
             <img

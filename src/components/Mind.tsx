@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { LoadingSpinner } from "./Loader";
 import { auth, db, firebaseFirestore } from "../connection";
 
-import { Figure, AudioTitle } from "./PlayerStyles";
+import { AudioFigure, AudioTitle } from "./PlayerStyles";
 import FilterButtons from "./FilterButtons";
 import calm from "../assets/Filters/calm.png";
 import focus from "../assets/Filters/focus.png";
@@ -16,6 +16,7 @@ import switchOff from "../assets/Filters/switch-off.png";
 const Mind = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
+  const [isCurrentAudio, setIsCurrentAudio] = React.useState();
   const username: any = auth().currentUser?.displayName;
 
   const watchedVideo = () => {
@@ -27,6 +28,14 @@ const Mind = () => {
 
   const handleWatchComplete = () => {
     watchedVideo();
+  };
+  const handleOnPlay = (e: any) => {
+    setIsCurrentAudio(e.target);
+  };
+  const handleOnProgress = (e: any) => {
+    if (e.target !== isCurrentAudio) {
+      e.target.pause();
+    }
   };
   const imagesArray = [
     { url: calm, name: "calm" },
@@ -63,32 +72,40 @@ const Mind = () => {
             })
             .map((audio, i) => {
               return (
-                <Figure category={audio.category} key={audio.caption} style={{ marginBottom: i === audios.length - 1 ? "200px" : "" }}>
+                <AudioFigure
+                  category={audio.category}
+                  key={audio.caption}
+                  style={{ marginTop: i === 0 ? "80px" : "", marginBottom: i === audios.length - 1 && !(i < 2) ? "200px" : "" }}
+                >
                   <div className='flex-child'>
                     <AudioTitle>{audio.caption}</AudioTitle>
                   </div>
                   <div className='flex-child'>
-                    <audio controls src={audio.url} onEnded={handleWatchComplete}>
+                    <audio controls src={audio.url} onPlay={handleOnPlay} onProgress={handleOnProgress} onEnded={handleWatchComplete}>
                       Your browser does not support the
                       <code>audio</code> element.
                     </audio>
                   </div>
-                </Figure>
+                </AudioFigure>
               );
             })
         : audios.map((audio, i) => {
             return (
-              <Figure category={audio.category} key={audio.caption} style={{ marginBottom: i === audios.length - 1 ? "200px" : "" }}>
+              <AudioFigure
+                category={audio.category}
+                key={audio.caption}
+                style={{ marginTop: i === 0 ? "30px" : "", marginBottom: i === audios.length - 1 && !(i < 2) ? "200px" : "" }}
+              >
                 <div className='flex-child'>
                   <AudioTitle>{audio.caption}</AudioTitle>
                 </div>
                 <div className='flex-child'>
-                  <audio controls src={audio.url} onEnded={handleWatchComplete}>
+                  <audio controls src={audio.url} onPlay={handleOnPlay} onProgress={handleOnProgress} onEnded={handleWatchComplete}>
                     Your browser does not support the
                     <code>audio</code> element.
                   </audio>
                 </div>
-              </Figure>
+              </AudioFigure>
             );
           })}
 

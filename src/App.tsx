@@ -9,6 +9,7 @@ import Mind from "./components/Mind";
 import Progress from "./components/Progress";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSpinner } from "./components/Loader";
+import VideoPlaying from "./components/VideoPlaying";
 
 function App() {
   const [authStatus, setAuthStatus] = React.useState("loading");
@@ -47,9 +48,9 @@ function App() {
             <Route path='/body' exact>
               <Body />
             </Route>
-            {/* <Route path='/body:/video' exact>
-              <VideoPlaying selectedVideo={selectedVideo} setSelectedVideo={setSelectedVideo} />
-            </Route> */}
+            <Route path='/body/:video' exact>
+              <VideoPlaying />
+            </Route>
             <Route path='/mind' exact>
               <Mind />
             </Route>

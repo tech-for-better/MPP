@@ -8,37 +8,51 @@ import meditationIcon from "../assets/HomePage/meditation.svg";
 import boxingIcon from "../assets/HomePage/boxing.svg";
 import progressIcon from "../assets/HomePage/progress.svg";
 import Emoji from "../components/Emoji";
+import { PopUp } from "./PopUp";
+import { ReactComponent as SettingsIcon } from "../assets/settings.svg";
 
 const Homepage = () => {
+  const [isSettingsOpened, setIsSettingsOpened] = React.useState(false);
   const isBackgroundBeige = true;
   // Display username of user via Firebase Auth -->
   const username: any = auth().currentUser?.displayName;
 
   return (
-    <PageWrapper className={isBackgroundBeige ? "background-beige" : ""}>
-      <MultipleLogos />
-      <WelcomeText>
-        Welcome {username} <Emoji symbol='👋' label='wave' />
-        <Span> What do you want to work on? </Span>
-      </WelcomeText>
-      <IconsContainer>
-        <Mind>
-          <Link to='/mind'>
-            <Icon className='icon' draggable='false' src={meditationIcon} alt=''></Icon>
-          </Link>
-        </Mind>
-        <Body>
-          <Link to='/body'>
-            <Icon className='icon' draggable='false' src={boxingIcon} alt=''></Icon>
-          </Link>
-        </Body>
-        <Progress>
-          <Link to='/progress'>
-            <Icon className='icon' draggable='false' src={progressIcon} alt=''></Icon>
-          </Link>
-        </Progress>
-      </IconsContainer>
-    </PageWrapper>
+    <div className={isBackgroundBeige ? "background-beige" : ""}>
+      <SettingsButton
+        onClick={() => {
+          setIsSettingsOpened(!isSettingsOpened);
+        }}
+      >
+        <StyledSettingsIcon />
+      </SettingsButton>
+      <PopUp isSettingsOpened={isSettingsOpened} setIsSettingsOpened={setIsSettingsOpened} />
+
+      <PageWrapper>
+        <MultipleLogos />
+        <WelcomeText>
+          Welcome {username} <Emoji symbol='👋' label='wave' />
+          <Span> What do you want to work on? </Span>
+        </WelcomeText>
+        <IconsContainer>
+          <Mind>
+            <Link to='/mind'>
+              <Icon className='icon' draggable='false' src={meditationIcon} alt=''></Icon>
+            </Link>
+          </Mind>
+          <Body>
+            <Link to='/body'>
+              <Icon className='icon' draggable='false' src={boxingIcon} alt=''></Icon>
+            </Link>
+          </Body>
+          <Progress>
+            <Link to='/progress'>
+              <Icon className='icon' draggable='false' src={progressIcon} alt=''></Icon>
+            </Link>
+          </Progress>
+        </IconsContainer>
+      </PageWrapper>
+    </div>
   );
 };
 
@@ -49,11 +63,31 @@ const WelcomeText = styled.h1`
   font-weight: bolder;
 `;
 
+const StyledSettingsIcon = styled(SettingsIcon)`
+  height: 30px;
+  width: 30px;
+`;
+
 const Span = styled.span`
   display: block;
   text-align: center;
   font-size: 18px;
   margin-top: 50px;
+`;
+const SettingsButton = styled.button`
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  display: block;
+  position: absolute;
+  right: 0;
+  @media (max-width: 767px) {
+    display: block;
+    position: absolute;
+    left: 0;
+  }
 `;
 
 const IconsContainer = styled.section`
@@ -77,6 +111,10 @@ const Icon = styled.img`
   background-color: #fcfeff;
   border: none;
   border-radius: 50%;
+  @media (max-width: 500px) {
+    height: 30vw;
+    width: 30vw;
+  }
 `;
 
 const Mind = styled.div`

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import mobileLogo from "../assets/peak-icon.svg";
+import mobileLogo from "../assets/Logos/peak-icon.svg";
 import desktopLogo from "../assets/desktop-logo.png";
 
 export const MultipleLogos = () => {
@@ -11,13 +11,14 @@ export const MultipleLogos = () => {
         <MobileLogo src={mobileLogo} />
       </Link>
       <Link to='/'>
-      <DesktopLogo src={desktopLogo} />
+        <DesktopLogo src={desktopLogo} />
       </Link>
     </>
   );
 };
 
 const DesktopLogo = styled.img`
+  margin-top: 25px;
   display: none;
   @media (min-width: 768px) {
     display: block;
@@ -30,6 +31,8 @@ const DesktopLogo = styled.img`
 `;
 
 const MobileLogo = styled.img`
+  margin-top: 25px;
+
   display: none;
   @media (max-width: 767px) {
     display: block;
