@@ -15,9 +15,9 @@ const Chart = () => {
   ];
 
   React.useEffect(() => {
-    const username: any = auth().currentUser?.displayName;
-    console.log(username)
-    let userInfo = db.collection("users").doc(username);
+    const uniqueUserId = auth().currentUser?.uid;
+
+    let userInfo = db.collection("users").doc(uniqueUserId);
     userInfo.get().then(function (doc: any) {
       if (doc.exists) {
         console.log("Document data:", doc.data().mindprogress);

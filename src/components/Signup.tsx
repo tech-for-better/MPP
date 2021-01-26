@@ -38,7 +38,8 @@ const Signup = () => {
         });
       })
       .then(() => {
-        db.collection("users").doc(username).set({
+        const uniqueUserId = auth().currentUser?.uid;
+        db.collection("users").doc(uniqueUserId).set({
           email: email,
           username: username,
           mindprogress: 0,
