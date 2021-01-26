@@ -74,7 +74,7 @@ const Signup = () => {
             name='displayName'
             type='text'
             placeholder='Username'
-            maxLength={11}
+            maxLength={20}
             onChange={e => {
               setUsername(e.target.value);
             }}
