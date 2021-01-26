@@ -13,19 +13,14 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: Props)
   var user = auth().currentUser;
   const [newUsername, setNewUsername] = React.useState("");
   const uniqueUserId = auth().currentUser?.uid;
-  console.log(uniqueUserId);
 
   const handleOnclickUpdateUsername = () => {
     if (!user) {
       return <p>Unable to update user at the moment</p>;
     } else {
-      console.log(newUsername);
-
       db.collection("users").doc(uniqueUserId).update({
         username: newUsername,
       });
-      console.log(newUsername);
-
       // setOldUsername(user?.displayName)
       return user
         .updateProfile({

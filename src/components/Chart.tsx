@@ -20,12 +20,11 @@ const Chart = () => {
     let userInfo = db.collection("users").doc(uniqueUserId);
     userInfo.get().then(function (doc: any) {
       if (doc.exists) {
-        console.log("Document data:", doc.data().mindprogress);
         setMindProgressData(doc.data().mindprogress);
         setBodyProgressData(doc.data().bodyprogress);
       } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        console.error("No such document!");
       }
     });
   }, []);

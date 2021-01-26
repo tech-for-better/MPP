@@ -11,11 +11,9 @@ type popupProps = {
 };
 
 type Props = {
-  setIsSettingsOpened :  (param: any) => void;
+  setIsSettingsOpened: (param: any) => void;
   isSettingsOpened: boolean;
-
-}
-
+};
 
 export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: Props) => {
   const [clickedOption, setClickedOption] = React.useState("");
@@ -25,14 +23,8 @@ export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: Props) => {
     setClickedOption("");
   };
   const handleClickOptions = (e: any) => {
-    console.log(e.target);
-
-    console.log(clickedOption);
-
-    // setClickedOption(e.target.id);
-    console.log(clickedOption);
+    setClickedOption(e.target.id);
   };
-  console.log(clickedOption);
 
   return (
     <Modal isSettingsOpened={isSettingsOpened}>

@@ -21,7 +21,7 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
   return (
     <FilterGroup>
       {images.map(image => (
-        <FilterButtonWrapper>
+        <FilterButtonWrapper key={image.name}>
           <FilterButton
             key={image.name}
             className='btn'
@@ -31,13 +31,14 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
             onClick={(e: React.MouseEvent) => handleClick(e, image)}
           >
             <img
+              key={image.name}
               draggable='false'
               src={image.url}
               alt={"filter button for" + image.name + "audios category"}
               width={pathname === "/mind" ? "40px" : "auto"}
             ></img>
           </FilterButton>
-          <FilterText> {image.name.replace(/([A-Z])/g, " $1").trim()}</FilterText>
+          <FilterText key={image.name}> {image.name.replace(/([A-Z])/g, " $1").trim()}</FilterText>
         </FilterButtonWrapper>
       ))}
     </FilterGroup>

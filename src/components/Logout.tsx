@@ -13,7 +13,7 @@ export const Logout = ({ setIsSettingsOpened, setClickedOption }: any) => {
         history.push("/");
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
       });
   };
 

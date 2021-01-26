@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { auth } from "../connection";
-import { Input, SubmitButton, Label } from "./Registration.styles";
+import { Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
 type Props = {

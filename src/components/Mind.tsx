@@ -34,7 +34,6 @@ const Mind = () => {
   const handleOnProgress = (e: any) => {
     if (e.target.duration > 0.001) {
       if (e.target !== isCurrentAudio) {
-        console.log("shouldstopnow");
         e.target.pause();
       }
     }

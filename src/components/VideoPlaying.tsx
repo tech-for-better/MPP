@@ -24,7 +24,6 @@ const VideoPlaying = () => {
   };
 
   const selectedVideo: string = localStorage.getItem("selectedVideo")!;
-  console.log(selectedVideo);
   const videoData = JSON.parse(selectedVideo);
   return (
     <PageWrapper className='work'>
@@ -74,11 +73,7 @@ const TopicWrapper = styled.div`
   font-weight: bold;
   width: fit-content;
 `;
-const VideoContainer = styled.div`
-  background-color: #f7f3f0;
-  margin-bottom: 200px;
-  margin-top: 100px;
-`;
+
 const VideoPlayer = styled.video`
   margin-top: 50px;
 `;
