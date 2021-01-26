@@ -5,9 +5,9 @@ import { Input, SubmitButton, Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
 type Props = {
-  setIsSettingsOpened : (param: any) => void;
+  setIsSettingsOpened: (param: any) => void;
   setClickedOption: (param: any) => void;
-}
+};
 
 export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: Props) => {
   const [newPassword, setNewPassword] = React.useState("");
@@ -35,14 +35,15 @@ export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: Props)
         <Label htmlFor='newPassword'>
           Enter you new password
           <PopUpInput
-           required
-           type='password'
-           placeholder='New Password'
+            required
+            type='password'
+            placeholder='New Password'
             name='newPassword'
             id='newPassword'
             onChange={e => {
               setNewPassword(e.target.value);
             }}
+            pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
           />
         </Label>
         <PopUpSubmit onClick={handleOnclickUpdatePassword}>Update</PopUpSubmit>
