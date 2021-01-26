@@ -38,18 +38,13 @@ const Signup = () => {
         });
       })
       .then(() => {
-        db.collection("users").doc(username).set({
+        const uniqueUserId = auth().currentUser?.uid;
+        db.collection("users").doc(uniqueUserId).set({
           email: email,
           username: username,
           mindprogress: 0,
           bodyprogress: 0,
         });
-      })
-      .then(function () {
-        console.log("Document successfully written!");
-      })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
       })
       .then(() => history.push("home"))
       .catch(error => {
@@ -79,6 +74,7 @@ const Signup = () => {
             name='displayName'
             type='text'
             placeholder='Username'
+            maxLength={20}
             onChange={e => {
               setUsername(e.target.value);
             }}
@@ -99,7 +95,7 @@ const Signup = () => {
             required
             id='password'
             name='password'
-            type='text'
+            type='password'
             placeholder='Password'
             onChange={e => {
               setPassword(e.target.value);

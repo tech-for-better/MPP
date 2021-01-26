@@ -1,17 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import { auth } from "../connection";
+import { auth, db } from "../connection";
 import { Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
-export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) => {
-  const [newUsername, setNewUsername] = React.useState("");
+type Props = {
+  setIsSettingsOpened: (param: any) => void;
+  setClickedOption: (param: any) => void;
+};
+
+export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: Props) => {
   var user = auth().currentUser;
+  const [newUsername, setNewUsername] = React.useState("");
+  const uniqueUserId = auth().currentUser?.uid;
 
   const handleOnclickUpdateUsername = () => {
     if (!user) {
       return <p>Unable to update user at the moment</p>;
     } else {
+      db.collection("users").doc(uniqueUserId).update({
+        username: newUsername,
+      });
+      // setOldUsername(user?.displayName)
       return user
         .updateProfile({
           displayName: newUsername,
@@ -20,7 +30,7 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) =
           setClickedOption("");
           setIsSettingsOpened(false);
         })
-        .catch(function (error: any) {
+        .catch(function (error: string) {
           console.error(error);
         });
     }
@@ -36,6 +46,7 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: any) =
             type='text'
             name='newUsername'
             id='newUsername'
+            maxLength={20}
             onChange={e => {
               setNewUsername(e.target.value);
             }}

@@ -20,7 +20,7 @@ type videoType = {
 
 const Body = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
-  const [content, setContent] = React.useState<any[]>([]);
+  const [content, setContent] = React.useState<videoType[]>([]);
   // const [videoPlaying, setVideoPlaying] = React.useState(false);
   const history = useHistory();
   const imagesArray = [
@@ -31,12 +31,12 @@ const Body = () => {
   ];
 
   React.useEffect(() => {
-    const mediaArray: any = [];
+    const mediaArray: any[]  = []
     db.collection("body")
       .get()
       .then(docs => {
         docs.forEach(doc => {
-          mediaArray.push(doc.data());
+          mediaArray.push(doc?.data());
           return doc.data();
         });
         return mediaArray;
@@ -67,7 +67,6 @@ const Body = () => {
               <StyledPlayIcon />
             </BodyFigure>
           );
-          // return <ResponsiveVideoPlayer videoData={video} />;
         })}
         <NavBar />
       </PageWrapper>
@@ -79,12 +78,16 @@ const Banner = styled.div`
   background-color: var(--boxing-orange);
   width: 100%;
   height: 25vh;
+  @media (max-width: 600px) {
+    height: 20vh;
+  }
 `;
 
 const VideoTitle = styled(AudioTitle)`
   padding-right: 20vw;
 `;
 const BodyFigure = styled(Figure)`
+  margin-top: 60px;
   padding: 3% 2% 3% 3%;
   margin-bottom: 2vh;
   @media screen and (max-width: 650px) {

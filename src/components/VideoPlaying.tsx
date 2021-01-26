@@ -9,10 +9,10 @@ import { auth, db, firebaseFirestore } from "../connection";
 const VideoPlaying = () => {
   const [watchComplete, setWatchComplete] = React.useState(false);
 
-  const username: any = auth().currentUser?.displayName;
+  const uniqueUserId = auth().currentUser?.uid;
 
   const watchedVideo = () => {
-    var boxing101 = db.collection("users").doc(username);
+    var boxing101 = db.collection("users").doc(uniqueUserId);
     boxing101.update({
       bodyprogress: firebaseFirestore.FieldValue.increment(1),
     });
@@ -23,7 +23,7 @@ const VideoPlaying = () => {
     watchedVideo();
   };
 
-  const selectedVideo: any = localStorage.getItem("selectedVideo");
+  const selectedVideo: string = localStorage.getItem("selectedVideo")!;
   const videoData = JSON.parse(selectedVideo);
   return (
     <PageWrapper className='work'>
@@ -73,11 +73,7 @@ const TopicWrapper = styled.div`
   font-weight: bold;
   width: fit-content;
 `;
-const VideoContainer = styled.div`
-  background-color: #f7f3f0;
-  margin-bottom: 200px;
-  margin-top: 100px;
-`;
+
 const VideoPlayer = styled.video`
   margin-top: 50px;
 `;

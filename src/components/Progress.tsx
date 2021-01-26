@@ -8,7 +8,7 @@ import ProgressIcon from "../assets/progress.svg";
 import { auth } from "../connection";
 
 const Progress = () => {
-  const username: any = auth().currentUser?.displayName;
+  const username: string = auth().currentUser?.displayName!;
 
   return (
     <>

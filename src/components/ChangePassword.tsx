@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { auth } from "../connection";
-import { Input, SubmitButton, Label } from "./Registration.styles";
+import { Label } from "./Registration.styles";
 import { PopUpSubmit, PopUpInput } from "./PopUp";
 
-export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) => {
+type Props = {
+  setIsSettingsOpened: (param: any) => void;
+  setClickedOption: (param: any) => void;
+};
+
+export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: Props) => {
   const [newPassword, setNewPassword] = React.useState("");
   var user = auth().currentUser;
-  console.log(user);
   const handleOnclickUpdatePassword = () => {
     if (!user) {
       return <p>Unable to update user at the moment</p>;
@@ -18,7 +22,7 @@ export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) =
           setClickedOption("");
           setIsSettingsOpened(false);
         })
-        .catch(function (error: any) {
+        .catch(function (error: string) {
           console.error(error);
         });
     }
@@ -31,12 +35,15 @@ export const ChangePassword = ({ setIsSettingsOpened, setClickedOption }: any) =
         <Label htmlFor='newPassword'>
           Enter you new password
           <PopUpInput
-            type='text'
+            required
+            type='password'
+            placeholder='New Password'
             name='newPassword'
             id='newPassword'
             onChange={e => {
               setNewPassword(e.target.value);
             }}
+            pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
           />
         </Label>
         <PopUpSubmit onClick={handleOnclickUpdatePassword}>Update</PopUpSubmit>

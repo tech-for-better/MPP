@@ -17,24 +17,25 @@ const Mind = () => {
   const [filterBy, setFilterBy] = React.useState<string>("");
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
   const [isCurrentAudio, setIsCurrentAudio] = React.useState();
-  const username: any = auth().currentUser?.displayName;
-
-  const watchedVideo = () => {
-    var mindProgress = db.collection("users").doc(username);
+  const uniqueUserId = auth().currentUser?.uid;
+  const listenedToAudio = () => {
+    var mindProgress = db.collection("users").doc(uniqueUserId);
     mindProgress.update({
       mindprogress: firebaseFirestore.FieldValue.increment(1),
     });
   };
 
   const handleWatchComplete = () => {
-    watchedVideo();
+    listenedToAudio();
   };
   const handleOnPlay = (e: any) => {
     setIsCurrentAudio(e.target);
   };
   const handleOnProgress = (e: any) => {
-    if (e.target !== isCurrentAudio) {
-      e.target.pause();
+    if (e.target.duration > 0.001) {
+      if (e.target !== isCurrentAudio) {
+        e.target.pause();
+      }
     }
   };
   const imagesArray = [
@@ -118,6 +119,9 @@ const Banner = styled.div`
   background-color: var(--bg-blue);
   width: 100%;
   height: 25vh;
+  @media (max-width: 600px) {
+    height: 20vh;
+  }
 `;
 
 export default Mind;

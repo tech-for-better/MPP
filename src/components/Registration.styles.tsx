@@ -63,8 +63,9 @@ export const RegistrationWrapper = styled.section`
 export const LoginImg = styled.img`
   width: 65%;
   height: auto;
-  @media (max-width: 411px) {
+  @media (max-width: 451px) {
     width: 100%;
+    height: 50vh;
   }
   @media (max-width: 800px) {
     width: 50%;
@@ -77,15 +78,45 @@ export const LoginImg = styled.img`
 export const SignUpImage = styled.img`
   width: 65%;
   height: auto;
-  @media (max-width: 350px) {
-    width: 78px !important;
+  @media (max-width: 280px) {
+    height: 30vh !important ;
+    width: 30vw !important ;
+    margin-top: 45px;
   }
-  @media (max-width: 375px) {
-    width: 77px;
+  @media (min-width: 320px) {
+    height: 60vh !important ;
+    width: 60vw !important ;
   }
-
-  @media (max-width: 634px) {
-    width: 86px;
+  @media (min-width: 375px) {
+    height: 48vh !important ;
+    width: 50vw !important ;
+    margin-top: 20px;
+    z-index: -1;
+  }
+  @media (min-width: 400px) {
+    height: 70vh !important ;
+    width: 60vw !important ;
+    margin-top: 20px;
+  }
+  @media (min-width: 634px) {
+    height: 60vh !important ;
+    width: 30vw !important ;
+    margin-top: 20px;
+  }
+  @media (min-width: 840px) {
+    height: 60vh !important ;
+    width: 20vw !important ;
+    margin-top: 20px;
+  }
+  @media (min-width: 1000px) {
+    height: 70vh !important ;
+    width: 23vw !important ;
+    margin-top: 20px;
+  }
+  @media (max-width: 1610px) {
+    height: 70vh !important ;
+    width: 15vw !important ;
+    margin-top: 20px;
   }
 `;
 export const ImageWrapper = styled.div`
@@ -103,6 +134,7 @@ export const FormWrapper = styled.section`
   border-radius: 50px 50px 0px 0px;
   padding: 2rem 0 1rem 0;
   width: 100%;
+  background-color: #ffff;
   height: auto;
   text-align: center;
   position: absolute;
