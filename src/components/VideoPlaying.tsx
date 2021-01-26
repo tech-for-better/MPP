@@ -9,10 +9,10 @@ import { auth, db, firebaseFirestore } from "../connection";
 const VideoPlaying = () => {
   const [watchComplete, setWatchComplete] = React.useState(false);
 
-  const username: string = auth().currentUser?.displayName!;
+  const uniqueUserId = auth().currentUser?.uid;
 
   const watchedVideo = () => {
-    var boxing101 = db.collection("users").doc(username);
+    var boxing101 = db.collection("users").doc(uniqueUserId);
     boxing101.update({
       bodyprogress: firebaseFirestore.FieldValue.increment(1),
     });
@@ -24,7 +24,7 @@ const VideoPlaying = () => {
   };
 
   const selectedVideo: string = localStorage.getItem("selectedVideo")!;
-  console.log(selectedVideo)
+  console.log(selectedVideo);
   const videoData = JSON.parse(selectedVideo);
   return (
     <PageWrapper className='work'>
