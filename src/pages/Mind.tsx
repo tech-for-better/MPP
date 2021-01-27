@@ -1,13 +1,14 @@
 import React from "react";
-import { PageWrapper } from "./Onboarding.styles";
-import NavBar from "./NavBar";
-import { MultipleLogos } from "./MultipleLogos";
 import styled from "styled-components";
-import { LoadingSpinner } from "./Loader";
-import { auth, db, firebaseFirestore } from "../connection";
 
-import { AudioFigure, AudioTitle } from "./PlayerStyles";
-import FilterButtons from "./FilterButtons";
+import { auth, db, firebaseFirestore } from "../connection";
+import { PageWrapper } from "../components/Onboarding.styles";
+import NavBar from "../components/NavBar";
+import { MultipleLogos } from "../components/MultipleLogos";
+import { LoadingSpinner } from "../components/Loader";
+import { AudioFigure, AudioTitle } from "../components/PlayerStyles";
+import FilterButtons from "../components/FilterButtons";
+
 import calm from "../assets/Filters/calm.png";
 import focus from "../assets/Filters/focus.png";
 import connect from "../assets/Filters/connection.png";
@@ -18,6 +19,7 @@ const Mind = () => {
   const [audios, setAudios] = React.useState<{ url: string; category: string; caption: string }[]>([]);
   const [isCurrentAudio, setIsCurrentAudio] = React.useState();
   const uniqueUserId = auth().currentUser?.uid;
+
   const listenedToAudio = () => {
     var mindProgress = db.collection("users").doc(uniqueUserId);
     mindProgress.update({
@@ -25,25 +27,29 @@ const Mind = () => {
     });
   };
 
-  const handleWatchComplete = () => {
-    listenedToAudio();
-  };
-  const handleOnPlay = (e: any) => {
-    setIsCurrentAudio(e.target);
-  };
-  const handleOnProgress = (e: any) => {
-    if (e.target.duration > 0.001) {
-      if (e.target !== isCurrentAudio) {
-        e.target.pause();
-      }
-    }
-  };
   const imagesArray = [
     { url: calm, name: "calm" },
     { url: focus, name: "focus" },
     { url: connect, name: "connect" },
     { url: switchOff, name: "switchOff" },
   ];
+
+  const handleWatchComplete = () => {
+    listenedToAudio();
+  };
+
+  const handleOnPlay = (e: any) => {
+    setIsCurrentAudio(e.target);
+  };
+
+  const handleOnProgress = (e: any) => {
+    // console.log(e.target.duration);
+    if (e.target.duration || e.target.buffer) {
+      if (e.target !== isCurrentAudio) {
+        e.target.pause();
+      }
+    }
+  };
   React.useEffect(() => {
     const audiosArray: any = [];
     db.collection("mind")

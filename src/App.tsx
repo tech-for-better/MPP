@@ -1,15 +1,15 @@
 import React from "react";
 import { auth } from "./connection";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import { Onboarding } from "./components/Onboarding";
-import Homepage from "./components/Homepage";
-import Body from "./components/Body";
-import Mind from "./components/Mind";
-import Progress from "./components/Progress";
+import Homepage from "./pages/Homepage";
+import Body from "./pages/Body";
+import Mind from "./pages/Mind";
+import Progress from "./pages/Progress";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoadingSpinner } from "./components/Loader";
-import VideoPlaying from "./components/VideoPlaying";
+import VideoPlaying from "./pages/VideoPlaying";
 
 function App() {
   const [authStatus, setAuthStatus] = React.useState("loading");

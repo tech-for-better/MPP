@@ -1,9 +1,9 @@
 import React from "react";
-import { PageWrapper } from "./Onboarding.styles";
-import NavBar from "./NavBar";
-import { MultipleLogos } from "./MultipleLogos";
+import { PageWrapper } from "../components/Onboarding.styles";
+import NavBar from "../components/NavBar";
+import { MultipleLogos } from "../components/MultipleLogos";
 import styled from "styled-components";
-import Chart from "./Chart";
+import Chart from "../components/Chart";
 import ProgressIcon from "../assets/progress.svg";
 import { auth } from "../connection";
 
@@ -16,11 +16,11 @@ const Progress = () => {
         <MultipleLogos />
         <Banner></Banner>
         <ProgressGift draggable='false' src={ProgressIcon} alt=''></ProgressGift>
-        <Title className="slogan"> Your Progress </Title>
-        <TextWrapper> 
+        <Title className='slogan'> Your Progress </Title>
+        <TextWrapper>
           <Text>
-            Well done, {username}! It looks like 
-            <TextSpan style={{textAlign: 'center'}}> you are on right track.</TextSpan> 
+            Well done, {username}! It looks like
+            <TextSpan style={{ textAlign: "center" }}> you are on right track.</TextSpan>
           </Text>
         </TextWrapper>
         <Chart />
@@ -45,7 +45,6 @@ const Title = styled.h1`
 
 const ProgressGift = styled.img`
   margin-top: -130px;
-
 `;
 const TextWrapper = styled.div`
   margin-top: 10px;

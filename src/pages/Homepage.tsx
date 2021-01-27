@@ -1,14 +1,14 @@
 import React from "react";
 import { auth } from "../connection";
-import { PageWrapper } from "./Onboarding.styles";
-import { MultipleLogos } from "./MultipleLogos";
+import { PageWrapper } from "../components/Onboarding.styles";
+import { MultipleLogos } from "../components/MultipleLogos";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import meditationIcon from "../assets/HomePage/meditation.svg";
 import boxingIcon from "../assets/HomePage/boxing.svg";
 import progressIcon from "../assets/HomePage/progress.svg";
 import Emoji from "../components/Emoji";
-import { PopUp } from "./PopUp";
+import { PopUp } from "../components/PopUp";
 import { ReactComponent as SettingsIcon } from "../assets/settings.svg";
 
 const Homepage = () => {
