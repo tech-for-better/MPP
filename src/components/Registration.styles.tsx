@@ -63,12 +63,13 @@ export const RegistrationWrapper = styled.section`
 export const LoginImg = styled.img`
   width: 65%;
   height: auto;
-  @media (max-width: 451px) {
+  @media (max-width: 380px) {
+    width: 100%;
+    height: 60vh;
+  }
+  @media (min-width: 451px) {
     width: 100%;
     height: 50vh;
-  }
-  @media (max-width: 800px) {
-    width: 50%;
   }
   @media (min-width: 634px) {
     width: 90%;
@@ -88,12 +89,13 @@ export const SignUpImage = styled.img`
     width: 60vw !important ;
   }
   @media (min-width: 375px) {
-    height: 48vh !important ;
-    width: 50vw !important ;
-    margin-top: 20px;
-    z-index: -1;
+    /* height: 48vh !important ;
+    width: 200px !important ; */
+    width: 200px !important ;
+    margin-top: -40px;
+    /* z-index: -1; */
   }
-  @media (min-width: 400px) {
+  /* @media (min-width: 400px) {
     height: 70vh !important ;
     width: 60vw !important ;
     margin-top: 20px;
@@ -107,17 +109,17 @@ export const SignUpImage = styled.img`
     height: 60vh !important ;
     width: 20vw !important ;
     margin-top: 20px;
-  }
+  } */
   @media (min-width: 1000px) {
-    height: 70vh !important ;
-    width: 23vw !important ;
-    margin-top: 20px;
-  }
-  @media (max-width: 1610px) {
     height: 70vh !important ;
     width: 15vw !important ;
     margin-top: 20px;
   }
+  @media (min-width: 1610px) {
+    height: 60vh !important ;
+    width: 15vw !important ;
+    margin-top: 20px;
+  } 
 `;
 export const ImageWrapper = styled.div`
   text-align: center;
