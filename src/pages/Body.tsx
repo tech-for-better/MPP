@@ -56,12 +56,13 @@ const Body = () => {
         <MultipleLogos />
         <Banner></Banner>
         <FilterButtons images={imagesArray} filterBy={filterBy} setFilterBy={setFilterBy} />
+
         {filterBy !== ""
           ? content
               .filter((video: videoType) => {
                 return video.difficulty === filterBy;
               })
-              .map((video, i) => {
+              .map((video: videoType, i) => {
                 return (
                   <BodyFigure
                     onClick={e => {
