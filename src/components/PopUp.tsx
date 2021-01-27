@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Input, SubmitButton } from "./Registration.styles";
 
+import { Input, SubmitButton } from "./Registration.styles";
 import { Logout } from "./Logout";
 import { ChangeUsername } from "./ChangeUsername";
-import { ChangePassword } from "./ChangePassword";
 
 type popupProps = {
   isSettingsOpened: boolean;
@@ -44,10 +43,8 @@ export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: Props) => {
           </ButtonsWrapper>
         ) : clickedOption === "changeUsername" ? (
           <ChangeUsername setIsSettingsOpened={setIsSettingsOpened} setClickedOption={setClickedOption} />
-        ) : clickedOption === "logout" ? (
-          <Logout setIsSettingsOpened={setIsSettingsOpened} setClickedOption={setClickedOption} />
         ) : (
-          <ChangePassword setIsSettingsOpened={setIsSettingsOpened} setClickedOption={setClickedOption} />
+          <Logout setIsSettingsOpened={setIsSettingsOpened} setClickedOption={setClickedOption} />
         )}
       </ModalContent>
     </Modal>

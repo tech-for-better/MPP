@@ -13,7 +13,7 @@ import {
   RegistrationNavLink,
   CurrentPageTitle,
   Label,
-} from "./Registration.styles";
+} from "../components/Registration.styles";
 import { Checkbox } from "./Login";
 import styled from "styled-components";
 import peak from "../assets/Logos/peak-icon.svg";

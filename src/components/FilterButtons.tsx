@@ -21,9 +21,8 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
   return (
     <FilterGroup>
       {images.map(image => (
-        <FilterButtonWrapper key={image.name}>
+        <FilterButtonWrapper>
           <FilterButton
-            key={image.name}
             className='btn'
             style={{
               backgroundColor: image.name === filterBy ? (pathname === "/mind" ? "#57adc7" : "var(--bg-boxing-filterbtn)") : "#ffff",
@@ -38,7 +37,7 @@ const FilterButtons = ({ images, filterBy, setFilterBy }: filterButtonsProp) => 
               width={pathname === "/mind" ? "40px" : "auto"}
             ></img>
           </FilterButton>
-          <FilterText key={image.name}> {image.name.replace(/([A-Z])/g, " $1").trim()}</FilterText>
+          <FilterText> {image.name.replace(/([A-Z])/g, " $1").trim()}</FilterText>
         </FilterButtonWrapper>
       ))}
     </FilterGroup>

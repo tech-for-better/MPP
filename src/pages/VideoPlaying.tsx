@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./NavBar";
-import { MultipleLogos } from "./MultipleLogos";
-import { PageWrapper } from "./Onboarding.styles";
+import NavBar from "../components/NavBar";
+import { MultipleLogos } from "../components/MultipleLogos";
+import { PageWrapper } from "../components/Onboarding.styles";
 import styled from "styled-components";
 import thumbnail from "../assets/thumbnail.png";
 import { auth, db, firebaseFirestore } from "../connection";

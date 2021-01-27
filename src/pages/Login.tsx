@@ -15,7 +15,7 @@ import {
   RegistrationNav,
   RegistrationNavLink,
   CurrentPageTitle,
-} from "./Registration.styles";
+} from "../components/Registration.styles";
 
 import peak from "../assets/Logos/peak-icon.svg";
 import login from "../assets/Registration/login.svg";
