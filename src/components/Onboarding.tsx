@@ -4,7 +4,7 @@ import RightArrow from "../assets/Registration/RightArrow.svg";
 import Meditation from "../assets/Registration/onboarding.svg";
 import { MultipleLogos } from "./MultipleLogos";
 
-import { ButtonDiv, PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
+import { ButtonDiv, PageWrapper, Slogan, Span, Button, Text, Arrow, Image, StyledLink } from "./Onboarding.styles";
 
 export const Onboarding = () => {
   const [goToPage, setGoToPage] = React.useState("/home");

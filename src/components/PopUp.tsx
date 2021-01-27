@@ -37,9 +37,6 @@ export const PopUp = ({ setIsSettingsOpened, isSettingsOpened }: Props) => {
             <Button id='changeUsername' onClick={handleClickOptions}>
               Change Username
             </Button>
-            <Button id='changePassword' onClick={handleClickOptions}>
-              Change Password
-            </Button>
           </ButtonsWrapper>
         ) : clickedOption === "changeUsername" ? (
           <ChangeUsername setIsSettingsOpened={setIsSettingsOpened} setClickedOption={setClickedOption} />
@@ -66,11 +63,16 @@ const Modal = styled.section<popupProps>`
 const ModalContent = styled.article`
   background-color: #ffffff;
   position: absolute;
-  top: 40%;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 3px solid #eceeef;
+  border-radius: 5px;
+  top: 30%;
   margin: 10vw;
   width: 220px;
-  padding: 30px;
-  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 10px;
   left: 40%;
   margin-right: -50%;
 
@@ -78,20 +80,21 @@ const ModalContent = styled.article`
   @media (min-width: 675px) {
     width: 40vw;
   }
+  @media (max-width: 400px) {
+    top: 40%;
+  }
 `;
 const Button = styled.button`
-  display: inline-block;
-  padding: 0.9em 1.3em;
-  margin: 0 0.3em 0.3em;
-  margin-top: 0.4em;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 2em;
   border-radius: 1em;
   border: none;
-  box-sizing: border-box;
-  font-weight: 500;
   background-color: var(--main-beige);
-  text-align: center;
   transition: all 0.2s;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(5px 6px 4px rgba(0, 0, 0, 0.25));
   &:active {
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
@@ -102,13 +105,18 @@ const Button = styled.button`
   &:hover {
     opacity: 0.8;
   }
+  @media (max-width: 400px) {
+    width: 60%;
+  }
 `;
 
 const ButtonsWrapper = styled.article`
   margin: 10% 2%;
   display: flex;
-
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const Close = styled.span`
@@ -121,12 +129,21 @@ const Close = styled.span`
     color: #364747;
     cursor: pointer;
   }
+  &:active {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+  }
 `;
 
 export const PopUpInput = styled(Input)`
-  width: 200px;
-  margin-left: 2px;
-  @media (min-width: 675px) {
+  display: flex;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+@media (min-width: 675px) {
     width: 36vw;
     margin-left: 2px;
   }
@@ -134,9 +151,14 @@ export const PopUpInput = styled(Input)`
 
 export const PopUpSubmit = styled(SubmitButton)`
   width: 200px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
   margin-left: 2px;
+  margin-bottom: 30px;
+
   @media (min-width: 675px) {
     width: 36vw;
     margin-left: 2px;
   }
+
 `;

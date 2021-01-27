@@ -34,6 +34,7 @@ const VideoPlaying = () => {
           style={{ marginTop: "50px", textTransform: "uppercase", fontWeight: "bold", fontSize: "25px" }}
           className='flex-child'
         >
+          {videoData.topic}
           <VideoPlayer
             style={{ width: "100%", marginTop: "5vh", borderRadius: "20px 20px 20px 20px" }}
             controls
@@ -46,7 +47,6 @@ const VideoPlaying = () => {
             <source src={videoData.url} type='video/mp4' />
             Sorry, your browser doesn't support embedded videos.
           </VideoPlayer>
-          {videoData.topic}
         </TopicWrapper>
 
         <Marker className={watchComplete ? "marker marker-complete" : "marker marker-not-complete"}>Completed! 🎊</Marker>
@@ -80,4 +80,5 @@ const VideoPlayer = styled.video`
 
 const Marker = styled.div`
   overflow: hidden;
+  margin-left: 40vw;
 `;

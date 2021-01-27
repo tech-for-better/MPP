@@ -28,7 +28,7 @@ export const AudioFigure = styled(Figure)`
     padding-right: 0;
     padding-left: 0;
     margin-left: 30px;
-    margin-right: 30px;
+    margin-right: 40px;
     overflow-y: hidden;
   }
 `;

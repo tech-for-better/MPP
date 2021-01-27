@@ -128,6 +128,11 @@ const Banner = styled.div`
   @media (max-width: 600px) {
     height: 20vh;
   }
+  @media (max-width: 600px) {
+    height: 20vh;
+    width: 105%;
+
+  }
 `;
 
 export default Mind;

@@ -41,11 +41,11 @@ export const ChangeUsername = ({ setIsSettingsOpened, setClickedOption }: Props)
       <H3>Confirm</H3>
       <form>
         <Label htmlFor='newUsername'>
-          Enter you new username
           <PopUpInput
             type='text'
             name='newUsername'
             id='newUsername'
+            placeholder="Enter your new username"
             maxLength={20}
             onChange={e => {
               setNewUsername(e.target.value);

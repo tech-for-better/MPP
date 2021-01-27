@@ -80,6 +80,7 @@ const Body = () => {
               })
           : content.map((video: videoType, i) => {
               return (
+                <>
                 <BodyFigure
                   onClick={e => {
                     localStorage.setItem("selectedVideo", JSON.stringify(video));
@@ -89,9 +90,10 @@ const Body = () => {
                   key={video.topic}
                   style={{ marginTop: i === 0 ? "60px" : "", marginBottom: i === content.length - 1 && !(i < 2) ? "200px" : "" }}
                 >
-                  <VideoTitle>{video.topic}</VideoTitle>
                   <StyledPlayIcon />
+                  <VideoTitle>{video.topic}</VideoTitle>
                 </BodyFigure>
+                </>
               );
             })}
         <NavBar />
@@ -106,6 +108,8 @@ const Banner = styled.div`
   height: 25vh;
   @media (max-width: 600px) {
     height: 20vh;
+    width: 105%;
+
   }
 `;
 
