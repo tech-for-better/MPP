@@ -2,7 +2,8 @@ import React from "react";
 import { auth } from "../connection";
 import RightArrow from "../assets/Registration/RightArrow.svg";
 import Meditation from "../assets/Registration/onboarding.svg";
-import logo from "../assets/desktop-logo.png";
+import { MultipleLogos } from "./MultipleLogos";
+
 import { ButtonDiv, PageWrapper, Slogan, Span, Button, Text, Arrow, Image, LogoImg, StyledLink } from "./Onboarding.styles";
 
 export const Onboarding = () => {
@@ -14,7 +15,7 @@ export const Onboarding = () => {
 
   return (
     <PageWrapper>
-      <LogoImg alt='Mindful Peak Performance Logo' src={logo}></LogoImg>
+      <MultipleLogos />
       <Slogan>
         Throw a jab. Meditate.
         <Span> Live a balanced life. </Span>
